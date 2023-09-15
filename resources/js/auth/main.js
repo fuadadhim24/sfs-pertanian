@@ -63,3 +63,15 @@ openSignIn = () =>{
 // When a 'switch' button is pressed, switch page
 openSignUpButton.addEventListener("click", openSignUp, false);
 openSignInButton.addEventListener("click", openSignIn, false);
+
+// when submit form
+validasi = () =>{
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    if(username != "" & password !=""){
+        return true;
+    }else{
+        alert('Username dan Password harus di isi!');
+        return false;
+    }
+}
