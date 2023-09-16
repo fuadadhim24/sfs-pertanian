@@ -5,6 +5,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>Login SFS - Pertanian</title>
+
+    <!-- Favicons -->
+    <link href="../../../public/assets/img/favicon.png" rel="icon">
         <!-- Template Main CSS File -->
     <link href="../../css/auth/style.css" rel="stylesheet">
 
@@ -52,7 +55,7 @@
             </form>
         </div>
         <div class="sign-up" id="sign-up-info">
-            <h1>Create Account</h1>
+            <h1>Buat Akun Baru</h1>
             <div class="social-media-buttons">
             <div class="icon" href="#">
                 <svg viewBox="0 0 24 24">
@@ -71,11 +74,11 @@
             </div>
             </div>
             <p class="small">or use your email for registration:</p>
-            <form id="sign-up-form" action="../../../app/Http/controller/auth/login.php" method="post" onsubmit="return validasi()">
-                <input type="text" placeholder="Name"/>
-                <input type="email" placeholder="Email"/>
-                <input type="password" placeholder="Password"/>
-                <button class="control-button up">Sign Up</button>
+            <form id="sign-up-form" action="../../../app/Http/Controllers/auth/signUpController.php" method="POST">
+                <input id="username" type="text" name="username" placeholder="Username" required><br>
+                <input id="email" type="email" name="email" placeholder="Email" required><br>
+                <input id="password" type="password" name="password" placeholder="Password" required><br>
+                <button type="submit" class="control-button up" name="signup">Sign Up</button>
             </form>
         </div>
         </div>
