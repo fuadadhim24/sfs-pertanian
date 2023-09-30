@@ -11,13 +11,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (!$userModel->emailExists($email)) {
         if ($userModel->createUser($username, $email, $password)) {
-            echo "Registration successful!";
-            // Redirect to login page or perform other actions
+            // Pendaftaran berhasil
+            $response = array(
+                'success' => true,
+                'message' => 'Registration successful!'
+            );
         } else {
-            echo "Registration failed. Please try again.";
+            // Pendaftaran gagal
+            $response = array(
+                'success' => false,
+                'message' => 'Registration failed. Please try again.'
+            );
         }
     } else {
-        echo "Email already exists. Please use a different email address.";
+        // Email sudah ada
+        $response = array(
+            'success' => false,
+            'message' => 'Email already exists. Please use a different email address.'
+        );
     }
+
+    // Mengirim respons dalam format JSON
+    header('Content-Type: application/json');
+    echo json_encode($response);
 }
+
 ?>
