@@ -8,29 +8,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     $userModel = new UserModel($conn);
-
-    if (!$userModel->emailExists($email)) {
-        if ($userModel->createUser($username, $email, $password)) {
-            // Pendaftaran berhasil
-            $response = array(
-                'success' => true,
-                'message' => 'Registration successful!'
-            );
-        } else {
-            // Pendaftaran gagal
-            $response = array(
-                'success' => false,
-                'message' => 'Registration failed. Please try again.'
-            );
-        }
-    } else {
-        // Email sudah ada
+    if (strlen($password) < 8) {
         $response = array(
             'success' => false,
-            'message' => 'Email already exists. Please use a different email address.'
+            'message' => 'Password harus minimal 8 karakter.'
         );
+    } else {
+        if (!$userModel->emailExists($email)) {
+            if ($userModel->createUser($username, $email, $password)) {
+                // Pendaftaran berhasil
+                $response = array(
+                    'success' => true,
+                    'message' => 'Registration successful!'
+                );
+            } else {
+                // Pendaftaran gagal
+                $response = array(
+                    'success' => false,
+                    'message' => 'Registration failed. Please try again.'
+                );
+            }
+        } else {
+            // Email sudah ada
+            $response = array(
+                'success' => false,
+                'message' => 'Email already exists. Please use a different email address.'
+            );
+        }
     }
-
     // Mengirim respons dalam format JSON
     header('Content-Type: application/json');
     echo json_encode($response);

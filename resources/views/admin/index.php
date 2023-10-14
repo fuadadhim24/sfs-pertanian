@@ -43,6 +43,10 @@
     />
     <link
       rel="apple-touch-icon"
+      sizes="90x90" href
+      href="../../../public/assets/favicon/apple-icon-76x76.png""
+    <link
+      rel="apple-touch-icon"
       sizes="114x114"
       href="../../../public/assets/favicon/apple-icon-114x114.png"
     />
@@ -162,12 +166,13 @@
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="typography.html">
+          <a class="nav-link" href="formpetani.html">
             <svg class="nav-icon">
               <use
                 xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-pencil"
               ></use>
             </svg>
+<<<<<<< Updated upstream:resources/views/admin/index.php
             Data Pupuk</a
           >
         </li>

@@ -7,7 +7,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $email = $_POST['email'];
     $password = $_POST['password'];
-
+    if (strlen($password) < 8) {
+        $response = array(
+            'success' => false,
+            'message' => 'Password harus minimal 8 karakter.'
+        );}
     $userModel = new UserModel($conn);
     if (!$userModel->emailExists($email)) {
         // Email belum ada
@@ -27,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             $response = array(
                 'success' => false,
-                'message' => 'Sign In failed. Please try again.'
+                'message' => 'Sign In failed. Password salah.'
             );
         }
     }
