@@ -7606,6 +7606,7 @@ html:not([dir=rtl]) .avatar-status {
   height: 1.5rem;
   font-size: 0.6rem;
 }
+
 .avatar-sm .avatar-status {
   width: 0.4rem;
   height: 0.4rem;

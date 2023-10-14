@@ -138,6 +138,7 @@
     </div>
     <!-- Link eksternal ke berkas JavaScript -->
     <script src="../../js/auth/main.js"></script>
+    
     <script src="../../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
     <!-- auth with google account -->
@@ -166,7 +167,7 @@
                   confirmButtonText: "OK",
                 }).then(function () {
                   // Redirect atau lakukan tindakan lain setelah pengguna menekan tombol OK
-                  window.location.href = "../admin/index.html";
+                  window.location.href = "../admin/index.php";
                 });
               } else {
                 // Pendaftaran gagal
@@ -205,7 +206,7 @@
                   confirmButtonText: "OK",
                 }).then(function () {
                   // Redirect atau lakukan tindakan lain setelah pengguna menekan tombol OK
-                  window.location.href = "../admin/index.html";
+                  window.location.href = "../admin/index.php";
                 });
               } else {
                 // Pendaftaran gagal
@@ -219,7 +220,12 @@
             })
             .catch((error) => {
               // Kesalahan saat mengirim permintaan AJAX
-              console.error("Error:", error);
+              Swal.fire({
+                  title: "Error!",
+                  text: error,
+                  icon: "error",
+                  confirmButtonText: "OK",
+              });
             });
         });
     </script>

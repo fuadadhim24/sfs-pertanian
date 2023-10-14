@@ -35,7 +35,7 @@
     <div class="container d-flex align-items-center justify-content-between position-relative">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index.html"><span>SFS-Pertanian</span></a></h1>
+        <h1 class="text-light"><a href="index.php"><span>SFS-Pertanian</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="../../public/assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -99,7 +99,7 @@
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="nav-link scrollto login" href="../views/auth/index.html">Login</a></li>
+          <li><a class="nav-link scrollto login" href="../views/auth/index.php">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

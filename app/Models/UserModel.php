@@ -1,20 +1,20 @@
 <?php
 class UserModel
 {
-    private $db;
+    private $conn;
 
-    public function __construct($db)
+    public function __construct($conn)
     {
-        if ($db === null) {
+        if ($conn === null) {
             die("Database connection is not valid.");
         }
-        $this->db = $db;
+        $this->conn = $conn;
     }
 
     public function createUser($username, $email, $password)
     {
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        $stmt = $this->db->prepare("INSERT INTO users (id_user, username, email, password) VALUES (NULL, ?, ?, ?)");
+        $stmt = $this->conn->prepare("INSERT INTO users (id_user, username, email, password) VALUES (NULL, ?, ?, ?)");
 
         if (!$stmt) {
             return false; // Failed to prepare the SQL statement
@@ -29,7 +29,7 @@ class UserModel
 
     public function emailExists($email)
     {
-        $stmt = $this->db->prepare("SELECT id_user FROM users WHERE email = ?");
+        $stmt = $this->conn->prepare("SELECT id_user FROM users WHERE email = ?");
 
         if (!$stmt) {
             return false; // Failed to prepare the SQL statement
@@ -46,7 +46,7 @@ class UserModel
 
     public function authenticateUser($email, $password)
     {
-        $stmt = $this->db->prepare("SELECT id_user, password FROM users WHERE email = ?");
+        $stmt = $this->conn->prepare("SELECT id_user, password FROM users WHERE email = ?");
 
         if (!$stmt) {
             return false; // Failed to prepare the SQL statement
