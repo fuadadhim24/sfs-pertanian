@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 30 Sep 2023 pada 10.54
+-- Waktu pembuatan: 19 Okt 2023 pada 10.02
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -20,6 +20,32 @@ SET time_zone = "+00:00";
 --
 -- Database: `sfs-pertanian`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bibit`
+--
+
+CREATE TABLE `bibit` (
+  `id_bibit` int(11) NOT NULL,
+  `nama_bibit` varchar(40) NOT NULL,
+  `harga` varchar(30) NOT NULL,
+  `jumlah_kg` int(11) NOT NULL,
+  `deskripsi_singkat` text NOT NULL,
+  `deskripsi` text NOT NULL,
+  `jenis_tanah` varchar(30) NOT NULL,
+  `cuaca` varchar(30) NOT NULL,
+  `estimasi_panen` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `bibit`
+--
+
+INSERT INTO `bibit` (`id_bibit`, `nama_bibit`, `harga`, `jumlah_kg`, `deskripsi_singkat`, `deskripsi`, `jenis_tanah`, `cuaca`, `estimasi_panen`) VALUES
+(1, 'Padi Pera', '85000', 5, 'Nasi bertekstur sedikit keras', 'Padi pera diproduksi dan populer di daerah Sumatera Barat dan Riau. Padi dengan kadar amilosa tinggi tak hanya dijadikan nasi, pun juga menjadi bahan utama pembuatan bihun dan tepung beras.', 'Tanah Lempung', 'Hujan Sedang', '3-5'),
+(2, 'Padi Gogo', '65000', 1, 'Tekstur nasi agak pulen', 'Padi gogo adalah jenis padi yang tidak ditanam di sawah seperti pada umumnya. Jenis padi ini ditanam di kebun atau di ladang. Kelebihan padi gogo adalah tidak memerlukan irigasi khusus. Daerah yang sering mengembangkan padi gogo adalah daerah tadah hujan, contohnya di Lombok.', 'Tanah Lempung', 'Hujan Sedang', '4-5');
 
 -- --------------------------------------------------------
 
@@ -92,6 +118,31 @@ CREATE TABLE `pesanan_konsumen` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `sawah`
+--
+
+CREATE TABLE `sawah` (
+  `id_sawah` int(11) NOT NULL,
+  `nama_sawah` varchar(40) NOT NULL,
+  `lokasi_sawah` text NOT NULL,
+  `luas_sawah` int(11) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `created_by` enum('Admin','Petani') NOT NULL,
+  `created_at` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `sawah`
+--
+
+INSERT INTO `sawah` (`id_sawah`, `nama_sawah`, `lokasi_sawah`, `luas_sawah`, `deskripsi`, `created_by`, `created_at`) VALUES
+(9, 'LOKASI SAWAH 1', 'LatLng(-8.182946, -246.11692)', 10, 'Lorem Qorte', 'Admin', '2023-09-15'),
+(25, 'LOKASI SAWAH 5', 'LatLng(-8.206053, -246.569979)', 35, 'cek', 'Admin', '2023-10-15'),
+(27, 'LOKASI SAWAH 8', 'LatLng(-8.151681, -246.331091)', 10, 'hallo', 'Admin', '2023-10-16');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `ulasan_produk`
 --
 
@@ -137,6 +188,12 @@ INSERT INTO `users` (`id_user`, `nama`, `alamat`, `email`, `hak_akses`, `usernam
 --
 
 --
+-- Indeks untuk tabel `bibit`
+--
+ALTER TABLE `bibit`
+  ADD PRIMARY KEY (`id_bibit`);
+
+--
 -- Indeks untuk tabel `hasil_uji_tanah`
 --
 ALTER TABLE `hasil_uji_tanah`
@@ -172,6 +229,12 @@ ALTER TABLE `pesanan_konsumen`
   ADD KEY `id_produk` (`id_produk`);
 
 --
+-- Indeks untuk tabel `sawah`
+--
+ALTER TABLE `sawah`
+  ADD PRIMARY KEY (`id_sawah`);
+
+--
 -- Indeks untuk tabel `ulasan_produk`
 --
 ALTER TABLE `ulasan_produk`
@@ -188,6 +251,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
+
+--
+-- AUTO_INCREMENT untuk tabel `bibit`
+--
+ALTER TABLE `bibit`
+  MODIFY `id_bibit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `informasi_cuaca`
@@ -212,6 +281,12 @@ ALTER TABLE `peralatan_pertanian`
 --
 ALTER TABLE `pesanan_konsumen`
   MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `sawah`
+--
+ALTER TABLE `sawah`
+  MODIFY `id_sawah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT untuk tabel `ulasan_produk`
