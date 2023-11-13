@@ -156,7 +156,7 @@
             </svg>
             Data Sawah</a
           >
-          <a class="nav-link" href="bibit/index.html">
+          <a class="nav-link" href="bibit/index.php">
             <svg class="nav-icon">
               <use
                 xlink:href="../../../vendor/@coreunodei/icons/svg/free.svg#cil-drop"

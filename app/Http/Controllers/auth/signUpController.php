@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (strlen($password) < 8) {
         $response = array(
             'success' => false,
-            'message' => 'Password harus minimal 8 karakter.'
+            'message' => 'Email belum terdaftar. Silakan Mendaftar.'
         );
     } else {
         if (!$userModel->emailExists($email)) {

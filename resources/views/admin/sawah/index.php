@@ -156,7 +156,7 @@
             </svg>
             Data Sawah</a
           >
-          <a class="nav-link" href="bibit/index.html">
+          <a class="nav-link" href="../bibit/index.php">
             <svg class="nav-icon">
               <use
                 xlink:href="../../../../vendor/@coreunodei/icons/svg/free.svg#cil-drop"
@@ -502,7 +502,7 @@
                 </div>
                 <a href="./create.php"  class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;">Tambah Sawah</a>
               </div>
-              <div class="c-chart-wrapper" style="height: 300px; margin-top: 40px">
+              <div cclass="c-chart-wrapper table-responsive" style="height: 300px; margin-top: 40px">
               <table class="table caption-top">
               <thead>
                 <tr>
@@ -515,37 +515,39 @@
                 </tr>
             </thead>
             <tbody>
-            <?php  
+            <?php
             include_once '../../../../config/database.php';
-            $no=1;
+            $no = 1;
             $result = mysqli_query($conn, "SELECT * FROM sawah");
-                while($sawah = mysqli_fetch_array($result)) {
-                    echo "<tr>";
-                    echo "<td>{$no}</td>";
-                    echo "<td>{$sawah['nama_sawah']}</td>";
-                    echo "<td>{$sawah['lokasi_sawah']}</td>";
-                    echo "<td>{$sawah['deskripsi']}</td>";
-                    echo "<td>{$sawah['created_at']}</td>";
-                    echo "<td>
-                    <button type='button' class='btn btn-light' href='edit.php?id={$sawah['id_sawah']}'>
-                      <svg class='avatar-sm'>
-                        <use xlink:href='../../../../vendor/@coreui/icons/svg/free.svg#cil-pencil'</use>
-                      </svg>
+            while ($sawah = mysqli_fetch_array($result)) {
+                echo "<tr>";
+                echo "<td>{$no}</td>";
+                echo "<td>{$sawah['nama_sawah']}</td>";
+                echo "<td>{$sawah['lokasi_sawah']}</td>";
+                echo "<td>{$sawah['deskripsi']}</td>";
+                echo "<td>{$sawah['created_at']}</td>";
+                echo "<td>
+                    <button type='button' class='btn btn-light' onclick=\"window.location.href='./edit.php?id={$sawah['id_sawah']}'\">
+                        <svg class='avatar-sm'>
+                            <use xlink:href='../../../../vendor/@coreui/icons/svg/free.svg#cil-pencil'></use>
+                        </svg>
                     </button>
-                    <button type='button' class='btn btn-danger' href='delete.php?id={$sawah['id_sawah']}'>
-                      <svg class='avatar-sm'>
-                        <use xlink:href='../../../../vendor/@coreui/icons/svg/free.svg#cil-trash'</use>
-                      </svg>
+                    <button type='button' class='btn btn-danger' id='deleteBtn{$sawah['id_sawah']}' data-id='{$sawah['id_sawah']}'>
+                        <svg class='avatar-sm'>
+                            <use xlink:href='../../../../vendor/@coreui/icons/svg/free.svg#cil-trash'></use>
+                        </svg>
                     </button>
-                    <button type='button' class='btn btn-info' href='info.php?id={$sawah['id_sawah']}'>
-                      <svg class='avatar-sm'>
-                        <use xlink:href='../../../../vendor/@coreui/icons/svg/free.svg#cil-info'</use>
-                      </svg>
-                    </button></td>";
-                    echo "</tr>";
-                    $no++;
-                }
-                ?>
+                    <button type='button' class='btn btn-info' onclick=\"window.location.href='./info.php?id={$sawah['id_sawah']}'\">
+                        <svg class='avatar-sm'>
+                            <use xlink:href='../../../../vendor/@coreui/icons/svg/free.svg#cil-info'></use>
+                        </svg>
+                    </button>
+                </td>";
+                echo "</tr>";
+                $no++;
+            }
+            ?>
+                
             </tbody>
                 </table>
               </div>
@@ -566,6 +568,58 @@
         </div>
       </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- hapus sawah -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          const deleteButtons = document.querySelectorAll('[id^=deleteBtn]');
+
+          deleteButtons.forEach(button => {
+              button.addEventListener('click', function () {
+                  const id = this.getAttribute('data-id');
+
+                  Swal.fire({
+                      title: 'Konfirmasi Hapus',
+                      text: 'Apakah Anda yakin ingin menghapus data ini?',
+                      icon: 'warning',
+                      showCancelButton: true,
+                      confirmButtonText: 'Hapus',
+                      cancelButtonText: 'Batal',
+                  }).then((result) => {
+                      if (result.isConfirmed) {
+                          // Menggunakan fetch API untuk mengirim permintaan penghapusan ke deleteController.php
+                          fetch(`../../../../app/Http/Controllers/sawah/deleteController.php?id=${id}`, { method: 'GET' })
+                              .then(response => response.json())
+                              .then(data => {
+                                  if (data.success) {
+                                      Swal.fire('Berhasil', data.message, 'success').then(() => {
+                                          // Redirect ke halaman setelah penghapusan berhasil
+                                          window.location.href = 'index.php';
+                                      });
+                                  } else {
+                                    Swal.fire({
+                                        title: "Error!",
+                                        text: data.message,
+                                        icon: "error",
+                                        confirmButtonText: "OK",
+                                    });
+                                  }
+                              })
+                              .catch(error => {
+                                  Swal.fire({
+                                      title: "Error!",
+                                      text: "Terjadi kesalahan saat mengirim permintaan penghapusan.",
+                                      icon: "error",
+                                      confirmButtonText: "OK",
+                                  });
+                              });
+                      }
+                  });
+              });
+          });
+      });
+      </script>
+
     <!-- CoreUI and necessary plugins-->
     <script src="../../../../vendor/@coreui/coreui/js/coreui.bundle.min.js"></script>
     <script src="../../../../vendor/simplebar/js/simplebar.min.js"></script>

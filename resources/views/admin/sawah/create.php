@@ -157,7 +157,7 @@
             </svg>
             Data Sawah</a
           >
-          <a class="nav-link" href="bibit/index.html">
+          <a class="nav-link" href="../bibit/index.php">
             <svg class="nav-icon">
               <use
                 xlink:href="../../../../vendor/@coreunodei/icons/svg/free.svg#cil-drop"
@@ -487,54 +487,61 @@
         </div>
       </header>
       <div class="body flex-grow-1 px-3">
-        <div class="container-lg">
-          <!-- /.row-->
-          <div class="card mb-3">
-            <div class="card-body">
-              <div class="c-chart-wrapper" >
-                <form id="create-form" action="../../../../app/Http/Controllers/sawahController.php?action=create" method="POST">
-                    <div class="row">
-                        <div class="col">
-                            <label class="form-label">Lokasi Sawah</label>
-                        </div>
-                        <div style="text-align:right; color:#c0c0c0;" class="col">
-                            <label class="form-label"><a style="color:#0c8305">*</a>Tekan map untuk menentukan lahan sawah anda</label>
-                    </div>
-                    <div class="row">
-                        <div class="mb-3">
-                            <div id="map" style="height:180px; border-radius:8px"></div>
-                            <input class="form-control" name="lokasi_sawah" id="lokasi_sawah" rows="3" />
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Nama lokasi</label>
-                            <input class="form-control" name="nama_sawah"
-                            id="nama_sawah" rows="3"></input>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Deskripsi</label>
-                            <textarea class="form-control" name="deskripsi"
-                            id="deskripsi" rows="3"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Tanggal Pengadaan</label>
-                            <input style="padding-bottom: 5px"  type="date" class="form-control" name="created_at" id="created_at" rows="3"></input>
-                        </div>
-
-                        </div>
-                    </div>
-                    <div class="mt-2">
-                        <button type="submit" id="createLokasi" class="btn btn-success text-white" style="padding:8px; padding-right:40px; padding-left:40px; justify-content: center;align-items: center;">Tambah Sawah</button>
-                    </div>
-                </form>
-                    
-                    <!-- <div id="googleMap" style="width:100%;height:380px;"></div> -->
-                    
-                </div>
-            </div>
+          <div class="container-lg">
+              <div class="row">
+                  <!-- First Card -->
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                      <div class="card mb-3">
+                          <div class="card-body">
+                              <div class="c-chart-wrapper">
+                                  <form id="create-form" action="../../../../app/Http/Controllers/sawah/createController.php" method="POST">
+                                      <div class="row">
+                                        <div class="col">
+                                          <h5 class="card-title">Detail Info</h5>
+                                        </div>
+                                        <div style="text-align:right; color:#808080;" class="col">
+                                            <label class="form-label"><a style="color:#0c8305">*</a>Tekan map untuk menentukan lahan sawah anda</label>
+                                        </div>
+                                      </div>
+                                      <div class="row">
+                                          <div class="mb-3">
+                                              <input class="form-control" type="hidden" name="lokasi_sawah" id="lokasi_sawah" rows="3" required/>
+                                              <label class="form-label">Nama lokasi</label>
+                                              <input class="form-control" name="nama_sawah" id="nama_sawah" rows="3" required></input>
+                                          </div>
+                                          <div class="mb-3">
+                                              <label class="form-label">Deskripsi</label>
+                                              <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3" required></textarea>
+                                          </div>
+                                          <div class="mb-3">
+                                              <label class="form-label">Tanggal Pengadaan</label>
+                                              <input style="padding-bottom: 5px" type="date" class="form-control" name="created_at" id="created_at" rows="3" required></input>
+                                          </div>
+                                          <div class="mt-2">
+                                              <button type="submit" id="createLokasi" class="btn btn-success text-white" style="padding:8px; padding-right:40px; padding-left:40px; justify-content: center;align-items: center;">Tambah Sawah</button>
+                                          </div>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- Second Card -->
+                  <div class="col-sm-6">
+                      <div class="card mb-3">
+                          <div class="card-body">
+                              <h5 class="card-title">Lokasi Sawah</h5>
+                              <div class="mb-3">
+                                  <div id="map" style="height:300px; border-radius:8px"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </div>
-        </div>
-            
       </div>
+
           
       <footer class="footer">
         <div>
@@ -570,8 +577,7 @@
         }).addTo(map);
     </script>
     <script>
-      let koordinat;
-        var popup = L.popup();
+      var popup = L.popup();
         const lokasiSawahInput = document.querySelector('input[name="lokasi_sawah"]');
         function onMapClick(e) {
             lokasiSawahInput.value = e.latlng.toString(); // Mengatur nilai input HTML
@@ -583,49 +589,57 @@
 
         map.on('click', onMapClick);
           
-          document.getElementById("create-form").addEventListener("submit", function (e) {
-          e.preventDefault();
-          var formData = new FormData(this);
-          fetch("../../../../app/Http/Controllers/sawahController.php?action=create", {
-              method: "POST",
-              body: formData,
-          })
-          .then((response) => {
-              if (!response.ok) {
-                  throw new Error('Network response was not ok');
-              }
-              return response.text();
-          })
-          .then((data) => {
-              if (data.success) {
-                  Swal.fire({
-                      title: "Success!",
-                      text: data.message,
-                      icon: "success",
-                      confirmButtonText: "OK",
-                  }).then(function () {
-                      window.location.href = "/index.php";
-                  });
-              } else {
-                  Swal.fire({
-                      title: "Error!",
-                      text: data.message,
-                      icon: "error",
-                      confirmButtonText: "OK",
-                  });
-              }
-          })
-          .catch((error) => {
-              console.error("Fetch error:", error);
-              Swal.fire({
-                  title: "Error!",
-                  text: "Network error. Please try again.",
-                  icon: "error",
-                  confirmButtonText: "OK",
-              });
-          });
-      });
+        document.getElementById("create-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var formData = new FormData(this);
 
+        // Tambahkan parameter action=create untuk memanggil fungsi create
+        formData.append('action', 'create');
+
+        fetch("../../../../app/Http/Controllers/sawah/createController.php", {
+            method: "POST",
+            body: formData,
+        })
+        .then((response) => {
+            if (response.ok) {
+                return response.json(); // Uraikan respons JSON jika respons OK
+            } else {
+                throw new Error('Terjadi kesalahan saat mengambil respons.');
+            }
+        })
+        .then((data) => {
+            if (data.success) {
+                // Input berhasil
+                Swal.fire({
+                    title: "Berhasil!",
+                    text: data.message,
+                    icon: "success",
+                    confirmButtonText: "OK",
+                }).then(function () {
+                    // Redirect atau lakukan tindakan lain setelah pengguna menekan tombol OK
+                    window.location.href = "index.php";
+                });
+            } else {
+                // Pendaftaran gagal
+                Swal.fire({
+                    title: "Error!",
+                    text: data.message,
+                    icon: "error",
+                    confirmButtonText: "OK",
+                });
+            }
+        })
+        .catch((error) => {
+            // Kesalahan saat mengirim permintaan AJAX atau menguraikan respons
+            Swal.fire({
+                title: "Error!",
+                text: error.message,
+                icon: "error",
+                confirmButtonText: "OK",
+            });
+            console.error("Error:", error);
+        });
+    });
 
     </script>
   </body>

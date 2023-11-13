@@ -1,5 +1,6 @@
 <?php
 require_once "../../models/SawahModel.php";
+require_once "../../../config/database.php";
 
 class SawahController {
     private $model;
@@ -17,10 +18,8 @@ class SawahController {
 
     public function create() {
         $response = []; // Inisialisasi variabel respons
-        if (isset($_GET['action']) && $_GET['action'] === 'create') {
 
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
             $nama_sawah = $_POST['nama_sawah'];
             $lokasi_sawah = $_POST['lokasi_sawah'];
             $deskripsi = $_POST['deskripsi'];
@@ -38,10 +37,10 @@ class SawahController {
                     'message' => 'Pendaftaran gagal. Silakan coba lagi.'
                 );
             }
-        }} else {
+        } else {
             $response = array(
                 'success' => false,
-                'message' => 'Invalid request method.'
+                'message' => 'Metode permintaan tidak valid.'
             );
         }
 
