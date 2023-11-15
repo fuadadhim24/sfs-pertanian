@@ -18,7 +18,7 @@
     />
   </head>
   <body>
-    <div class="container">
+    <div class="container-auth">
       <div class="overlay" id="overlay">
         <div class="sign-in" id="sign-in">
           <h1>Welcome Back!</h1>

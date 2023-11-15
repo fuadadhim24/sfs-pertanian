@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>SFS - Pertanian | HomePage</title>
+  <title>PadiTrace | Sistem Ketelusuran Pertanian</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -25,81 +25,82 @@
 
   <!-- Template Main CSS File -->
   <link href="../css/style.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/auth/stylenew.css">
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 </head>
 
 <body>
+  <div id="modal-container">
+    <div class="modal-background">
+      <div id="modal-container-transparent" class="container-transparent">
+        <div class="login-container" style="justify-items: center; align-items: center;">
+          <div class="btn-close-form-login" id="close-form-login" style="position: absolute; top: 18px; right: 30px; cursor: pointer;" onclick="closeModal()">
+              <img src="../../public/assets/icons/close-line-icon.svg" alt="Close Icon" style="width: 20px; height: 20px;">
+          </div>
+            <div id="sign-in">
+                <h2 style="color:white;">Selamat Datang Admin!</h2>
+                <form id="sign-in-form" method="post" action="../../app/Http/Controllers/auth/signInController.php">
+                  <input class="form-control" name="email" id="email" type="text" placeholder="Email" required></input>
+                  <p></p>
+                  <input class="form-control" name="password" id="password" type="password" placeholder="Password" required></input>
+                    <p style="margin-top: 5px; text-align:right;"><a href="#" style="color: white;" >Lupa Password?</a></p>
+                  <button type="submit" style="border-radius: 10px;background-color: white;padding:8px; padding-right:40px; padding-left:40px;">Masuk</button>
+                </form>
+            </div>
+            <div style="color:#FFFFFF;">
+              <p>atau</p>
+            </div>
+            <div class="google-login" style="margin-top:10px">
+                <button style="border-radius: 10px;background-color: white" onclick="loginWithGoogle()">Login dengan akun Google</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top header-transparent">
     <div class="container d-flex align-items-center justify-content-between position-relative">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index.php"><span>SFS-Pertanian</span></a></h1>
+        <h1 class="text-light"><a href="index.php"><img src="../../public/assets/img/logo_ud.png" alt=""></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="../../public/assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About Us</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a id="beranda" class="nav-link scrollto active" href="#hero">Beranda</a></li>
+          <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
+          <li><a class="nav-link scrollto" href="#portfolio">Dokumentasi</a></li>
+          <li class="dropdown"><a href="#"><span>Literasi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+            <li class="dropdown"><a href="#"><span>Pra Tanam</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
+                  <li><a href="#">Pemilihan Bibit</a></li>
+                  <li><a href="#">Panduan Semai</a></li>
+                  <li><a href="#">Artikel dan Video Terkait</a></li>
                 </ul>
               </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li class="dropdown megamenu"><a href="#"><span>Mega Menu</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li>
-                <strong>Column 1</strong>
-                <a href="#">Column 1 link 1</a>
-                <a href="#">Column 1 link 2</a>
-                <a href="#">Column 1 link 3</a>
+              <li class="dropdown"><a href="#"><span>Tanam</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Jenis Pupuk</a></li>
+                  <li><a href="#">Panduan Pemupukan</a></li>
+                  <li><a href="#">Jenis Penyemprotan</a></li>
+                  <li><a href="#">Panduan Penyemprotan</a></li>
+                  <li><a href="#">Artikel dan Video Terkait</a></li>
+                </ul>
               </li>
-              <li>
-                <strong>Column 2</strong>
-                <a href="#">Column 2 link 1</a>
-                <a href="#">Column 2 link 2</a>
-                <a href="#">Column 3 link 3</a>
-              </li>
-              <li>
-                <strong>Column 3</strong>
-                <a href="#">Column 3 link 1</a>
-                <a href="#">Column 3 link 2</a>
-                <a href="#">Column 3 link 3</a>
-              </li>
-              <li>
-                <strong>Column 4</strong>
-                <a href="#">Column 4 link 1</a>
-                <a href="#">Column 4 link 2</a>
-                <a href="#">Column 4 link 3</a>
-              </li>
-              <li>
-                <strong>Column 5</strong>
-                <a href="#">Column 5 link 1</a>
-                <a href="#">Column 5 link 2</a>
-                <a href="#">Column 5 link 3</a>
-              </li>
+              <li><a href="#">Pasca Tanam</a></li>
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="nav-link scrollto login" href="../views/auth/index.php">Login</a></li>
+          <li><a class="nav-link scrollto" href="#">Unduh App</a></li>
+          <li><a class="nav-link scrollto" href="#scan">SCAN QR</a></li>
+          <li><a id="one" class="nav-link scrollto login button" href="#hero" >Masuk</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -110,8 +111,21 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container" data-aos="fade-up">
-      <h1>Welcome to SFS-Pertanian</h1>
-      <h2>Sistem ketelusuran untuk petani independen</h2>
+      <div class="container-transparent">
+        <div class="row no-gutters">
+          <div class="content col-xl-5 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="content" >
+              <h1>PadiTrace</h1>
+              <h10 style="margin-top:20px; color: white;">Sistem jejak pertanian padi untuk petani mandiri. Memberdayakan petani dengan sistem pelacakan pertanian yang mudah.</h10>
+              <p></p>
+              <h7 style="padding:5px 20px; background: rgba(255, 255, 255, 0.28); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(13.1px); -webkit-backdrop-filter: blur(13.1px); border: 1px solid rgba(255, 255, 255, 0.3);"><a href="#" class="about-btn">Scan QR Produk Beras<i class="bx bx-chevron-right"></i></a></h7>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <!-- <h1>PadiTrace</h1>
+      <h2>Sistem Jejak Pertanian Padi untuk Petani Mandiri. Memberdayakan Petani dengan Sistem Pelacakan Pertanian yang Mudah</h2> -->
       <a href="#about" class="btn-get-started scrollto"><i class="bx bx-chevrons-down"></i></a>
     </div>
   </section><!-- End Hero -->
@@ -125,11 +139,11 @@
         <div class="row no-gutters">
           <div class="content col-xl-5 d-flex align-items-stretch" data-aos="fade-up">
             <div class="content">
-              <h3>Voluptatem dignissimos provident quasi</h3>
+              <h3>Penacatatan waktunya beralih ke digital</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                Petani mencatat aktivitas pertanian dimana dan situasi apapun tanpa perlu khawatir catatan terselip atau hilang. Memudahkan petani adalah prioritas kami.
               </p>
-              <a href="#" class="about-btn">About us <i class="bx bx-chevron-right"></i></a>
+              <a href="#" class="about-btn">Unduh Aplikasi PadiTrace Mobile<i class="bx bx-chevron-right"></i></a>
             </div>
           </div>
           <div class="col-xl-7 d-flex align-items-stretch">
@@ -137,23 +151,23 @@
               <div class="row">
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
                   <i class="bx bx-receipt"></i>
-                  <h4>Corporis voluptates sit</h4>
-                  <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                  <h4>Pencatatan Ketelusuran Padi</h4>
+                  <p>Pengguna dapat mencatatat dan melihat segala aktivitas sebuah produk beras</p>
                 </div>
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
                   <i class="bx bx-cube-alt"></i>
-                  <h4>Ullamco laboris nisi</h4>
-                  <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                  <h4>Quality Control</h4>
+                  <p>Pencegahan terhadap hal yang merugikan dapat diantisipasi</p>
                 </div>
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
                   <i class="bx bx-images"></i>
-                  <h4>Labore consequatur</h4>
-                  <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                  <h4>Literasi Petani</h4>
+                  <p>Mendukung petani untuk belajar dan berkembang bersama PadiTrace</p>
                 </div>
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
                   <i class="bx bx-shield"></i>
-                  <h4>Beatae veritatis</h4>
-                  <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+                  <h4>Manajemen Sawah</h4>
+                  <p>Mengatur sawah untuk meningkatkan produktivitas</p>
                 </div>
               </div>
             </div><!-- End .content-->
@@ -168,15 +182,15 @@
       <div class="container">
 
         <div class="section-title" data-aos="fade-in" data-aos-delay="100">
-          <h2>Services</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Fitur</h2>
+          <p>Kecepatan dan ketepatan. Kesesuaian dengan kebutuhan petani yang terus berkembang. Efisien dan efektif juga seringkali menjadi pertimbangan  . PadiTrace memerhatikan segala aspek untuk menjawab permasalahan anda.</p>
         </div>
 
         <div class="row">
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box" data-aos="fade-up">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
+              <h4 class="title"><a href="">Seperti Permainan</a></h4>
               <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
             </div>
           </div>
@@ -184,7 +198,7 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
               <div class="icon"><i class="bx bx-file"></i></div>
-              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
+              <h4 class="title"><a href="">Data Aman</a></h4>
               <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
             </div>
           </div>
@@ -192,7 +206,7 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4 class="title"><a href="">Magni Dolores</a></h4>
+              <h4 class="title"><a href="">Performa Baik</a></h4>
               <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
             </div>
           </div>
@@ -200,7 +214,7 @@
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
             <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
               <div class="icon"><i class="bx bx-world"></i></div>
-              <h4 class="title"><a href="">Nemo Enim</a></h4>
+              <h4 class="title"><a href="">Jangkauan Luas</a></h4>
               <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
             </div>
           </div>
@@ -254,13 +268,13 @@
     </section><!-- End Counts Section -->
 
     <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
+    <section id="scan" class="cta">
       <div class="container" data-aos="zoom-in">
 
         <div class="text-center">
-          <h3>Call To Action</h3>
+          <h3>Scan QR</h3>
           <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <a class="cta-btn" href="#">Call To Action</a>
+          <a class="cta-btn" href="#">Scan Beras Anda</a>
         </div>
 
       </div>
@@ -273,8 +287,8 @@
         <div class="text-center"></div>
 
         <div class="section-title" data-aos="fade-in" data-aos-delay="100">
-          <h2>Portfolio</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Dokumentasi</h2>
+          <p>Mitra PadiTrace merupakan UD Tani Rejo. Sebuah usaha yang beroperasi di jenggawah. Segala jenis beras terdapat pada toko ini. UD Tani Rejo didukung oleh PadiTrace dengan fungsi dan visual yang memberikan pengalaman luar biasa bagi pengguna.</p>
         </div>
 
         <div class="row" data-aos="fade-in">
@@ -469,70 +483,6 @@
       </div>
     </section><!-- End Testimonials Section -->
 
-    <!-- ======= Team Section ======= -->
-    <section id="team" class="team">
-      <div class="container">
-
-        <div class="section-title" data-aos="fade-in" data-aos-delay="100">
-          <h2>Team</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="member" data-aos="fade-up">
-              <div class="pic"><img src="../../public/assets/img/team/team-1.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="member" data-aos="fade-up" data-aos-delay="150">
-              <div class="pic"><img src="../../public/assets/img/team/team-2.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6">
-            <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <div class="pic"><img src="../../public/assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Team Section -->
-
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact section-bg">
       <div class="container" data-aos="fade-up">
@@ -683,6 +633,18 @@
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <script>
+    $('.button').click(function(){
+        var buttonId = $(this).attr('id');
+        $('#modal-container').removeAttr('class').addClass(buttonId);
+        $('body').addClass('modal-active');
+    })
+    
+    $('#close-form-login').click(function(){
+        $('#modal-container').addClass('out');
+        $('body').removeClass('modal-active');
+    });
+  </script>
 
   <!-- Vendor JS Files -->
   <script src="../../vendor/purecounter/purecounter_vanilla.js"></script>
@@ -695,6 +657,55 @@
 
   <!-- Template Main JS File -->
   <script src="../js/main.js"></script>
+  <script src="../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  
+  <!-- sweet alert and redirect -->
+  <script>
+        // sign-In form
+      document
+        .getElementById("sign-in-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          var formData = new FormData(this);
+
+          fetch("../../app/Http/Controllers/auth/signInController.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.success) {
+                // Pendaftaran berhasil
+                Swal.fire({
+                  title: "Success!",
+                  text: data.message,
+                  icon: "success",
+                  confirmButtonText: "OK",
+                }).then(function () {
+                  // Redirect atau lakukan tindakan lain setelah pengguna menekan tombol OK
+                  window.location.href = "admin/index.php";
+                });
+              } else {
+                // Pendaftaran gagal
+                Swal.fire({
+                  title: "Error!",
+                  text: data.message,
+                  icon: "error",
+                  confirmButtonText: "OK",
+                });
+              }
+            })
+            .catch((error) => {
+              // Kesalahan saat mengirim permintaan AJAX
+              Swal.fire({
+                  title: "Error!",
+                  text: error,
+                  icon: "error",
+                  confirmButtonText: "OK",
+              });
+            });
+        });
+    </script>
 
 </body>
 
