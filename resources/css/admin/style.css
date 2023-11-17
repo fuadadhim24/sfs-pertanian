@@ -96,7 +96,6 @@
     scroll-behavior: smooth;
   }
 }
-
 body {
   margin: 0;
   font-family: var(--cui-body-font-family);
@@ -14035,3 +14034,18 @@ html:not([dir=rtl]) .wrapper {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+/* icon button */
+.btn-with-icon {
+  padding-top: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+
+}
+
+.btn-logo {
+  width: 16px; /* Sesuaikan dengan ukuran yang diinginkan */
+  height: 16px; /* Sesuaikan dengan ukuran yang diinginkan */
+}

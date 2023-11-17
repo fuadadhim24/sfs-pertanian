@@ -5,6 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include_once('../../../Models/SawahModel.php');
     include_once("../../../../config/database.php");
     $lokasi_sawah = $_POST['lokasi_sawah'];
+    $luas_sawah = $_POST['luas_sawah'];
     $nama_sawah = $_POST['nama_sawah'];
     $deskripsi = $_POST['deskripsi'];
     $created_at = $_POST['created_at'];
@@ -13,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sawahModel = new SawahModel($conn);
         if (!empty($lokasi_sawah)) {
 
-        if ($sawahModel->createSawah($nama_sawah, $lokasi_sawah, $deskripsi, $created_by, $created_at)) {
+        if ($sawahModel->createSawah($nama_sawah, $lokasi_sawah, $luas_sawah, $deskripsi, $created_by, $created_at)) {
             // Pendaftaran berhasil
             $response = array(
                 'success' => true,
@@ -29,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }else{
             $response = array(
                 'sucess' => false,
-                'message' => 'Silakan Menentukan Lokasi Sawah.'
+                'message' => 'Silakan Tekan Map Untuk Menentukan Lokasi Sawah.'
             );
         }
     

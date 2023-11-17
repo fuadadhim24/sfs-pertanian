@@ -1,7 +1,3 @@
-
-<!--
-
---><!-- Breadcrumb-->
 <html lang="en">
   <head>
     <base href="./" />
@@ -113,208 +109,15 @@
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""
     />
+
+    <!-- search location -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
   </head>
   <body>
-    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
-      <div class="sidebar-brand d-none d-md-flex">
-        <svg
-          class="sidebar-brand-full"
-          width="118"
-          height="46"
-          alt="SFS - Pertanian Logo"
-        >
-          <use xlink:href="../../../../public/assets/brand/coreui.svg#full"></use>
-        </svg>
-        <svg
-          class="sidebar-brand-narrow"
-          width="46"
-          height="46"
-          alt="SFS - Pertanian Logo"
-        >
-          <use
-            xlink:href="../../../../public/assets/brand/coreui.svg#signet"
-          ></use>
-        </svg>
-      </div>
-      <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-        <li class="nav-item">
-          <a class="nav-link" href="../index.php">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-speedometer"
-              ></use>
-            </svg>
-            Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a
-          >
-        </li>
-        <li class="nav-title">Manajemen</li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreunodei/icons/svg/free.svg#cil-drop"
-              ></use>
-            </svg>
-            Data Sawah</a
-          >
-          <a class="nav-link" href="bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreunodei/icons/svg/free.svg#cil-drop"
-              ></use>
-            </svg>
-            Data Bibit/Varietas</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="typography.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-pencil"
-              ></use>
-            </svg>
-            Data Pupuk</a
-          >
-        </li>
-        <li class="nav-title">Kelas</li>
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Umum</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Bibit</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Semai</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Pemupukan</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Penanggulangan</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Standar QC</a
-          >
-        <li class="nav-divider"></li>
-        <li class="nav-title">Extras</li>
-        <li class="nav-group">
-          <a class="nav-link nav-group-toggle" href="#">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-star"
-              ></use>
-            </svg>
-            Pages</a
-          >
-          <ul class="nav-group-items">
-            <li class="nav-item">
-              <a class="nav-link" href="login.html" target="_top">
-                <svg class="nav-icon">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
-                  ></use>
-                </svg>
-                Login</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="register.html" target="_top">
-                <svg class="nav-icon">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
-                  ></use>
-                </svg>
-                Register</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="404.html" target="_top">
-                <svg class="nav-icon">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-bug"
-                  ></use>
-                </svg>
-                Error 404</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="500.html" target="_top">
-                <svg class="nav-icon">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-bug"
-                  ></use>
-                </svg>
-                Error 500</a
-              >
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item mt-auto">
-          <a
-            class="nav-link"
-            href="https://coreui.io/docs/templates/installation/"
-            target="_blank"
-          >
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-description"
-              ></use>
-            </svg>
-            Docs</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link nav-link-danger"
-            href="https://coreui.io/pro/"
-            target="_top"
-          >
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-layers"
-              ></use>
-            </svg>
-            Try CoreUI
-            <div class="fw-semibold">PRO</div>
-          </a>
-        </li>
-      </ul>
-      <button
-        class="sidebar-toggler"
-        type="button"
-        data-coreui-toggle="unfoldable"
-      ></button>
-    </div>
     <div class="wrapper d-flex flex-column min-vh-100 bg-light">
       <header class="header header-sticky mb-4">
         <div class="container-fluid">
@@ -509,7 +312,7 @@
 
                                       if ($sawah) {
                                   ?>
-                                  <form id="create-form" action="../../../../app/Http/Controllers/sawah/createController.php" method="POST">
+                                  <form id="edit-form" action="../../../../app/Http/Controllers/sawah/editController.php" method="POST">
                                       <div class="row">
                                         <div class="col">
                                           <h5 class="card-title">Detail Info</h5>
@@ -519,7 +322,9 @@
                                         </div>
                                       </div>
                                       <div class="row">
+                                      <input class="form-control mt-2" name="id_sawah" id="id" rows="3" type="hidden" value="<?php echo $sawah['id_sawah']?>" required/>
                                           <div class="mb-3">
+                                              <input class="form-control mt-2" name="lokasi_sawah" id="lokasi_sawah" rows="3" type="hidden" value="<?php echo $sawah['lokasi_sawah']?>" required/>
                                               <label class="form-label">Nama lokasi</label>
                                               <input class="form-control" name="nama_sawah" id="nama_sawah" rows="3" value="<?php echo $sawah['nama_sawah']?>" required></input>
                                           </div>
@@ -532,7 +337,7 @@
                                               <input style="padding-bottom: 5px" type="date" class="form-control" name="created_at" id="created_at" rows="3" value="<?php echo $sawah['created_at']?>" required></input>
                                           </div>
                                           <div class="mt-2">
-                                              <button type="submit" id="createLokasi" class="btn btn-success text-white" style="padding:8px; padding-right:40px; padding-left:40px; justify-content: center;align-items: center;">Tambah Sawah</button>
+                                              <button type="submit" id="createLokasi" class="btn btn-success text-white" style="padding:8px; padding-right:40px; padding-left:40px; justify-content: center;align-items: center;">Edit Sawah</button>
                                           </div>
                                       </div>
                                   </form>
@@ -556,7 +361,6 @@
                               <h5 class="card-title">Lokasi Sawah</h5>
                               <div class="mb-3">
                                   <div id="map" style="height:300px; border-radius:8px"></div>
-                                  <input class="form-control mt-2" name="lokasi_sawah" id="lokasi_sawah" rows="3" type="hidden" value="<?php echo $sawah['lokasi_sawah']?>" required/>
                               </div>
                           </div>
                       </div>
@@ -591,6 +395,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
+     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script src="../../../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script>
         var map = L.map('map').setView([-8.168577, -246.296838], 10);
@@ -623,11 +428,11 @@
         .setLatLng([latitude, longitude])
         .setContent("Anda menekan lokasi pada koordinat (" + latitude + ", " + longitude+")")
         .openOn(map);
+        L.Control.geocoder().addTo(map);
 
     </script>
     
     <script>
-      
         function onMapClick(e) {
             lokasiSawahInput.value = e.latlng.toString(); // Mengatur nilai input HTML
             popup
@@ -638,12 +443,12 @@
 
         map.on('click', onMapClick);
           
-        document.getElementById("create-form").addEventListener("submit", function (e) {
+        document.getElementById("edit-form").addEventListener("submit", function (e) {
         e.preventDefault();
         var formData = new FormData(this);
 
-        // Tambahkan parameter action=create untuk memanggil fungsi create
-        formData.append('action', 'create');
+        // Tambahkan parameter action=edit untuk memanggil fungsi edit
+        formData.append('action', 'edit');
 
         fetch("../../../../app/Http/Controllers/sawah/editController.php", {
             method: "POST",

@@ -115,250 +115,23 @@
     />
   </head>
   <body>
-    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
-      <div class="sidebar-brand d-none d-md-flex">
-        <svg
-          class="sidebar-brand-full"
-          width="118"
-          height="46"
-          alt="SFS - Pertanian Logo"
-        >
-          <use xlink:href="../../../../public/assets/brand/coreui.svg#full"></use>
-        </svg>
-        <svg
-          class="sidebar-brand-narrow"
-          width="46"
-          height="46"
-          alt="SFS - Pertanian Logo"
-        >
-          <use
-            xlink:href="../../../../public/assets/brand/coreui.svg#signet"
-          ></use>
-        </svg>
-      </div>
-      <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-        <li class="nav-item">
-          <a class="nav-link" href="../index.php">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-speedometer"
-              ></use>
-            </svg>
-            Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a
-          >
-        </li>
-        <li class="nav-title">Manajemen</li>
-        <li class="nav-item">
-          <a class="nav-link" href="../sawah/index.php">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreunodei/icons/svg/free.svg#cil-drop"
-              ></use>
-            </svg>
-            Data Sawah</a
-          >
-        </li>
-        <li class="nav-item"><a class="nav-link" href="index.php">
-            <svg class="nav-icon">
-              <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
-            </svg> Data Bibit/Varietas</a></li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="typography.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-pencil"
-              ></use>
-            </svg>
-            Data Pupuk</a
-          >
-        </li>
-        <li class="nav-title">Kelas</li>
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Umum</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Bibit</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Semai</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Pemupukan</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Penanggulangan</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Standar QC</a
-          >
-        <li class="nav-divider"></li>
-        <li class="nav-title">Extras</li>
-        <li class="nav-group">
-          <a class="nav-link nav-group-toggle" href="#">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-star"
-              ></use>
-            </svg>
-            Pages</a
-          >
-          <ul class="nav-group-items">
-            <li class="nav-item">
-              <a class="nav-link" href="login.html" target="_top">
-                <svg class="nav-icon">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
-                  ></use>
-                </svg>
-                Login</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="register.html" target="_top">
-                <svg class="nav-icon">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
-                  ></use>
-                </svg>
-                Register</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="404.html" target="_top">
-                <svg class="nav-icon">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-bug"
-                  ></use>
-                </svg>
-                Error 404</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="500.html" target="_top">
-                <svg class="nav-icon">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-bug"
-                  ></use>
-                </svg>
-                Error 500</a
-              >
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item mt-auto">
-          <a
-            class="nav-link"
-            href="https://coreui.io/docs/templates/installation/"
-            target="_blank"
-          >
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-description"
-              ></use>
-            </svg>
-            Docs</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link nav-link-danger"
-            href="https://coreui.io/pro/"
-            target="_top"
-          >
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-layers"
-              ></use>
-            </svg>
-            Try CoreUI
-            <div class="fw-semibold">PRO</div>
-          </a>
-        </li>
-      </ul>
-      <button
-        class="sidebar-toggler"
-        type="button"
-        data-coreui-toggle="unfoldable"
-      ></button>
-    </div>
     <div class="wrapper d-flex flex-column min-vh-100 bg-light">
-      <header class="header header-sticky mb-4">
-        <div class="container-fluid">
+    <header class="header header-sticky mb-4">
+        <div class="container-fluid" >
           <button
             class="header-toggler px-md-0 me-md-3"
             type="button"
-            onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()"
+            onclick=""
           >
-            <svg class="icon icon-lg">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-menu"
-              ></use>
-            </svg></button
-          ><a class="header-brand d-md-none" href="#">
-            <svg width="118" height="46" alt="CoreUI Logo">
-              <use
-                xlink:href="../../../../public/assets/brand/coreui.svg#full"
-              ></use></svg
-          ></a>
+          </button>
           <ul class="header-nav d-none d-md-flex">
-            <li class="nav-item"><a class="nav-link" href="#">Sawah</a></li>
-          </ul>
-          <ul class="header-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <svg class="icon icon-lg">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-bell"
-                  ></use></svg
-              ></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <svg class="icon icon-lg">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-list-rich"
-                  ></use></svg
-              ></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <svg class="icon icon-lg">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-envelope-open"
-                  ></use></svg
-              ></a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="../index.php">Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="../sawah/index.php">Sawah</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php">Bibit</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Pupuk</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Penyemprotan</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Literasi</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Akun</a></li>
           </ul>
           <ul class="header-nav ms-3">
             <li class="nav-item dropdown">
@@ -373,7 +146,7 @@
                 <div class="avatar avatar-md">
                   <img
                     class="avatar-img"
-                    src="../../../../public/assets/img/avatars/8.jpg"
+                    src="../../../public/assets/img/avatars/8.jpg"
                     alt="user@email.com"
                   />
                 </div>
@@ -385,14 +158,14 @@
                 <a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-bell"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-bell"
                     ></use>
                   </svg>
                   Updates<span class="badge badge-sm bg-info ms-2">42</span></a
                 ><a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-envelope-open"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-envelope-open"
                     ></use>
                   </svg>
                   Messages<span class="badge badge-sm bg-success ms-2"
@@ -401,14 +174,14 @@
                 ><a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-task"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-task"
                     ></use>
                   </svg>
                   Tasks<span class="badge badge-sm bg-danger ms-2">42</span></a
                 ><a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-comment-square"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-comment-square"
                     ></use>
                   </svg>
                   Comments<span class="badge badge-sm bg-warning ms-2"
@@ -421,21 +194,21 @@
                 <a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-user"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-user"
                     ></use>
                   </svg>
                   Profile</a
                 ><a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-settings"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-settings"
                     ></use>
                   </svg>
                   Settings</a
                 ><a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-credit-card"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-credit-card"
                     ></use>
                   </svg>
                   Payments<span class="badge badge-sm bg-secondary ms-2"
@@ -444,7 +217,7 @@
                 ><a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-file"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-file"
                     ></use>
                   </svg>
                   Projects<span class="badge badge-sm bg-primary ms-2"
@@ -455,14 +228,14 @@
                 <a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-lock-locked"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-lock-locked"
                     ></use>
                   </svg>
                   Lock Account</a
                 ><a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
                     ></use>
                   </svg>
                   Logout</a
@@ -472,93 +245,107 @@
           </ul>
         </div>
         <div class="header-divider"></div>
-          <div class="container-fluid">
-            <nav aria-label="breadcrumb">
-              <ol class="breadcrumb my-0 ms-2">
-                <li class="breadcrumb-item"><span>Home</span></li>
-                <li class="breadcrumb-item"><span>Manajemen</span></li>
-                <li class="breadcrumb-item"><span>Bibit</span></li>
-                <li class="breadcrumb-item active"><span>Tambah Data</span></li>
-              </ol>
-            </nav>
-          </div>
-        </header>
+        <div class="container-fluid"style="height:2px; font-size:11px">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb my-0 ms-2">
+              <li class="breadcrumb-item">
+                <!-- if breadcrumb is single--><span>Home</span>
+              </li>
+              <li class="breadcrumb-item"><span>Bibit</span></li>
+              <li class="breadcrumb-item active"><span>Tambah Bibit</span></li>
+            </ol>
+          </nav>
+        </div> 
+      </header>
         <div class="body flex-grow-1 px-3">
             <div class="container-lg">
               <div class="card mb-4">
-                <div class="card-body">
-                  <h5 class="card-title mb-4">Tambah Bibit</h5>
-                  <nav>
-                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                      <button class="nav-link active" id="nav-home-tab" data-coreui-toggle="tab" data-coreui-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Informasi</button>
-                      <button class="nav-link" id="nav-profile-tab" data-coreui-toggle="tab" data-coreui-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Gambar</button>
-                      <button class="nav-link" id="nav-contact-tab" data-coreui-toggle="tab" data-coreui-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Rekomendasi</button>
+                <form action="../../../../app/Http/Controllers/bibit/createController.php" method="post" id="createBibit">
+                  <div class="card-body">
+                    <h5 class="card-title mb-4">Tambah Bibit</h5>
+                    <nav>
+                      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-home-tab" data-coreui-toggle="tab" data-coreui-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Informasi</button>
+                        <button class="nav-link" id="nav-rincian-tab" data-coreui-toggle="tab" data-coreui-target="#nav-rincian" type="button" role="tab" aria-controls="nav-rincian" aria-selected="false">Rincian</button>
+                        <button class="nav-link" id="nav-profile-tab" data-coreui-toggle="tab" data-coreui-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Gambar</button>
+                        <button class="nav-link" id="nav-contact-tab" data-coreui-toggle="tab" data-coreui-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Rekomendasi</button>
+                      </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+                          <div class="row">
+                              <div class="mb-3 mt-3">
+                                  <label class="form-label">Nama Bibit<span style="color:red"> *</span></label>
+                                  <input class="form-control" name="nama_bibit" id="nama_bibit" rows="3" required></input>
+                              </div>
+                              <div class="mb-3">
+                                  <div class="row g-3">
+                                      <div class="col">
+                                          <label class="form-label">Harga<span style="color:red"> *</span></label>
+                                          <input class="form-control" name="harga" id="harga" rows="3" required></input>
+                                      </div>
+                                      <div class="col">
+                                          <label class="form-label">Jumlah (perKg)<span style="color:red"> *</span></label>
+                                          <input class="form-control" name="jumlah_perkg" id="jumlah_perkg" rows="3" required></input>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-rincian" role="tabpanel" aria-labelledby="nav-rincian-tab" tabindex="0">
+                          <div class="mb-3 mt-3">
+                                  <label for="id_bibit" class="form-label">Deskripsi Singkat<span style="color:red"> *</span></label>
+                                  <input class="form-control" name="deskripsi_singkat" id="deskripsi_singkat" rows="3" required></input>
+                              </div>
+                              <div class="mb-3">
+                                <label for="deskripsi_lengkap" class="form-label">Deskripsi Lengkap<span style="color:red"> *</span></label>
+                                <textarea class="form-control" name="deskripsi_lengkap" id="deskripsi_lengkap" rows="3"></textarea>
+                          </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+                          <div class="mb-3 mt-3">
+                              <div class="mb-3">
+                                  <label for="formFileSm" class="form-label">Gambar Utama<span style="color:red"> *</span></label>
+                                  <input class="form-control form-control-sm" name="gambar_path_main" id="gambar_path_main" type="file" required>
+                              </div>
+                              <div class="mb-3">
+                                  <label for="formFileSm" class="form-label">Gambar 1<span style="color:red"> *</span></label>
+                                  <input class="form-control form-control-sm" name="gambar_path_1" id="gambar_path_1" type="file" required>
+                              </div>
+                              <div class="mb-3">
+                                  <label for="formFileSm" class="form-label">Gambar 2</label>
+                                  <input class="form-control form-control-sm" name="gambar_path_2" id="gambar_path_2" type="file">
+                              </div>
+                              <div class="mb-3">
+                                  <label for="formFileSm" class="form-label">Gambar 3</label>
+                                  <input class="form-control form-control-sm" name="gambar_path_3" id="gambar_path_3" type="file">
+                              </div>
+                          </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                          <div class="row">
+                              <div class="mb-3 mt-3">
+                                  <label class="form-label">Jenis Tanah<span style="color:red"> *</span></label>
+                                  <input class="form-control" name="jenis_tanah" id="jenis_tanah" rows="3" required></input>
+                              </div>
+                              <div class="mb-3">
+                                  <label class="form-label">Cuaca<span style="color:red"> *</span></label>
+                                  <input class="form-control" name="cuaca" id="cuaca" rows="3" required></input>
+                              </div>
+                              <div class="mb-3">
+                                  <label class="form-label">Estimasi Panen (bulan)<span style="color:red"> *</span></label>
+                                  <input class="form-control" name="estimasi_panen" id="estimasi_panen" rows="3" required></input>
+                              </div>
+                              
+                          </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
+                      <div class="mt-2">
+                              <button type="submit" id="createBibit" class="btn btn-success text-white" style="padding:8px; padding-right:40px; padding-left:40px; justify-content: center;align-items: center;">Tambah bibit</button>
+                          </div>
                     </div>
-                  </nav>
-                  <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-                        <div class="row">
-                            <div class="mb-3 mt-3">
-                                <label class="form-label">Nama Bibit</label>
-                                <input class="form-control" name="nama_bibit" id="nama_bibit" rows="3" required></input>
-                            </div>
-                            <div class="mb-3">
-                                <div class="row g-3">
-                                    <div class="col">
-                                        <label class="form-label">Harga</label>
-                                        <input class="form-control" name="harga" id="harga" rows="3" required></input>
-                                    </div>
-                                    <div class="col">
-                                        <label class="form-label">Jumlah perKg</label>
-                                        <input class="form-control" name="jumlah_perkg" id="jumlah_perkg" rows="3" required></input>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
-                        <div class="mb-3 mt-3">
-                            <div class="mb-3">
-                                <label for="formFileSm" class="form-label">Gambar 1<span style="color:red"> *</span></label>
-                                <input class="form-control form-control-sm" id="formFileSm" type="file" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="formFileSm" class="form-label">Gambar 2<span style="color:red"> *</span></label>
-                                <input class="form-control form-control-sm" id="formFileSm" type="file" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="formFileSm" class="form-label">Gambar 3</label>
-                                <input class="form-control form-control-sm" id="formFileSm" type="file">
-                            </div>
-                            <div class="mb-3">
-                                <label for="formFileSm" class="form-label">Gambar 4</label>
-                                <input class="form-control form-control-sm" id="formFileSm" type="file">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
-                        <div class="row">
-                            <div class="mb-3 mt-3">
-                                <label class="form-label">Jenis Tanah</label>
-                                <input class="form-control" name="jenis_tanah" id="jenis_tanah" rows="3" required></input>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Cuaca</label>
-                                <input class="form-control" name="cuaca" id="cuaca" rows="3" required></input>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Estimasi Panen</label>
-                                <input class="form-control" name="estimasi_panen" id="estimasi_panen" rows="3" required></input>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
-                    <div class="mt-2">
-                            <button type="submit" id="createLokasi" class="btn btn-success text-white" style="padding:8px; padding-right:40px; padding-left:40px; justify-content: center;align-items: center;">Tambah Sawah</button>
-                        </div>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
         </div>
@@ -584,83 +371,61 @@
     <script src="../../../../vendor/@coreui/utils/js/coreui-utils.js"></script>
    
    
-    <!-- for leaflet's css -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-     crossorigin=""></script>
     <script src="../../../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script>
-        var map = L.map('map').setView([-8.168577, -246.296838], 10);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
-    </script>
-    <script>
-      var popup = L.popup();
-        const lokasiSawahInput = document.querySelector('input[name="lokasi_sawah"]');
-        function onMapClick(e) {
-            lokasiSawahInput.value = e.latlng.toString(); // Mengatur nilai input HTML
-            popup
-                .setLatLng(e.latlng)
-                .setContent("Anda menekan lokasi pada koordinat " + e.latlng.toString())
-                .openOn(map);
-        }
+      document.getElementById("createBibit").addEventListener("submit", function(event) {
+          // Add your form submission logic here, for example, using AJAX to submit the form data asynchronously
+          // Prevent the default form submission
+          event.preventDefault();
+          var formData = new FormData(this);
 
-        map.on('click', onMapClick);
-          
-        document.getElementById("create-form").addEventListener("submit", function (e) {
-        e.preventDefault();
-        var formData = new FormData(this);
+            // Tambahkan parameter action=create untuk memanggil fungsi create
+            formData.append('action', 'create');
 
-        // Tambahkan parameter action=create untuk memanggil fungsi create
-        formData.append('action', 'create');
-
-        fetch("../../../../app/Http/Controllers/sawah/createController.php", {
-            method: "POST",
-            body: formData,
-        })
-        .then((response) => {
-            if (response.ok) {
-                return response.json(); // Uraikan respons JSON jika respons OK
-            } else {
-                throw new Error('Terjadi kesalahan saat mengambil respons.');
-            }
-        })
-        .then((data) => {
-            if (data.success) {
-                // Input berhasil
-                Swal.fire({
-                    title: "Berhasil!",
-                    text: data.message,
-                    icon: "success",
-                    confirmButtonText: "OK",
-                }).then(function () {
-                    // Redirect atau lakukan tindakan lain setelah pengguna menekan tombol OK
-                    window.location.href = "index.php";
-                });
-            } else {
-                // Pendaftaran gagal
+            fetch("../../../../app/Http/Controllers/bibit/createController.php", {
+                method: "POST",
+                body: formData,
+            })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json(); // Uraikan respons JSON jika respons OK
+                } else {
+                    throw new Error('Terjadi kesalahan saat mengambil respons.');
+                }
+            })
+            .then((data) => {
+                if (data.success) {
+                    // Input berhasil
+                    Swal.fire({
+                        title: "Berhasil!",
+                        text: data.message,
+                        icon: "success",
+                        confirmButtonText: "OK",
+                    }).then(function () {
+                        // Redirect atau lakukan tindakan lain setelah pengguna menekan tombol OK
+                        window.location.href = "index.php";
+                    });
+                } else {
+                    // Pendaftaran gagal
+                    Swal.fire({
+                        title: "Error!",
+                        text: data.message,
+                        icon: "error",
+                        confirmButtonText: "OK",
+                    });
+                }
+            })
+            .catch((error) => {
+                // Kesalahan saat mengirim permintaan AJAX atau menguraikan respons
                 Swal.fire({
                     title: "Error!",
-                    text: data.message,
+                    text: error.message,
                     icon: "error",
                     confirmButtonText: "OK",
                 });
-            }
-        })
-        .catch((error) => {
-            // Kesalahan saat mengirim permintaan AJAX atau menguraikan respons
-            Swal.fire({
-                title: "Error!",
-                text: error.message,
-                icon: "error",
-                confirmButtonText: "OK",
+                console.error("Error:", error);
             });
-            console.error("Error:", error);
-        });
-    });
-
+      });
     </script>
   </body>
 </html>

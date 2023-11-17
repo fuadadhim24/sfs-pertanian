@@ -114,256 +114,23 @@
     />
   </head>
   <body>
-    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
-      <div class="sidebar-brand d-none d-md-flex">
-        <svg
-          class="sidebar-brand-full"
-          width="118"
-          height="46"
-          alt="SFS - Pertanian Logo"
-        >
-          <use xlink:href="../../../public/assets/brand/coreui.svg#full"></use>
-        </svg>
-        <svg
-          class="sidebar-brand-narrow"
-          width="46"
-          height="46"
-          alt="SFS - Pertanian Logo"
-        >
-          <use
-            xlink:href="../../../public/assets/brand/coreui.svg#signet"
-          ></use>
-        </svg>
-      </div>
-      <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-        <li class="nav-item">
-          <a class="nav-link" href="index.php">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-speedometer"
-              ></use>
-            </svg>
-            Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a
-          >
-        </li>
-        <li class="nav-title">Manajemen</li>
-        <li class="nav-item">
-          <a class="nav-link" href="sawah/index.php">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../vendor/@coreunodei/icons/svg/free.svg#cil-drop"
-              ></use>
-            </svg>
-            Data Sawah</a
-          >
-          <a class="nav-link" href="bibit/index.php">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../vendor/@coreunodei/icons/svg/free.svg#cil-drop"
-              ></use>
-            </svg>
-            Data Bibit/Varietas</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="formpetani.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-pencil"
-              ></use>
-            </svg>
-<<<<<<< Updated upstream:resources/views/admin/index.php
-            Data Pupuk</a
-          >
-        </li>
-        <li class="nav-title">Kelas</li>
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Umum</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Bibit</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Semai</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Pemupukan</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Penanggulangan</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Standar QC</a
-          >
-        <li class="nav-divider"></li>
-        <li class="nav-title">Extras</li>
-        <li class="nav-group">
-          <a class="nav-link nav-group-toggle" href="#">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-star"
-              ></use>
-            </svg>
-            Pages</a
-          >
-          <ul class="nav-group-items">
-            <li class="nav-item">
-              <a class="nav-link" href="login.html" target="_top">
-                <svg class="nav-icon">
-                  <use
-                    xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
-                  ></use>
-                </svg>
-                Login</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="register.html" target="_top">
-                <svg class="nav-icon">
-                  <use
-                    xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
-                  ></use>
-                </svg>
-                Register</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="404.html" target="_top">
-                <svg class="nav-icon">
-                  <use
-                    xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-bug"
-                  ></use>
-                </svg>
-                Error 404</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="500.html" target="_top">
-                <svg class="nav-icon">
-                  <use
-                    xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-bug"
-                  ></use>
-                </svg>
-                Error 500</a
-              >
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item mt-auto">
-          <a
-            class="nav-link"
-            href="https://coreui.io/docs/templates/installation/"
-            target="_blank"
-          >
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-description"
-              ></use>
-            </svg>
-            Docs</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link nav-link-danger"
-            href="https://coreui.io/pro/"
-            target="_top"
-          >
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-layers"
-              ></use>
-            </svg>
-            Try CoreUI
-            <div class="fw-semibold">PRO</div>
-          </a>
-        </li>
-      </ul>
-      <button
-        class="sidebar-toggler"
-        type="button"
-        data-coreui-toggle="unfoldable"
-      ></button>
-    </div>
     <div class="wrapper d-flex flex-column min-vh-100 bg-light">
       <header class="header header-sticky mb-4">
-        <div class="container-fluid">
+        <div class="container-fluid" >
           <button
             class="header-toggler px-md-0 me-md-3"
             type="button"
-            onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()"
+            onclick=""
           >
-            <svg class="icon icon-lg">
-              <use
-                xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-menu"
-              ></use>
-            </svg></button
-          ><a class="header-brand d-md-none" href="#">
-            <svg width="118" height="46" alt="CoreUI Logo">
-              <use
-                xlink:href="../../../public/assets/brand/coreui.svg#full"
-              ></use></svg
-          ></a>
+          </button>
           <ul class="header-nav d-none d-md-flex">
             <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Users</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
-          </ul>
-          <ul class="header-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <svg class="icon icon-lg">
-                  <use
-                    xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-bell"
-                  ></use></svg
-              ></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <svg class="icon icon-lg">
-                  <use
-                    xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-list-rich"
-                  ></use></svg
-              ></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <svg class="icon icon-lg">
-                  <use
-                    xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-envelope-open"
-                  ></use></svg
-              ></a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="sawah/index.php">Sawah</a></li>
+            <li class="nav-item"><a class="nav-link" href="bibit/index.php">Bibit</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Pupuk</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Penyemprotan</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Literasi</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Akun</a></li>
           </ul>
           <ul class="header-nav ms-3">
             <li class="nav-item dropdown">
@@ -477,7 +244,7 @@
           </ul>
         </div>
         <div class="header-divider"></div>
-        <div class="container-fluid">
+        <div class="container-fluid"style="height:2px; font-size:11px">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb my-0 ms-2">
               <li class="breadcrumb-item">
@@ -486,49 +253,21 @@
               <li class="breadcrumb-item active"><span>Dashboard</span></li>
             </ol>
           </nav>
-        </div>
+        </div> 
       </header>
       <div class="body flex-grow-1 px-3">
         <div class="container-lg">
           <div class="row">
             <div class="col-sm-6 col-lg-3">
               <div class="card mb-4 text-white bg-primary">
-                <div
-                  class="card-body pb-0 d-flex justify-content-between align-items-start"
-                >
+                <div class="card-body pb-0 d-flex justify-content-between align-items-start">
                   <div>
                     <div class="fs-4 fw-semibold">
-                      26K
+                      50
                       <span class="fs-6 fw-normal"
-                        >(-12.4%
-                        <svg class="icon">
-                          <use
-                            xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-arrow-bottom"
-                          ></use></svg
-                        >)</span
-                      >
+                        >(pcs)</span>
                     </div>
-                    <div>Users</div>
-                  </div>
-                  <div class="dropdown">
-                    <button
-                      class="btn btn-transparent text-white p-0"
-                      type="button"
-                      data-coreui-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <svg class="icon">
-                        <use
-                          xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-options"
-                        ></use>
-                      </svg>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end">
-                      <a class="dropdown-item" href="#">Action</a
-                      ><a class="dropdown-item" href="#">Another action</a
-                      ><a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                    <div>Jumlah Produk</div>
                   </div>
                 </div>
                 <div class="c-chart-wrapper mt-3 mx-3" style="height: 70px">
@@ -544,37 +283,12 @@
                 >
                   <div>
                     <div class="fs-4 fw-semibold">
-                      $6.200
+                      20
                       <span class="fs-6 fw-normal"
-                        >(40.9%
-                        <svg class="icon">
-                          <use
-                            xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-arrow-top"
-                          ></use></svg
-                        >)</span
+                        >(titik lokasi)</span
                       >
                     </div>
-                    <div>Income</div>
-                  </div>
-                  <div class="dropdown">
-                    <button
-                      class="btn btn-transparent text-white p-0"
-                      type="button"
-                      data-coreui-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <svg class="icon">
-                        <use
-                          xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-options"
-                        ></use>
-                      </svg>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end">
-                      <a class="dropdown-item" href="#">Action</a
-                      ><a class="dropdown-item" href="#">Another action</a
-                      ><a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                    <div>Sawah</div>
                   </div>
                 </div>
                 <div class="c-chart-wrapper mt-3 mx-3" style="height: 70px">
@@ -590,37 +304,12 @@
                 >
                   <div>
                     <div class="fs-4 fw-semibold">
-                      2.49%
+                      30
                       <span class="fs-6 fw-normal"
-                        >(84.7%
-                        <svg class="icon">
-                          <use
-                            xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-arrow-top"
-                          ></use></svg
-                        >)</span
-                      >
+                        >(varian)
+                      </span>
                     </div>
-                    <div>Conversion Rate</div>
-                  </div>
-                  <div class="dropdown">
-                    <button
-                      class="btn btn-transparent text-white p-0"
-                      type="button"
-                      data-coreui-toggle="dropdown"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                    >
-                      <svg class="icon">
-                        <use
-                          xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-options"
-                        ></use>
-                      </svg>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-end">
-                      <a class="dropdown-item" href="#">Action</a
-                      ><a class="dropdown-item" href="#">Another action</a
-                      ><a class="dropdown-item" href="#">Something else here</a>
-                    </div>
+                    <div>Jenis Bibit</div>
                   </div>
                 </div>
                 <div class="c-chart-wrapper mt-3" style="height: 70px">
@@ -631,22 +320,14 @@
             <!-- /.col-->
             <div class="col-sm-6 col-lg-3">
               <div class="card mb-4 text-white bg-danger">
-                <div
-                  class="card-body pb-0 d-flex justify-content-between align-items-start"
-                >
+                <div class="card-body pb-0 d-flex justify-content-between align-items-start">
                   <div>
                     <div class="fs-4 fw-semibold">
-                      44K
-                      <span class="fs-6 fw-normal"
-                        >(-23.6%
-                        <svg class="icon">
-                          <use
-                            xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-arrow-bottom"
-                          ></use></svg
-                        >)</span
-                      >
+                      7
+                      <span class="fs-6 fw-normal">(petani)
+                      </span>
                     </div>
-                    <div>Sessions</div>
+                    <div>Jumlah Akun</div>
                   </div>
                   <div class="dropdown">
                     <button

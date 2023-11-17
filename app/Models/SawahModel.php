@@ -34,14 +34,14 @@ class SawahModel
         }
     }
 
-    public function createSawah($nama_sawah, $lokasi_sawah, $deskripsi, $created_by, $created_at) {
-        $stmt = $this->conn->prepare("INSERT INTO `sawah` (`id_sawah`, `nama_sawah`, `lokasi_sawah`, `deskripsi`, `created_by`, `created_at`) VALUES (NULL, ?, ?, ?, ?, ?)");
+    public function createSawah($nama_sawah, $lokasi_sawah, $luas_sawah, $deskripsi, $created_by, $created_at) {
+        $stmt = $this->conn->prepare("INSERT INTO `sawah` (`id_sawah`, `nama_sawah`, `lokasi_sawah`, `luas_sawah`,`deskripsi`, `created_by`, `created_at`) VALUES (NULL, ?, ?, ?, ?, ?, ?)");
         
         if (!$stmt) {
             return false; // Kembalikan false jika gagal mempersiapkan pernyataan SQL
         }
 
-        $stmt->bind_param("sssss", $nama_sawah, $lokasi_sawah, $deskripsi, $created_by, $created_at);
+        $stmt->bind_param("ssssss", $nama_sawah, $lokasi_sawah, $luas_sawah, $deskripsi, $created_by, $created_at);
         $result = $stmt->execute();
         $stmt->close();
 

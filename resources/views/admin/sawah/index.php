@@ -114,253 +114,28 @@
     />
   </head>
   <body>
-    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
-      <div class="sidebar-brand d-none d-md-flex">
-        <svg
-          class="sidebar-brand-full"
-          width="118"
-          height="46"
-          alt="SFS - Pertanian Logo"
-        >
-          <use xlink:href="../../../../public/assets/brand/coreui.svg#full"></use>
-        </svg>
-        <svg
-          class="sidebar-brand-narrow"
-          width="46"
-          height="46"
-          alt="SFS - Pertanian Logo"
-        >
-          <use
-            xlink:href="../../../../public/assets/brand/coreui.svg#signet"
-          ></use>
-        </svg>
-      </div>
-      <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-        <li class="nav-item">
-          <a class="nav-link" href="../index.php">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-speedometer"
-              ></use>
-            </svg>
-            Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span></a
-          >
-        </li>
-        <li class="nav-title">Manajemen</li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreunodei/icons/svg/free.svg#cil-drop"
-              ></use>
-            </svg>
-            Data Sawah</a
-          >
-          <a class="nav-link" href="../bibit/index.php">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreunodei/icons/svg/free.svg#cil-drop"
-              ></use>
-            </svg>
-            Data Bibit/Varietas</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="typography.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-pencil"
-              ></use>
-            </svg>
-            Data Pupuk</a
-          >
-        </li>
-        <li class="nav-title">Kelas</li>
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Umum</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Bibit</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Semai</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Pemupukan</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Penanggulangan</a
-          >
-          <a class="nav-link" href="./bibit/index.html">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-chart-pie"
-              ></use>
-            </svg>
-            Standar QC</a
-          >
-        <li class="nav-divider"></li>
-        <li class="nav-title">Extras</li>
-        <li class="nav-group">
-          <a class="nav-link nav-group-toggle" href="#">
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-star"
-              ></use>
-            </svg>
-            Pages</a
-          >
-          <ul class="nav-group-items">
-            <li class="nav-item">
-              <a class="nav-link" href="login.html" target="_top">
-                <svg class="nav-icon">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
-                  ></use>
-                </svg>
-                Login</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="register.html" target="_top">
-                <svg class="nav-icon">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
-                  ></use>
-                </svg>
-                Register</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="404.html" target="_top">
-                <svg class="nav-icon">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-bug"
-                  ></use>
-                </svg>
-                Error 404</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="500.html" target="_top">
-                <svg class="nav-icon">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-bug"
-                  ></use>
-                </svg>
-                Error 500</a
-              >
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item mt-auto">
-          <a
-            class="nav-link"
-            href="https://coreui.io/docs/templates/installation/"
-            target="_blank"
-          >
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-description"
-              ></use>
-            </svg>
-            Docs</a
-          >
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link nav-link-danger"
-            href="https://coreui.io/pro/"
-            target="_top"
-          >
-            <svg class="nav-icon">
-              <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-layers"
-              ></use>
-            </svg>
-            Try CoreUI
-            <div class="fw-semibold">PRO</div>
-          </a>
-        </li>
-      </ul>
-      <button
-        class="sidebar-toggler"
-        type="button"
-        data-coreui-toggle="unfoldable"
-      ></button>
-    </div>
     <div class="wrapper d-flex flex-column min-vh-100 bg-light">
       <header class="header header-sticky mb-4">
-        <div class="container-fluid">
+        <div class="container-fluid" >
           <button
             class="header-toggler px-md-0 me-md-3"
             type="button"
-            onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()"
+            onclick=""
           >
             <svg class="icon icon-lg">
               <use
-                xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-menu"
+                xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-menu"
               ></use>
-            </svg></button
-          ><a class="header-brand d-md-none" href="#">
-            <svg width="118" height="46" alt="CoreUI Logo">
-              <use
-                xlink:href="../../../../public/assets/brand/coreui.svg#full"
-              ></use></svg
-          ></a>
+            </svg>
+          </button>
           <ul class="header-nav d-none d-md-flex">
+            <li class="nav-item"><a class="nav-link" href="../index.php">Dashboard</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Sawah</a></li>
-          </ul>
-          <ul class="header-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <svg class="icon icon-lg">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-bell"
-                  ></use></svg
-              ></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <svg class="icon icon-lg">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-list-rich"
-                  ></use></svg
-              ></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <svg class="icon icon-lg">
-                  <use
-                    xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-envelope-open"
-                  ></use></svg
-              ></a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="../bibit/index.php">Bibit</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Pupuk</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Penyemprotan</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Literasi</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Akun</a></li>
           </ul>
           <ul class="header-nav ms-3">
             <li class="nav-item dropdown">
@@ -375,7 +150,7 @@
                 <div class="avatar avatar-md">
                   <img
                     class="avatar-img"
-                    src="../../../../public/assets/img/avatars/8.jpg"
+                    src="../../../public/assets/img/avatars/8.jpg"
                     alt="user@email.com"
                   />
                 </div>
@@ -387,14 +162,14 @@
                 <a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-bell"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-bell"
                     ></use>
                   </svg>
                   Updates<span class="badge badge-sm bg-info ms-2">42</span></a
                 ><a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-envelope-open"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-envelope-open"
                     ></use>
                   </svg>
                   Messages<span class="badge badge-sm bg-success ms-2"
@@ -403,14 +178,14 @@
                 ><a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-task"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-task"
                     ></use>
                   </svg>
                   Tasks<span class="badge badge-sm bg-danger ms-2">42</span></a
                 ><a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-comment-square"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-comment-square"
                     ></use>
                   </svg>
                   Comments<span class="badge badge-sm bg-warning ms-2"
@@ -423,21 +198,21 @@
                 <a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-user"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-user"
                     ></use>
                   </svg>
                   Profile</a
                 ><a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-settings"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-settings"
                     ></use>
                   </svg>
                   Settings</a
                 ><a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-credit-card"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-credit-card"
                     ></use>
                   </svg>
                   Payments<span class="badge badge-sm bg-secondary ms-2"
@@ -446,7 +221,7 @@
                 ><a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-file"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-file"
                     ></use>
                   </svg>
                   Projects<span class="badge badge-sm bg-primary ms-2"
@@ -457,14 +232,14 @@
                 <a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-lock-locked"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-lock-locked"
                     ></use>
                   </svg>
                   Lock Account</a
                 ><a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
+                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
                     ></use>
                   </svg>
                   Logout</a
@@ -474,19 +249,16 @@
           </ul>
         </div>
         <div class="header-divider"></div>
-        <div class="container-fluid">
+        <div class="container-fluid"style="height:2px; font-size:13px">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb my-0 ms-2">
               <li class="breadcrumb-item">
                 <!-- if breadcrumb is single--><span>Home</span>
               </li>
-              <li class="breadcrumb-item">
-                <!-- if breadcrumb is single--><span>Manajemen</span>
-              </li>
               <li class="breadcrumb-item active"><span>Sawah</span></li>
             </ol>
           </nav>
-        </div>
+        </div> 
       </header>
       <div class="body flex-grow-1 px-3">
         <div class="container-lg">
@@ -509,7 +281,9 @@
                     <th>No</th>
                     <th>Nama Sawah</th>
                     <th>Lokasi</th>
+                    <th>Luas</th>
                     <th>Deskripsi</th>
+                    <th>Dibuat Oleh</th>
                     <th>Tanggal Terdaftar</th>
                     <th>Action</th>
                 </tr>
@@ -524,23 +298,23 @@
                 echo "<td>{$no}</td>";
                 echo "<td>{$sawah['nama_sawah']}</td>";
                 echo "<td>{$sawah['lokasi_sawah']}</td>";
+                echo "<td>{$sawah['luas_sawah']}</td>";
                 echo "<td>{$sawah['deskripsi']}</td>";
+                echo "<td>{$sawah['created_by']}</td>";
                 echo "<td>{$sawah['created_at']}</td>";
                 echo "<td>
-                    <button type='button' class='btn btn-light' onclick=\"window.location.href='./edit.php?id={$sawah['id_sawah']}'\">
-                        <svg class='avatar-sm'>
-                            <use xlink:href='../../../../vendor/@coreui/icons/svg/free.svg#cil-pencil'></use>
-                        </svg>
+                    <button type='button' class='btn btn-danger btn-with-icon' id='deleteBtn{$sawah['id_sawah']}' data-id='{$sawah['id_sawah']}'>
+                          <img class='btn-logo' src='../../../../public/assets/icons/recycle-bin-line-icon.png'>
+                          </img>
                     </button>
-                    <button type='button' class='btn btn-danger' id='deleteBtn{$sawah['id_sawah']}' data-id='{$sawah['id_sawah']}'>
-                        <svg class='avatar-sm'>
-                            <use xlink:href='../../../../vendor/@coreui/icons/svg/free.svg#cil-trash'></use>
-                        </svg>
+                    <button type='button' class='btn btn-light btn-with-icon' onclick=\"window.location.href='./edit.php?id={$sawah['id_sawah']}'\">
+                      <img class='btn-logo' src='../../../../public/assets/icons/edit-pen-icon.png'>
+                      </img>
                     </button>
-                    <button type='button' class='btn btn-info' onclick=\"window.location.href='./info.php?id={$sawah['id_sawah']}'\">
-                        <svg class='avatar-sm'>
-                            <use xlink:href='../../../../vendor/@coreui/icons/svg/free.svg#cil-info'></use>
-                        </svg>
+                    
+                    <button type='button' class='btn btn-info btn-with-icon' onclick=\"window.location.href='./pencatatan/index.php?id={$sawah['id_sawah']}'\">
+                      <img class='btn-logo' src='../../../../public/assets/icons/database-cloud-icon.png'>
+                      </img>
                     </button>
                 </td>";
                 echo "</tr>";
