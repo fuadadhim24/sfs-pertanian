@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Okt 2023 pada 10.02
+-- Waktu pembuatan: 17 Nov 2023 pada 11.28
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -31,88 +31,173 @@ CREATE TABLE `bibit` (
   `id_bibit` int(11) NOT NULL,
   `nama_bibit` varchar(40) NOT NULL,
   `harga` varchar(30) NOT NULL,
-  `jumlah_kg` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL,
   `deskripsi_singkat` text NOT NULL,
   `deskripsi` text NOT NULL,
   `jenis_tanah` varchar(30) NOT NULL,
   `cuaca` varchar(30) NOT NULL,
-  `estimasi_panen` varchar(30) NOT NULL
+  `estimasi_panen` varchar(30) NOT NULL,
+  `gambar_path_main` text NOT NULL,
+  `gambar_path_1` text NOT NULL,
+  `gambar_path_2` text NOT NULL,
+  `gambar_path_3` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `bibit`
 --
 
-INSERT INTO `bibit` (`id_bibit`, `nama_bibit`, `harga`, `jumlah_kg`, `deskripsi_singkat`, `deskripsi`, `jenis_tanah`, `cuaca`, `estimasi_panen`) VALUES
-(1, 'Padi Pera', '85000', 5, 'Nasi bertekstur sedikit keras', 'Padi pera diproduksi dan populer di daerah Sumatera Barat dan Riau. Padi dengan kadar amilosa tinggi tak hanya dijadikan nasi, pun juga menjadi bahan utama pembuatan bihun dan tepung beras.', 'Tanah Lempung', 'Hujan Sedang', '3-5'),
-(2, 'Padi Gogo', '65000', 1, 'Tekstur nasi agak pulen', 'Padi gogo adalah jenis padi yang tidak ditanam di sawah seperti pada umumnya. Jenis padi ini ditanam di kebun atau di ladang. Kelebihan padi gogo adalah tidak memerlukan irigasi khusus. Daerah yang sering mengembangkan padi gogo adalah daerah tadah hujan, contohnya di Lombok.', 'Tanah Lempung', 'Hujan Sedang', '4-5');
+INSERT INTO `bibit` (`id_bibit`, `nama_bibit`, `harga`, `jumlah`, `deskripsi_singkat`, `deskripsi`, `jenis_tanah`, `cuaca`, `estimasi_panen`, `gambar_path_main`, `gambar_path_1`, `gambar_path_2`, `gambar_path_3`) VALUES
+(1, 'After Padi Pera', '85000', 5, 'Nasi bertekstur sedikit keras', 'Padi pera diproduksi dan populer di daerah Sumatera Barat dan Riau. Padi dengan kadar amilosa tinggi tak hanya dijadikan nasi, pun juga menjadi bahan utama pembuatan bihun dan tepung beras.', 'Tanah Gambur', 'Hujan Sedang', '3-5', 'IMG_5949.JPG', '', '', ''),
+(2, 'After Padi Gogo', '65000', 1, 'Tekstur nasi agak pulen', 'Padi gogo adalah jenis padi yang tidak ditanam di sawah seperti pada umumnya. Jenis padi ini ditanam di kebun atau di ladang. Kelebihan padi gogo adalah tidak memerlukan irigasi khusus. Daerah yang sering mengembangkan padi gogo adalah daerah tadah hujan, contohnya di Lombok.', 'Tanah Lempung', 'Hujan Tinggi', '4-5', 'IMG_5949.JPG', 'WhatsApp Image 2023-09-05 at 14.38.26.jpg', 'IMG_5949.JPG', '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `hasil_uji_tanah`
+-- Struktur dari tabel `catatan_pemupukan`
 --
 
-CREATE TABLE `hasil_uji_tanah` (
-  `id_uji_tanah` int(11) NOT NULL,
-  `hasil_uji` text NOT NULL,
-  `id_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `informasi_cuaca`
---
-
-CREATE TABLE `informasi_cuaca` (
-  `id_cuaca` int(11) NOT NULL,
-  `tanggal` date NOT NULL,
-  `cuaca_saat_ini` varchar(50) NOT NULL,
-  `prakiraan_cuaca` varchar(100) NOT NULL,
-  `id_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `jadwal_pertanian`
---
-
-CREATE TABLE `jadwal_pertanian` (
-  `id_jadwal` int(11) NOT NULL,
-  `tanggal_tanam` date NOT NULL,
-  `jenis_tanaman` varchar(50) NOT NULL,
-  `id_user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `peralatan_pertanian`
---
-
-CREATE TABLE `peralatan_pertanian` (
-  `id_produk` int(11) NOT NULL,
-  `nama_produk` varchar(50) NOT NULL,
+CREATE TABLE `catatan_pemupukan` (
+  `id_catatan_pemupukan` int(11) NOT NULL,
+  `jenis_pemupukan` varchar(50) NOT NULL,
   `deskripsi` text NOT NULL,
-  `harga` decimal(10,2) NOT NULL,
+  `tanggal` datetime NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_pupuk` int(11) NOT NULL,
+  `id_sawah` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `catatan_penyemprotan`
+--
+
+CREATE TABLE `catatan_penyemprotan` (
+  `id_catatan_penyemprotan` int(11) NOT NULL,
+  `jenis_penyemprotan` varchar(50) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `tanggal` datetime NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_semprotan` int(11) NOT NULL,
+  `id_sawah` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `catatan_semai`
+--
+
+CREATE TABLE `catatan_semai` (
+  `id_catatan_semai` int(11) NOT NULL,
+  `jenis` varchar(50) NOT NULL,
+  `deskripsi` text NOT NULL,
+  `tanggal` datetime NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_sawah` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `detail_sawah`
+--
+
+CREATE TABLE `detail_sawah` (
+  `id_detail_sawah` int(11) DEFAULT NULL,
+  `id_sawah` int(11) NOT NULL,
+  `id_bibit` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kualitas`
+--
+
+CREATE TABLE `kualitas` (
+  `id_kualitas` int(11) NOT NULL,
+  `rate_kualitas` int(11) NOT NULL,
+  `catatan_kualitas` text NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_beras` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `literasi`
+--
+
+CREATE TABLE `literasi` (
+  `id_literasi` int(11) NOT NULL,
+  `bentuk_kategori` enum('konten_text','link_artikel_web/video/pdf') NOT NULL,
+  `jenis` enum('umum','panduan_semai','panduan_pemupukan','panduan_penyemprotan','penanggulangan_hama_penyakit','panduan_panen') NOT NULL,
+  `judul` varchar(50) NOT NULL,
+  `tanggal` date NOT NULL,
+  `deskripsi` text NOT NULL,
+  `gambar_path_main` text NOT NULL,
+  `gambar_path_1` text NOT NULL,
+  `gambar_path_2` text NOT NULL,
+  `gambar_path3` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `masa_panen`
+--
+
+CREATE TABLE `masa_panen` (
+  `id_masa_panen` int(11) NOT NULL,
+  `quest_1` varchar(50) NOT NULL,
+  `quest_2` varchar(50) NOT NULL,
+  `quest_3` varchar(50) NOT NULL,
+  `quest_4` varchar(50) NOT NULL,
+  `jumlah_panen` int(11) NOT NULL,
+  `id_sawah` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pesanan_konsumen`
+-- Struktur dari tabel `produk_beras`
 --
 
-CREATE TABLE `pesanan_konsumen` (
-  `id_pesanan` int(11) NOT NULL,
-  `tanggal_penesanan` date NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_produk` int(11) NOT NULL,
+CREATE TABLE `produk_beras` (
+  `id_beras` int(11) NOT NULL,
+  `nama_beras` varchar(30) NOT NULL,
+  `berat` int(11) NOT NULL,
+  `tanggal_panen` date NOT NULL,
+  `qr_code` varchar(100) NOT NULL,
+  `tanggal_kadaluwarsa` date NOT NULL,
+  `gambar_path_main` text NOT NULL,
+  `gambar_path_1` text NOT NULL,
+  `gambar_path_2` text NOT NULL,
+  `gambar_path_3` text NOT NULL,
+  `id_sawah` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pupuk`
+--
+
+CREATE TABLE `pupuk` (
+  `id_pupuk` int(11) NOT NULL,
+  `nama_pupuk` varchar(100) NOT NULL,
+  `harga` varchar(50) NOT NULL,
   `jumlah` int(11) NOT NULL,
-  `total_harga` decimal(10,2) NOT NULL
+  `kegunaan` text NOT NULL,
+  `detail_pupuk` text NOT NULL,
+  `deskripsi_singkat` text NOT NULL,
+  `gambar_path_main` text NOT NULL,
+  `gambar_path_1` text NOT NULL,
+  `gambar_path_2` text NOT NULL,
+  `gambar_path_3` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -136,22 +221,26 @@ CREATE TABLE `sawah` (
 --
 
 INSERT INTO `sawah` (`id_sawah`, `nama_sawah`, `lokasi_sawah`, `luas_sawah`, `deskripsi`, `created_by`, `created_at`) VALUES
-(9, 'LOKASI SAWAH 1', 'LatLng(-8.182946, -246.11692)', 10, 'Lorem Qorte', 'Admin', '2023-09-15'),
-(25, 'LOKASI SAWAH 5', 'LatLng(-8.206053, -246.569979)', 35, 'cek', 'Admin', '2023-10-15'),
-(27, 'LOKASI SAWAH 8', 'LatLng(-8.151681, -246.331091)', 10, 'hallo', 'Admin', '2023-10-16');
+(36, 'Sawah Manggarai', 'LatLng(-8.265698, 113.660924)', 10, 'Sawah depan rumah pak Adi', 'Admin', '2023-11-16');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `ulasan_produk`
+-- Struktur dari tabel `semprotan`
 --
 
-CREATE TABLE `ulasan_produk` (
-  `id_ulasan` int(11) NOT NULL,
-  `id_user` int(11) NOT NULL,
-  `id_produk` int(11) NOT NULL,
-  `isi_ulasan` text NOT NULL,
-  `peringkat` int(11) NOT NULL
+CREATE TABLE `semprotan` (
+  `id_semprotan` int(11) NOT NULL,
+  `nama_semprotan` varchar(100) NOT NULL,
+  `harga` varchar(50) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `kegunaan` text NOT NULL,
+  `detail_semprotan` text NOT NULL,
+  `deskripsi_singkat` text NOT NULL,
+  `gambar_path_main` text NOT NULL,
+  `gambar_path_1` text NOT NULL,
+  `gambar_path_2` text NOT NULL,
+  `gambar_path_3` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -162,26 +251,24 @@ CREATE TABLE `ulasan_produk` (
 
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
-  `nama` varchar(50) NOT NULL,
+  `nama_depan` varchar(50) NOT NULL,
+  `nama_belakang` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
   `email` varchar(100) NOT NULL,
+  `no_handphone` varchar(20) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
   `hak_akses` enum('Petani','Konsumen','Admin','') NOT NULL,
-  `username` varchar(30) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `tanggal_daftar` int(11) NOT NULL
+  `tanggal_daftar` date NOT NULL DEFAULT current_timestamp(),
+  `gambar_path` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id_user`, `nama`, `alamat`, `email`, `hak_akses`, `username`, `password`, `tanggal_daftar`) VALUES
-(3, '', '', 'fuadadhim24@gmail.com', 'Admin', 'fuadadhim24', '$2y$10$ySZ1sbJmG.BsfWaZ5Eii5eOF5KCjxbiTVxQwpq7b7iu/gYOri4DnK', 0),
-(4, '', '', 'caesar@gmail.com', 'Petani', 'caesar', '$2y$10$ijWJTjoRO.5H6sy3rrTKoeXeC6.P7NfQcx6/Kscw41aTeIuHCWV0.', 0),
-(6, '', '', 'cek@gmail.com', 'Petani', 'cek', '$2y$10$q6Sb5EvTHxCSt4yPtLkzj.xjPNNKtNw3YXrsdMIhOFdnJRHqz/are', 0),
-(7, '', '', 'boboy@gmail.com', 'Petani', 'boboy', '$2y$10$NgKifv4sCEibx1k1XC2ASu3z1nGdRJ0szDDq2WVkMCAPgUtT3PCEy', 0),
-(8, '', '', 'guntur@gmail.com', 'Petani', 'guntur', '$2y$10$85uML4kE64nBFSNFlt8/Pet.wHBQRnVyBsgkiYFCkZR4RdT1HIBdq', 0),
-(9, '', '', 'rizky@gmail.com', 'Petani', 'rizky', '$2y$10$fpNXDvUoqJY3l92Y8Zf9.OKQore5J6iD47Ck5aY0BVKghT3nFtmWi', 0);
+INSERT INTO `users` (`id_user`, `nama_depan`, `nama_belakang`, `alamat`, `email`, `no_handphone`, `tanggal_lahir`, `hak_akses`, `password`, `tanggal_daftar`, `gambar_path`) VALUES
+(10, '', '', '', 'admin@gmail.com', '', '0000-00-00', 'Petani', '$2y$10$zybleksOtnzNawMeo8IVZOZAythWOX7jNmflQQ.GLhonouib0aAjy', '2023-10-26', '');
 
 --
 -- Indexes for dumped tables
@@ -194,39 +281,71 @@ ALTER TABLE `bibit`
   ADD PRIMARY KEY (`id_bibit`);
 
 --
--- Indeks untuk tabel `hasil_uji_tanah`
+-- Indeks untuk tabel `catatan_pemupukan`
 --
-ALTER TABLE `hasil_uji_tanah`
-  ADD KEY `id_user` (`id_user`);
+ALTER TABLE `catatan_pemupukan`
+  ADD PRIMARY KEY (`id_catatan_pemupukan`),
+  ADD KEY `id_user` (`id_user`,`id_pupuk`,`id_sawah`),
+  ADD KEY `id_sawah` (`id_sawah`),
+  ADD KEY `id_pupuk` (`id_pupuk`);
 
 --
--- Indeks untuk tabel `informasi_cuaca`
+-- Indeks untuk tabel `catatan_penyemprotan`
 --
-ALTER TABLE `informasi_cuaca`
-  ADD PRIMARY KEY (`id_cuaca`),
-  ADD KEY `id_user` (`id_user`);
+ALTER TABLE `catatan_penyemprotan`
+  ADD KEY `id_akun` (`id_user`,`id_semprotan`,`id_sawah`),
+  ADD KEY `id_sawah` (`id_sawah`),
+  ADD KEY `id_semprotan` (`id_semprotan`);
 
 --
--- Indeks untuk tabel `jadwal_pertanian`
+-- Indeks untuk tabel `catatan_semai`
 --
-ALTER TABLE `jadwal_pertanian`
-  ADD PRIMARY KEY (`id_jadwal`),
-  ADD KEY `id_user` (`id_user`);
+ALTER TABLE `catatan_semai`
+  ADD KEY `id_akun` (`id_user`,`id_sawah`),
+  ADD KEY `id_sawah` (`id_sawah`);
 
 --
--- Indeks untuk tabel `peralatan_pertanian`
+-- Indeks untuk tabel `detail_sawah`
 --
-ALTER TABLE `peralatan_pertanian`
-  ADD PRIMARY KEY (`id_produk`),
-  ADD KEY `id_user` (`id_user`);
+ALTER TABLE `detail_sawah`
+  ADD KEY `id_sawah` (`id_sawah`,`id_bibit`),
+  ADD KEY `id_bibit` (`id_bibit`);
 
 --
--- Indeks untuk tabel `pesanan_konsumen`
+-- Indeks untuk tabel `kualitas`
 --
-ALTER TABLE `pesanan_konsumen`
-  ADD PRIMARY KEY (`id_pesanan`),
-  ADD KEY `id_user` (`id_user`,`id_produk`),
-  ADD KEY `id_produk` (`id_produk`);
+ALTER TABLE `kualitas`
+  ADD PRIMARY KEY (`id_kualitas`),
+  ADD KEY `id_akun` (`id_user`,`id_beras`),
+  ADD KEY `id_beras` (`id_beras`);
+
+--
+-- Indeks untuk tabel `literasi`
+--
+ALTER TABLE `literasi`
+  ADD PRIMARY KEY (`id_literasi`);
+
+--
+-- Indeks untuk tabel `masa_panen`
+--
+ALTER TABLE `masa_panen`
+  ADD PRIMARY KEY (`id_masa_panen`),
+  ADD KEY `id_akun` (`id_user`),
+  ADD KEY `id_sawah` (`id_sawah`);
+
+--
+-- Indeks untuk tabel `produk_beras`
+--
+ALTER TABLE `produk_beras`
+  ADD PRIMARY KEY (`id_beras`),
+  ADD KEY `id_akun` (`id_sawah`),
+  ADD KEY `id_sawah` (`id_sawah`);
+
+--
+-- Indeks untuk tabel `pupuk`
+--
+ALTER TABLE `pupuk`
+  ADD PRIMARY KEY (`id_pupuk`);
 
 --
 -- Indeks untuk tabel `sawah`
@@ -235,12 +354,10 @@ ALTER TABLE `sawah`
   ADD PRIMARY KEY (`id_sawah`);
 
 --
--- Indeks untuk tabel `ulasan_produk`
+-- Indeks untuk tabel `semprotan`
 --
-ALTER TABLE `ulasan_produk`
-  ADD PRIMARY KEY (`id_ulasan`),
-  ADD KEY `id_user` (`id_user`,`id_produk`),
-  ADD KEY `id_produk` (`id_produk`);
+ALTER TABLE `semprotan`
+  ADD PRIMARY KEY (`id_semprotan`);
 
 --
 -- Indeks untuk tabel `users`
@@ -256,91 +373,115 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `bibit`
 --
 ALTER TABLE `bibit`
-  MODIFY `id_bibit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_bibit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT untuk tabel `informasi_cuaca`
+-- AUTO_INCREMENT untuk tabel `catatan_pemupukan`
 --
-ALTER TABLE `informasi_cuaca`
-  MODIFY `id_cuaca` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `catatan_pemupukan`
+  MODIFY `id_catatan_pemupukan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `jadwal_pertanian`
+-- AUTO_INCREMENT untuk tabel `kualitas`
 --
-ALTER TABLE `jadwal_pertanian`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `kualitas`
+  MODIFY `id_kualitas` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `peralatan_pertanian`
+-- AUTO_INCREMENT untuk tabel `literasi`
 --
-ALTER TABLE `peralatan_pertanian`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `literasi`
+  MODIFY `id_literasi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `pesanan_konsumen`
+-- AUTO_INCREMENT untuk tabel `masa_panen`
 --
-ALTER TABLE `pesanan_konsumen`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `masa_panen`
+  MODIFY `id_masa_panen` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `produk_beras`
+--
+ALTER TABLE `produk_beras`
+  MODIFY `id_beras` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `pupuk`
+--
+ALTER TABLE `pupuk`
+  MODIFY `id_pupuk` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `sawah`
 --
 ALTER TABLE `sawah`
-  MODIFY `id_sawah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_sawah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT untuk tabel `ulasan_produk`
+-- AUTO_INCREMENT untuk tabel `semprotan`
 --
-ALTER TABLE `ulasan_produk`
-  MODIFY `id_ulasan` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `semprotan`
+  MODIFY `id_semprotan` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Ketidakleluasaan untuk tabel `hasil_uji_tanah`
+-- Ketidakleluasaan untuk tabel `catatan_pemupukan`
 --
-ALTER TABLE `hasil_uji_tanah`
-  ADD CONSTRAINT `hasil_uji_tanah_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
+ALTER TABLE `catatan_pemupukan`
+  ADD CONSTRAINT `catatan_pemupukan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
+  ADD CONSTRAINT `catatan_pemupukan_ibfk_2` FOREIGN KEY (`id_sawah`) REFERENCES `sawah` (`id_sawah`),
+  ADD CONSTRAINT `catatan_pemupukan_ibfk_3` FOREIGN KEY (`id_pupuk`) REFERENCES `pupuk` (`id_pupuk`);
 
 --
--- Ketidakleluasaan untuk tabel `informasi_cuaca`
+-- Ketidakleluasaan untuk tabel `catatan_penyemprotan`
 --
-ALTER TABLE `informasi_cuaca`
-  ADD CONSTRAINT `informasi_cuaca_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
+ALTER TABLE `catatan_penyemprotan`
+  ADD CONSTRAINT `catatan_penyemprotan_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
+  ADD CONSTRAINT `catatan_penyemprotan_ibfk_2` FOREIGN KEY (`id_sawah`) REFERENCES `sawah` (`id_sawah`),
+  ADD CONSTRAINT `catatan_penyemprotan_ibfk_3` FOREIGN KEY (`id_semprotan`) REFERENCES `semprotan` (`id_semprotan`);
 
 --
--- Ketidakleluasaan untuk tabel `jadwal_pertanian`
+-- Ketidakleluasaan untuk tabel `catatan_semai`
 --
-ALTER TABLE `jadwal_pertanian`
-  ADD CONSTRAINT `jadwal_pertanian_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
+ALTER TABLE `catatan_semai`
+  ADD CONSTRAINT `catatan_semai_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
+  ADD CONSTRAINT `catatan_semai_ibfk_2` FOREIGN KEY (`id_sawah`) REFERENCES `sawah` (`id_sawah`);
 
 --
--- Ketidakleluasaan untuk tabel `peralatan_pertanian`
+-- Ketidakleluasaan untuk tabel `detail_sawah`
 --
-ALTER TABLE `peralatan_pertanian`
-  ADD CONSTRAINT `peralatan_pertanian_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
+ALTER TABLE `detail_sawah`
+  ADD CONSTRAINT `detail_sawah_ibfk_1` FOREIGN KEY (`id_sawah`) REFERENCES `sawah` (`id_sawah`),
+  ADD CONSTRAINT `detail_sawah_ibfk_2` FOREIGN KEY (`id_bibit`) REFERENCES `bibit` (`id_bibit`);
 
 --
--- Ketidakleluasaan untuk tabel `pesanan_konsumen`
+-- Ketidakleluasaan untuk tabel `kualitas`
 --
-ALTER TABLE `pesanan_konsumen`
-  ADD CONSTRAINT `pesanan_konsumen_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
-  ADD CONSTRAINT `pesanan_konsumen_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `peralatan_pertanian` (`id_produk`);
+ALTER TABLE `kualitas`
+  ADD CONSTRAINT `kualitas_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
+  ADD CONSTRAINT `kualitas_ibfk_2` FOREIGN KEY (`id_beras`) REFERENCES `produk_beras` (`id_beras`);
 
 --
--- Ketidakleluasaan untuk tabel `ulasan_produk`
+-- Ketidakleluasaan untuk tabel `masa_panen`
 --
-ALTER TABLE `ulasan_produk`
-  ADD CONSTRAINT `ulasan_produk_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
-  ADD CONSTRAINT `ulasan_produk_ibfk_2` FOREIGN KEY (`id_produk`) REFERENCES `peralatan_pertanian` (`id_produk`);
+ALTER TABLE `masa_panen`
+  ADD CONSTRAINT `masa_panen_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
+  ADD CONSTRAINT `masa_panen_ibfk_2` FOREIGN KEY (`id_sawah`) REFERENCES `sawah` (`id_sawah`);
+
+--
+-- Ketidakleluasaan untuk tabel `produk_beras`
+--
+ALTER TABLE `produk_beras`
+  ADD CONSTRAINT `produk_beras_ibfk_2` FOREIGN KEY (`id_sawah`) REFERENCES `sawah` (`id_sawah`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
