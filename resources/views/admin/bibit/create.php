@@ -306,19 +306,19 @@
                           <div class="mb-3 mt-3">
                               <div class="mb-3">
                                   <label for="formFileSm" class="form-label">Gambar Utama<span style="color:red"> *</span></label>
-                                  <input class="form-control form-control-sm" name="gambar_path_main" id="gambar_path_main" type="file" required>
+                                  <input class="form-control form-control-sm" name="gambar_path_main" id="gambar_path_main" type="file" accept="image/*" required>
                               </div>
                               <div class="mb-3">
                                   <label for="formFileSm" class="form-label">Gambar 1<span style="color:red"> *</span></label>
-                                  <input class="form-control form-control-sm" name="gambar_path_1" id="gambar_path_1" type="file" required>
+                                  <input class="form-control form-control-sm" name="gambar_path_1" id="gambar_path_1" type="file" accept="image/*" required>
                               </div>
                               <div class="mb-3">
                                   <label for="formFileSm" class="form-label">Gambar 2</label>
-                                  <input class="form-control form-control-sm" name="gambar_path_2" id="gambar_path_2" type="file">
+                                  <input class="form-control form-control-sm" name="gambar_path_2" id="gambar_path_2" accept="image/*" type="file">
                               </div>
                               <div class="mb-3">
                                   <label for="formFileSm" class="form-label">Gambar 3</label>
-                                  <input class="form-control form-control-sm" name="gambar_path_3" id="gambar_path_3" type="file">
+                                  <input class="form-control form-control-sm" name="gambar_path_3" id="gambar_path_3" accept="image/*" type="file">
                               </div>
                           </div>
                       </div>

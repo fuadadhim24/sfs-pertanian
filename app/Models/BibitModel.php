@@ -48,7 +48,7 @@ class BibitModel
         return $result;
     }
     public function editBibit($id,$nama_bibit, $harga, $jumlah_perkg, $deskripsi_singkat, $deskripsi_lengkap, $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3, $jenis_tanah, $cuaca, $estimasi_panen) {
-        $stmt = $this->conn->prepare("UPDATE `bibit` SET `nama_bibit`=?, `harga`=?, `jumlah`=?,`deskripsi_singkat`=?, `deskripsi`=?, `gambar_path_main`+?, `gambar_path_1`=?, `gambar_path_2`=?, `gambar_path_3`=?, `jenis_tanah`=?, `cuaca`=?, `estimasi_panen`=? WHERE `id_bibit`=?");
+        $stmt = $this->conn->prepare("UPDATE `bibit` SET `nama_bibit`=?, `harga`=?, `jumlah`=?,`deskripsi_singkat`=?, `deskripsi`=?, `gambar_path_main`=?, `gambar_path_1`=?, `gambar_path_2`=?, `gambar_path_3`=?, `jenis_tanah`=?, `cuaca`=?, `estimasi_panen`=? WHERE `id_bibit`=?");
     
         if (!$stmt) {
             return false;

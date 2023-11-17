@@ -392,7 +392,7 @@
               });
           });
       });
-      </script>
+    </script>
 
     <!-- CoreUI and necessary plugins-->
     <script src="../../../../vendor/@coreui/coreui/js/coreui.bundle.min.js"></script>

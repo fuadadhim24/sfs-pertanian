@@ -275,7 +275,7 @@
 
                         if ($bibit) {
                 ?>
-                <form action="../../../../app/Http/Controllers/bibit/createController.php" method="post" id="createBibit">
+                <form action="../../../../app/Http/Controllers/bibit/editController.php" method="post" id="createBibit">
                   <div class="card-body">
                     <h5 class="card-title mb-4">Edit Bibit</h5>
                     <nav>
@@ -291,7 +291,7 @@
                           <div class="row">
                               <div class="mb-3 mt-3">
                                   <label class="form-label">Nama Bibit<span style="color:red"> *</span></label>
-                                  <input class="form-control" type="hidden" name="id_bibit" id="id_bibit" rows="3" value="<?php echo $bibit['id_bibit']?>" required></input>
+                                  <input class="form-control" name="id_bibit" id="id_bibit" rows="3" value="<?php echo $bibit['id_bibit']?>" required></input>
                                   <input class="form-control" name="nama_bibit" id="nama_bibit" rows="3" value="<?php echo $bibit['nama_bibit']?>" required></input>
                               </div>
                               <div class="mb-3">
@@ -306,11 +306,6 @@
                                       </div>
                                   </div>
                               </div>
-                              
-                              <div class="mb-3 mt-3">
-                                  <label for="estimasi_panen" class="form-label">Estimasi Panen (bulan)<span style="color:red"> *</span></label>
-                                  <input class="form-control" name="estimasi_panen" id="estimasi_panen" rows="3" value="<?php echo $bibit['estimasi_panen']?>" required></input>
-                              </div>
 
                           </div>
                       </div>
@@ -321,28 +316,40 @@
                               </div>
                               <div class="mb-3">
                                 <label for="deskripsi_lengkap" class="form-label">Deskripsi Lengkap<span style="color:red"> *</span></label>
-                                <textarea class="form-control" name="deskripsi_lengkap" id="deskripsi_lengkap" rows="3" value="<?php echo $bibit['deskripsi']?>"></textarea>
+                                <textarea class="form-control" name="deskripsi_lengkap" id="deskripsi_lengkap" rows="3" required><?php echo $bibit['deskripsi']; ?></textarea>
                           </div>
                       </div>
                       <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
-                          <div class="mb-3 mt-3">
-                              <div class="mb-3">
-                                  <label for="formFileSm" class="form-label">Gambar Utama<span style="color:red"> *</span></label>
-                                  <input class="form-control form-control-sm" name="gambar_path_main" id="gambar_path_main" type="file" value="<?php echo $bibit['gambar_path_main']?>" required>
-                              </div>
-                              <div class="mb-3">
-                                  <label for="formFileSm" class="form-label">Gambar 1<span style="color:red"> *</span></label>
-                                  <input class="form-control form-control-sm" name="gambar_path_1" id="gambar_path_1" type="file" value="<?php echo $bibit['gambar_path_1']?>" required>
-                              </div>
-                              <div class="mb-3">
-                                  <label for="formFileSm" class="form-label">Gambar 2</label>
-                                  <input class="form-control form-control-sm" name="gambar_path_2" id="gambar_path_2" type="file" value="<?php echo $bibit['gambar_path_2']?>">
-                              </div>
-                              <div class="mb-3">
-                                  <label for="formFileSm" class="form-label">Gambar 3</label>
-                                  <input class="form-control form-control-sm" name="gambar_path_3" id="gambar_path_3" type="file" value="<?php echo $bibit['gambar_path_3']?>">
-                              </div>
-                          </div>
+                        <div class="mb-3 mt-3">
+                            <div class="mb-3">
+                                <label for="formFileSm" class="form-label">Gambar Utama<span style="color:red"> *</span></label>
+                                <input class="form-control form-control-sm" name="gambar_path_main" id="gambar_path_main" type="file" accept="image/*">
+                                <?php if (!empty($bibit['gambar_path_main'])): ?>
+                                    <img style="height:150px" src="../../../../public/assets/img/bibit/<?php echo $bibit['gambar_path_main']; ?>" alt="Gambar Utama" class="img-thumbnail">
+                                <?php endif; ?>
+                            </div>
+                            <div class="mb-3">
+                                <label for="formFileSm" class="form-label">Gambar 1<span style="color:red"> *</span></label>
+                                <input class="form-control form-control-sm" name="gambar_path_1" id="gambar_path_1" type="file" accept="image/*">
+                                <?php if (!empty($bibit['gambar_path_1'])): ?>
+                                    <img style="height:150px" src="../../../../public/assets/img/bibit/<?php echo $bibit['gambar_path_1']; ?>" alt="Gambar 1" class="img-thumbnail">
+                                <?php endif; ?>
+                            </div>
+                            <div class="mb-3">
+                                <label for="formFileSm" class="form-label">Gambar 2</label>
+                                <input class="form-control form-control-sm" name="gambar_path_2" id="gambar_path_2" type="file" accept="image/*">
+                                <?php if (!empty($bibit['gambar_path_2'])): ?>
+                                    <img style="height:150px" src="../../../../public/assets/img/bibit/<?php echo $bibit['gambar_path_2']; ?>" alt="Gambar 2" class="img-thumbnail">
+                                <?php endif; ?>
+                            </div>
+                            <div class="mb-3">
+                                <label for="formFileSm" class="form-label">Gambar 3</label>
+                                <input class="form-control form-control-sm" name="gambar_path_3" id="gambar_path_3" type="file" accept="image/*">
+                                <?php if (!empty($bibit['gambar_path_3'])): ?>
+                                    <img style="height:150px" src="../../../../public/assets/img/bibit/<?php echo $bibit['gambar_path_3']; ?>" alt="Gambar 3" class="img-thumbnail">
+                                <?php endif; ?>
+                            </div>
+                        </div>
                       </div>
                       <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
                           <div class="row">
@@ -363,11 +370,19 @@
                       </div>
                       <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
                       <div class="mt-2">
-                              <button type="submit" id="createBibit" class="btn btn-success text-white" style="padding:8px; padding-right:40px; padding-left:40px; justify-content: center;align-items: center;">Tambah bibit</button>
+                              <button type="submit" id="createBibit" class="btn btn-success text-white" style="padding:8px; padding-right:40px; padding-left:40px; justify-content: center;align-items: center;">Edit bibit</button>
                           </div>
                     </div>
                   </div>
                 </form>
+                <?php
+                            } else {
+                                echo "Data tidak ditemukan.";
+                            }
+                        } else {
+                            echo "ID tidak ditemukan.";
+                        }
+                        ?>
               </div>
             </div>
         </div>
@@ -402,9 +417,9 @@
           var formData = new FormData(this);
 
             // Tambahkan parameter action=create untuk memanggil fungsi create
-            formData.append('action', 'create');
+            formData.append('action', 'edit');
 
-            fetch("../../../../app/Http/Controllers/bibit/createController.php", {
+            fetch("../../../../app/Http/Controllers/bibit/editController.php", {
                 method: "POST",
                 body: formData,
             })

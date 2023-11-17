@@ -313,7 +313,7 @@
                             </button>
                         </td>";
                       } else {
-                          echo "<td></td>"; // Empty cell if no image path
+                          echo "<td style='text-align:center'>-</td>"; // Empty cell if no image path
                       }
                       if (!empty($bibit['gambar_path_1'])) {
                         echo "<td style='text-align: center'>
@@ -323,7 +323,7 @@
                             </button>
                         </td>";
                       } else {
-                          echo "<td></td>"; // Empty cell if no image path
+                          echo "<td style='text-align:center'>-</td>"; // Empty cell if no image path
                       }
                       if (!empty($bibit['gambar_path_2'])) {
                         echo "<td style='text-align: center'>
@@ -333,7 +333,7 @@
                             </button>
                         </td>";
                       } else {
-                          echo "<td></td>"; // Empty cell if no image path
+                          echo "<td style='text-align:center'>-</td>"; // Empty cell if no image path
                       }
                       if (!empty($bibit['gambar_path_3'])) {
                         echo "<td style='text-align: center'>
@@ -343,7 +343,7 @@
                             </button>
                         </td>";
                       } else {
-                          echo "<td></td>"; // Empty cell if no image path
+                          echo "<td style='text-align:center'>-</td>"; // Empty cell if no image path
                       }
                       echo "
                       <td>
@@ -390,7 +390,7 @@
         </footer>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <!-- hapus sawah -->
+    <!-- hapus bibit -->
     <script>
       document.addEventListener('DOMContentLoaded', function () {
           const deleteButtons = document.querySelectorAll('[id^=deleteBtn]');
@@ -409,7 +409,7 @@
                   }).then((result) => {
                       if (result.isConfirmed) {
                           // Menggunakan fetch API untuk mengirim permintaan penghapusan ke deleteController.php
-                          fetch(`../../../../app/Http/Controllers/sawah/deleteController.php?id=${id}`, { method: 'GET' })
+                          fetch(`../../../../app/Http/Controllers/bibit/deleteController.php?id=${id}`, { method: 'GET' })
                               .then(response => response.json())
                               .then(data => {
                                   if (data.success) {
