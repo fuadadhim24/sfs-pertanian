@@ -251,8 +251,8 @@
               <li class="breadcrumb-item">
                 <!-- if breadcrumb is single--><span>Home</span>
               </li>
-              <li class="breadcrumb-item"><span>Bibit</span></li>
-              <li class="breadcrumb-item active"><span>Tambah Bibit</span></li>
+              <li class="breadcrumb-item"><span>Akun</span></li>
+              <li class="breadcrumb-item active"><span>Edit Akun Petani</span></li>
             </ol>
           </nav>
         </div> 
@@ -260,91 +260,98 @@
         <div class="body flex-grow-1 px-3">
             <div class="container-lg">
               <div class="card mb-4">
-                <form action="../../../../app/Http/Controllers/bibit/createController.php" method="post" id="createBibit">
+              <?php
+                    // Hubungkan ke database
+                    include_once '../../../../config/database.php';
+
+                    // Periksa apakah ada parameter ID yang dikirimkan
+                    if (isset($_GET['id'])) {
+                        $id = $_GET['id'];
+
+                        // Query untuk mengambil data sawah berdasarkan ID
+                        $query = "SELECT * FROM users WHERE id_user = $id";
+                        $result = mysqli_query($conn, $query);
+                        $user = mysqli_fetch_array($result);
+
+                        if ($user) {
+                ?>
+                <form action="../../../../app/Http/Controllers/user/editController.php" method="post" id="editUser" enctype="multipart/form-data">
                   <div class="card-body">
-                    <h5 class="card-title mb-4">Tambah Bibit</h5>
+                    <h5 class="card-title mb-4">Edit Akun Petani</h5>
                     <nav>
                       <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <button class="nav-link active" id="nav-home-tab" data-coreui-toggle="tab" data-coreui-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Informasi</button>
-                        <button class="nav-link" id="nav-rincian-tab" data-coreui-toggle="tab" data-coreui-target="#nav-rincian" type="button" role="tab" aria-controls="nav-rincian" aria-selected="false">Rincian</button>
-                        <button class="nav-link" id="nav-profile-tab" data-coreui-toggle="tab" data-coreui-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Gambar</button>
-                        <button class="nav-link" id="nav-contact-tab" data-coreui-toggle="tab" data-coreui-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Rekomendasi</button>
+                        <button class="nav-link" id="nav-rincian-tab" data-coreui-toggle="tab" data-coreui-target="#nav-rincian" type="button" role="tab" aria-controls="nav-rincian" aria-selected="false">Identitas Diri</button>
+                        <button class="nav-link" id="nav-profile-tab" data-coreui-toggle="tab" data-coreui-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Foto Profil</button>
                       </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
                       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                           <div class="row">
                               <div class="mb-3 mt-3">
-                                  <label class="form-label">Nama Bibit<span style="color:red"> *</span></label>
-                                  <input class="form-control" name="nama_bibit" id="nama_bibit" rows="3" required></input>
+                                  <label class="form-label">No Handphone<span style="color:red"> *</span></label>
+                                  <input class="form-control" name="no_handphone" id="no_handphone" rows="3" value="<?php echo $user['no_handphone']?>" required></input>
+                                  <input class="form-control" type="hidden" name="id_user" id="id_user" rows="3" value="<?php echo $user['id_user']?>"></input>
+                                  <input class="form-control" type="hidden" name="hak_akses" id="hak_akses" rows="3" value="<?php echo $user['hak_akses']?>"></input>
+                                  <input class="form-control" type="hidden" name="tanggal_daftar" id="tanggal_daftar" rows="3" value="<?php echo $user['tanggal_daftar']?>"></input>
                               </div>
                               <div class="mb-3">
                                   <div class="row g-3">
                                       <div class="col">
-                                          <label class="form-label">Harga<span style="color:red"> *</span></label>
-                                          <input class="form-control" name="harga" id="harga" rows="3" required></input>
+                                          <label class="form-label">Nama Depan<span style="color:red"> *</span></label>
+                                          <input class="form-control" name="nama_depan" id="nama_depan" rows="3" value="<?php echo $user['nama_depan']?>" required></input>
                                       </div>
                                       <div class="col">
-                                          <label class="form-label">Jumlah (perKg)<span style="color:red"> *</span></label>
-                                          <input class="form-control" name="jumlah_perkg" id="jumlah_perkg" rows="3" required></input>
+                                          <label class="form-label">Nama Belakang<span style="color:red"> *</span></label>
+                                          <input class="form-control" name="nama_belakang" id="nama_belakang" rows="3" value="<?php echo $user['nama_belakang']?>" required></input>
                                       </div>
                                   </div>
+                              </div>
+                              <div class="mb-3 mt-3">
+                                  <label class="form-label">Email<span style="color:red"> *</span></label>
+                                  <input class="form-control" name="email" id="email" rows="3" value="<?php echo $user['email']?>" required></input>
+                              </div>
+                              <div class="mb-3 mt-3">
+                                <label for="password" class="form-label">Password Akun<span style="color:red"> *</span></label>
+                                <input type="password" name="password" id="password" class="form-control" value="<?php echo htmlspecialchars($user['password']); ?>">
+                                <div id="passwordHelpBlock" class="form-text">
+                                  Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+                                </div>
                               </div>
                           </div>
                       </div>
                       <div class="tab-pane fade" id="nav-rincian" role="tabpanel" aria-labelledby="nav-rincian-tab" tabindex="0">
                           <div class="mb-3 mt-3">
-                                  <label for="id_bibit" class="form-label">Deskripsi Singkat<span style="color:red"> *</span></label>
-                                  <input class="form-control" name="deskripsi_singkat" id="deskripsi_singkat" rows="3" required></input>
+                                  <label for="tanggal_lahir" class="form-label">Tanggal Lahir<span style="color:red"> *</span></label>
+                                  <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir" rows="3" value="<?php echo $user['tanggal_lahir']?>" required></input>
                               </div>
                               <div class="mb-3">
-                                <label for="deskripsi_lengkap" class="form-label">Deskripsi Lengkap<span style="color:red"> *</span></label>
-                                <textarea class="form-control" name="deskripsi_lengkap" id="deskripsi_lengkap" rows="3"></textarea>
+                                <label for="deskripsi_lengkap" class="form-label">Alamat<span style="color:red"> *</span></label>
+                                <textarea class="form-control" name="alamat" id="alamat" rows="3"><?php echo $user['alamat']?></textarea>
                           </div>
                       </div>
                       <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
-                          <div class="mb-3 mt-3">
+                      <div class="mb-3 mt-3">
                               <div class="mb-3">
-                                  <label for="formFileSm" class="form-label">Gambar Utama<span style="color:red"> *</span></label>
-                                  <input class="form-control form-control-sm" name="gambar_path_main" id="gambar_path_main" type="file" accept="image/*" required>
+                                  <label for="formFileSm" class="form-label">Gambar<span style="color:red"> *</span></label>
+                                  <input class="form-control form-control-sm" name="gambar_path_main" id="gambar_path_main" type="file" accept="image/*" value="<?php echo $user['gambar_path']?>" required>
                               </div>
-                              <div class="mb-3">
-                                  <label for="formFileSm" class="form-label">Gambar 1<span style="color:red"> *</span></label>
-                                  <input class="form-control form-control-sm" name="gambar_path_1" id="gambar_path_1" type="file" accept="image/*" required>
-                              </div>
-                              <div class="mb-3">
-                                  <label for="formFileSm" class="form-label">Gambar 2</label>
-                                  <input class="form-control form-control-sm" name="gambar_path_2" id="gambar_path_2" accept="image/*" type="file">
-                              </div>
-                              <div class="mb-3">
-                                  <label for="formFileSm" class="form-label">Gambar 3</label>
-                                  <input class="form-control form-control-sm" name="gambar_path_3" id="gambar_path_3" accept="image/*" type="file">
-                              </div>
-                          </div>
-                      </div>
-                      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
-                          <div class="row">
-                              <div class="mb-3 mt-3">
-                                  <label class="form-label">Jenis Tanah<span style="color:red"> *</span></label>
-                                  <input class="form-control" name="jenis_tanah" id="jenis_tanah" rows="3" required></input>
-                              </div>
-                              <div class="mb-3">
-                                  <label class="form-label">Cuaca<span style="color:red"> *</span></label>
-                                  <input class="form-control" name="cuaca" id="cuaca" rows="3" required></input>
-                              </div>
-                              <div class="mb-3">
-                                  <label class="form-label">Estimasi Panen (bulan)<span style="color:red"> *</span></label>
-                                  <input class="form-control" name="estimasi_panen" id="estimasi_panen" rows="3" required></input>
-                              </div>
-                              
                           </div>
                       </div>
                       <div class="mt-2">
-                              <button type="submit" id="createBibit" class="btn btn-success text-white" style="padding:8px; padding-right:40px; padding-left:40px; justify-content: center;align-items: center;">Tambah bibit</button>
+                              <button type="submit" id="createAkun" class="btn btn-success text-white" style="padding:8px; padding-right:40px; padding-left:40px; justify-content: center;align-items: center;">Edit akun</button>
                       </div>
                     </div>
                   </div>
                 </form>
+                <?php
+                            } else {
+                                echo "Data tidak ditemukan.";
+                            }
+                        } else {
+                            echo "ID tidak ditemukan.";
+                        }
+                        ?>
               </div>
             </div>
         </div>
@@ -372,16 +379,16 @@
    
     <script src="../../../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script>
-      document.getElementById("createBibit").addEventListener("submit", function(event) {
+      document.getElementById("editUser").addEventListener("submit", function(event) {
           // Add your form submission logic here, for example, using AJAX to submit the form data asynchronously
           // Prevent the default form submission
           event.preventDefault();
           var formData = new FormData(this);
 
             // Tambahkan parameter action=create untuk memanggil fungsi create
-            formData.append('action', 'create');
+            formData.append('action', 'edit');
 
-            fetch("../../../../app/Http/Controllers/bibit/createController.php", {
+            fetch("../../../../app/Http/Controllers/user/editController.php", {
                 method: "POST",
                 body: formData,
             })

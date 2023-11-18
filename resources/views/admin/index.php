@@ -127,10 +127,10 @@
             <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
             <li class="nav-item"><a class="nav-link" href="sawah/index.php">Sawah</a></li>
             <li class="nav-item"><a class="nav-link" href="bibit/index.php">Bibit</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Pupuk</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Penyemprotan</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Literasi</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Akun</a></li>
+            <li class="nav-item"><a class="nav-link" href="pupuk/index.php">Pupuk</a></li>
+            <li class="nav-item"><a class="nav-link" href="Semprotan/index.php">Semprotan</a></li>
+            <li class="nav-item"><a class="nav-link" href="literasi/index.php">Literasi</a></li>
+            <li class="nav-item"><a class="nav-link" href="user/index.php">Akun</a></li>
           </ul>
           <ul class="header-nav ms-3">
             <li class="nav-item dropdown">
