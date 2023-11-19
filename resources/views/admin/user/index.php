@@ -128,7 +128,7 @@
             <li class="nav-item"><a class="nav-link" href="../sawah/index.php">Sawah</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Bibit</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Pupuk</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Penyemprotan</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Semprotan</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Literasi</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Akun</a></li>
           </ul>
@@ -347,13 +347,13 @@
           
         <footer class="footer">
           <div>
-            <a href="https://coreui.io">CoreUI </a
-            ><a href="https://coreui.io">Bootstrap Admin Template</a> © 2023
-            creativeLabs.
+            <a href="https://coreui.io">PadiTrace </a
+            ><a href="https://coreui.io">Platform Ketelusuran Padi</a> © 2023
+            NexGenTeams.
           </div>
           <div class="ms-auto">
             Powered by&nbsp;<a href="https://coreui.io/docs/"
-              >CoreUI UI Components</a
+              >Politeknik Negeri Jember</a
             >
           </div>
         </footer>

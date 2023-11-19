@@ -133,7 +133,7 @@
             <li class="nav-item"><a class="nav-link" href="#">Sawah</a></li>
             <li class="nav-item"><a class="nav-link" href="../bibit/index.php">Bibit</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Pupuk</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Penyemprotan</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Semprotan</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Literasi</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Akun</a></li>
           </ul>
