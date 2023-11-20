@@ -50,8 +50,6 @@ class PupukModel
         } else {
             return false;
         }
-    }
-    
-    
+    }   
 }
 ?>

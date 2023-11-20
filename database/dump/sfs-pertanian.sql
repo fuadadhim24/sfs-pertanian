@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Nov 2023 pada 11.28
+-- Waktu pembuatan: 20 Nov 2023 pada 02.44
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -140,8 +140,16 @@ CREATE TABLE `literasi` (
   `gambar_path_main` text NOT NULL,
   `gambar_path_1` text NOT NULL,
   `gambar_path_2` text NOT NULL,
-  `gambar_path3` text NOT NULL
+  `gambar_path_3` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `literasi`
+--
+
+INSERT INTO `literasi` (`id_literasi`, `bentuk_kategori`, `jenis`, `judul`, `tanggal`, `deskripsi`, `gambar_path_main`, `gambar_path_1`, `gambar_path_2`, `gambar_path_3`) VALUES
+(1, 'link_artikel_web/video/pdf', 'panduan_pemupukan', 'TUTORIAL PEMUPUKAN PADI Dari Awal-Akhir Untuk PETA', '2023-11-19', 'https://www.youtube.com/watch?v=8L0kKEHjWiQ', 'panduan pupuk.png', '', '', ''),
+(3, 'link_artikel_web/video/pdf', 'umum', 'judul cek', '2023-11-20', 'deskripsi cek', 'WhatsApp Image 2023-07-28 at 05.26.43.jpg', 'IMG_5946.JPG', '', '');
 
 -- --------------------------------------------------------
 
@@ -199,6 +207,14 @@ CREATE TABLE `pupuk` (
   `gambar_path_2` text NOT NULL,
   `gambar_path_3` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `pupuk`
+--
+
+INSERT INTO `pupuk` (`id_pupuk`, `nama_pupuk`, `harga`, `jumlah`, `kegunaan`, `detail_pupuk`, `deskripsi_singkat`, `gambar_path_main`, `gambar_path_1`, `gambar_path_2`, `gambar_path_3`) VALUES
+(1, 'Pupuk NPK', '50000', 3, 'Membantu menyuburkan tanaman, Meningkatkan PH tanah', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ', 'Membantu menyuburkan tanaman', 'cek', 'cek', 'cek', 'cek'),
+(2, 'Pupuk Kompos', '22000', 2, 'Meningkatkan PH', 'deskripsi lengkap 2', 'deskripsi singkat ', 'IMG_5950.JPG', 'IMG_5950.JPG', '', '');
 
 -- --------------------------------------------------------
 
@@ -268,7 +284,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `nama_depan`, `nama_belakang`, `alamat`, `email`, `no_handphone`, `tanggal_lahir`, `hak_akses`, `password`, `tanggal_daftar`, `gambar_path`) VALUES
-(10, '', '', '', 'admin@gmail.com', '', '0000-00-00', 'Petani', '$2y$10$zybleksOtnzNawMeo8IVZOZAythWOX7jNmflQQ.GLhonouib0aAjy', '2023-10-26', '');
+(10, 'Alif', 'Firmansyah', 'Jl Kebonsari', 'admin@gmail.com', '082311723123', '1993-11-02', 'Admin', '$2y$10$zybleksOtnzNawMeo8IVZOZAythWOX7jNmflQQ.GLhonouib0aAjy', '2023-10-26', 'Fuad Adhim Al Hasan_Teknik Informatika.png');
 
 --
 -- Indexes for dumped tables
@@ -391,7 +407,7 @@ ALTER TABLE `kualitas`
 -- AUTO_INCREMENT untuk tabel `literasi`
 --
 ALTER TABLE `literasi`
-  MODIFY `id_literasi` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_literasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `masa_panen`
@@ -409,7 +425,7 @@ ALTER TABLE `produk_beras`
 -- AUTO_INCREMENT untuk tabel `pupuk`
 --
 ALTER TABLE `pupuk`
-  MODIFY `id_pupuk` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pupuk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `sawah`
@@ -427,7 +443,7 @@ ALTER TABLE `semprotan`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

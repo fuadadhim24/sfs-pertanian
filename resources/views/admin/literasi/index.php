@@ -250,7 +250,7 @@
               <li class="breadcrumb-item">
                 <!-- if breadcrumb is single--><span>Home</span>
               </li>
-              <li class="breadcrumb-item active"><span>Pupuk</span></li>
+              <li class="breadcrumb-item active"><span>Literasi</span></li>
             </ol>
           </nav>
         </div> 
@@ -262,24 +262,23 @@
             <div class="card-body">
               <div class="d-flex justify-content-between">
                 <div>
-                  <h4 class="card-title mb-0">Jenis Pupuk</h4>
+                  <h4 class="card-title mb-0">Literasi</h4>
                   <div class="small text-medium-emphasis">
                     UD Tani Rejo Jenggawah
                   </div>
                 </div>
-                <a href="./create.php"  class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;">Tambah Pupuk</a>
+                <a href="./create.php"  class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;">Tambah Literasi</a>
               </div>
               <div class="table-responsive" style="margin-top: 40px">
                 <table class="table" style="width:1800px;">
                   <thead>
                   <tr>
                       <th>No</th>
-                      <th width="7%">Nama Pupuk</th>
-                      <th>Harga</th>
-                      <th width="6%">Jumlah</th>
-                      <th width="14%">Kegunaan</th>
-                      <th width="13%">Deskripsi</th>
-                      <th width="14%">Deskripsi Singkat</th>
+                      <th>Bentuk Kategori</th>
+                      <th width="6%">Jenis</th>
+                      <th width="14%">Judul</th>
+                      <th width="13%">Tanggal</th>
+                      <th width="14%">Deskripsi</th>
                       <th style='text-align: center' width="8%">Gambar Utama</th>
                       <th style='text-align: center' width="5%">Gambar 1</th>
                       <th style='text-align: center' width="5%">Gambar 2</th>
@@ -291,19 +290,18 @@
                   <?php
                   include_once '../../../../config/database.php';
                   $no = 1;
-                  $result = mysqli_query($conn, "SELECT * FROM pupuk");
-                  while ($pupuk = mysqli_fetch_array($result)) {
+                  $result = mysqli_query($conn, "SELECT * FROM literasi");
+                  while ($literasi = mysqli_fetch_array($result)) {
                       echo "<tr>";
                       echo "<td>{$no}</td>";
-                      echo "<td>{$pupuk['nama_pupuk']}</td>";
-                      echo "<td style='text-align: center'>{$pupuk['harga']}</td>";
-                      echo "<td style='text-align: center'>{$pupuk['jumlah']}</td>";
-                      echo "<td>{$pupuk['kegunaan']}</td>";
-                      echo "<td style='text-align: justify'>{$pupuk['detail_pupuk']}</td>";
-                      echo "<td>{$pupuk['deskripsi_singkat']}</td>";
-                      if (!empty($pupuk['gambar_path_main'])) {
+                      echo "<td style='text-align: center'>{$literasi['bentuk_kategori']}</td>";
+                      echo "<td style='text-align: center'>{$literasi['jenis']}</td>";
+                      echo "<td>{$literasi['judul']}</td>";
+                      echo "<td style='text-align: justify'>{$literasi['tanggal']}</td>";
+                      echo "<td>{$literasi['deskripsi']}</td>";
+                      if (!empty($literasi['gambar_path_main'])) {
                         echo "<td style='text-align: center'>
-                            <button style='padding-right:30px;padding-left:30px' type='button' class='btn btn-warning' onclick=\"window.open('../../../../public/assets/img/pupuk/{$pupuk['gambar_path_main']}', '_blank')\">
+                            <button style='padding-right:30px;padding-left:30px' type='button' class='btn btn-warning' onclick=\"window.open('../../../../public/assets/img/literasi/{$literasi['gambar_path_main']}', '_blank')\">
                                 <img class='btn-logo' src='../../../../public/assets/icons/sent-icon.png'>
                             </img>
                             </button>
@@ -311,9 +309,9 @@
                       } else {
                           echo "<td style='text-align:center'>-</td>"; // Empty cell if no image path
                       }
-                      if (!empty($pupuk['gambar_path_1'])) {
+                      if (!empty($literasi['gambar_path_1'])) {
                         echo "<td style='text-align: center'>
-                            <button style='padding-right:30px;padding-left:30px' type='button' class='btn btn-warning' onclick=\"window.open('../../../../public/assets/img/pupuk/{$pupuk['gambar_path_1']}', '_blank')\">
+                            <button style='padding-right:30px;padding-left:30px' type='button' class='btn btn-warning' onclick=\"window.open('../../../../public/assets/img/literasi/{$literasi['gambar_path_1']}', '_blank')\">
                                 <img class='btn-logo' src='../../../../public/assets/icons/sent-icon.png'>
                             </img>
                             </button>
@@ -321,9 +319,9 @@
                       } else {
                           echo "<td style='text-align:center'>-</td>"; // Empty cell if no image path
                       }
-                      if (!empty($pupuk['gambar_path_2'])) {
+                      if (!empty($literasi['gambar_path_2'])) {
                         echo "<td style='text-align: center'>
-                            <button style='padding-right:30px;padding-left:30px' type='button' class='btn btn-warning' onclick=\"window.open('../../../../public/assets/img/pupuk/{$pupuk['gambar_path_2']}', '_blank')\">
+                            <button style='padding-right:30px;padding-left:30px' type='button' class='btn btn-warning' onclick=\"window.open('../../../../public/assets/img/literasi/{$literasi['gambar_path_2']}', '_blank')\">
                                 <img class='btn-logo' src='../../../../public/assets/icons/sent-icon.png'>
                             </img>
                             </button>
@@ -331,9 +329,9 @@
                       } else {
                           echo "<td style='text-align:center'>-</td>"; // Empty cell if no image path
                       }
-                      if (!empty($pupuk['gambar_path_3'])) {
+                      if (!empty($literasi['gambar_path_3'])) {
                         echo "<td style='text-align: center'>
-                            <button style='padding-right:30px;padding-left:30px' type='button' class='btn btn-warning' onclick=\"window.open('../../../../public/assets/img/pupuk/{$pupuk['gambar_path_3']}', '_blank')\">
+                            <button style='padding-right:30px;padding-left:30px' type='button' class='btn btn-warning' onclick=\"window.open('../../../../public/assets/img/literasi/{$literasi['gambar_path_3']}', '_blank')\">
                                 <img class='btn-logo' src='../../../../public/assets/icons/sent-icon.png'>
                             </img>
                             </button>
@@ -345,15 +343,15 @@
                       <td>
                         <div style='text-align: center'>
                           
-                              <button style='margin-left: 0.5rem;'type='button' class='btn btn-danger' id='deleteBtn{$pupuk['id_pupuk']}' data-id='{$pupuk['id_pupuk']}'>
+                              <button style='margin-left: 0.5rem;'type='button' class='btn btn-danger' id='deleteBtn{$literasi['id_literasi']}' data-id='{$literasi['id_literasi']}'>
                                 <img class='btn-logo' src='../../../../public/assets/icons/recycle-bin-line-icon.png'>
                                 </img>
                               </button>
-                              <button style='margin-right: 0.5rem; margin-left: 0.5rem;' type='button' class='btn btn-light' onclick=\"window.location.href='./edit.php?id={$pupuk['id_pupuk']}'\">
+                              <button style='margin-right: 0.5rem; margin-left: 0.5rem;' type='button' class='btn btn-light' onclick=\"window.location.href='./edit.php?id={$literasi['id_literasi']}'\">
                                 <img class='btn-logo' src='../../../../public/assets/icons/edit-pen-icon.png'>
                                 </img>
                               </button>
-                              <button type='button' class='btn btn-info' onclick=\"window.location.href='./info.php?id={$pupuk['id_pupuk']}'\">
+                              <button type='button' class='btn btn-info' onclick=\"window.location.href='./info.php?id={$literasi['id_literasi']}'\">
                                 <img class='btn-logo' src='../../../../public/assets/icons/database-cloud-icon.png'>
                                 </img>
                               </button>
@@ -386,7 +384,7 @@
         </footer>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <!-- hapus pupuk -->
+    <!-- hapus literasi -->
     <script>
       document.addEventListener('DOMContentLoaded', function () {
           const deleteButtons = document.querySelectorAll('[id^=deleteBtn]');
@@ -405,7 +403,7 @@
                   }).then((result) => {
                       if (result.isConfirmed) {
                           // Menggunakan fetch API untuk mengirim permintaan penghapusan ke deleteController.php
-                          fetch(`../../../../app/Http/Controllers/pupuk/deleteController.php?id=${id}`, { method: 'GET' })
+                          fetch(`../../../../app/Http/Controllers/literasi/deleteController.php?id=${id}`, { method: 'GET' })
                               .then(response => response.json())
                               .then(data => {
                                   if (data.success) {
