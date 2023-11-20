@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    include_once('../../../Models/PupukModel.php');
+    include_once('../../../Models/LiterasiModel.php');
     include_once("../../../../config/database.php");
 
     $id = $_POST['id_literasi'];   
@@ -12,13 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $literasi = mysqli_fetch_array($result);
 
     
-    $nama_literasi = $_POST['nama_literasi'];
-    $harga = $_POST['harga'];
-    $jumlah = $_POST['jumlah'];
-    $kegunaan = $_POST['kegunaan'];
+    $bentuk_kategori = $_POST['bentuk_kategori'];
+    $jenis = $_POST['jenis'];
+    $judul = $_POST['judul'];
 
-    $detail_literasi = $_POST['detail_literasi'];
-    $deskripsi_singkat = $_POST['deskripsi_singkat'];
+    $tanggal = $_POST['tanggal'];
+    $deskripsi = $_POST['deskripsi'];
     
     //dapat nama file
     $gambar_path_main = $_FILES['gambar_path_main']['name'];      
@@ -52,9 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-    $literasiModel = new PupukModel($conn);
+    $literasiModel = new LiterasiModel($conn);
 
-    if ($literasiModel->editPupuk($id, $nama_literasi, $harga, $jumlah, $kegunaan, $detail_literasi, $deskripsi_singkat , $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3)) {
+    if ($literasiModel->editLiterasi($id, $bentuk_kategori, $jenis, $judul, $tanggal, $deskripsi , $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3)) {
         // Edit berhasil
         $response = array(
             'success' => true,
@@ -64,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Edit gagal
         $response = array(
             'success' => false,
-            'message' => 'Pupuk gagal diupdate. Silakan coba kembali.'
+            'message' => 'Literasi gagal diupdate. Silakan coba kembali.'
         );
     }
 
