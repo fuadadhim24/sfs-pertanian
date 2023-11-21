@@ -251,8 +251,8 @@
               <li class="breadcrumb-item">
                 <!-- if breadcrumb is single--><span>Home</span>
               </li>
-              <li class="breadcrumb-item"><span>Pupuk</span></li>
-              <li class="breadcrumb-item active"><span>Edit Pupuk</span></li>
+              <li class="breadcrumb-item"><span>Semprotan</span></li>
+              <li class="breadcrumb-item active"><span>Edit Semprotan</span></li>
             </ol>
           </nav>
         </div> 
@@ -269,15 +269,15 @@
                         $id = $_GET['id'];
 
                         // Query untuk mengambil data sawah berdasarkan ID
-                        $query = "SELECT * FROM pupuk WHERE id_pupuk = $id";
+                        $query = "SELECT * FROM semprotan WHERE id_semprotan = $id";
                         $result = mysqli_query($conn, $query);
-                        $pupuk = mysqli_fetch_array($result);
+                        $semprotan = mysqli_fetch_array($result);
 
-                        if ($pupuk) {
+                        if ($semprotan) {
                 ?>
-                <form action="../../../../app/Http/Controllers/pupuk/editController.php" method="post" id="createPupuk">
+                <form action="../../../../app/Http/Controllers/semprotan/editController.php" method="post" id="createSemprotan">
                   <div class="card-body">
-                    <h5 class="card-title mb-4">Edit Pupuk</h5>
+                    <h5 class="card-title mb-4">Edit Semprotan</h5>
                     <nav>
                       <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <button class="nav-link active" id="nav-home-tab" data-coreui-toggle="tab" data-coreui-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Informasi</button>
@@ -289,19 +289,19 @@
                       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
                           <div class="row">
                               <div class="mb-3 mt-3">
-                                  <label class="form-label">Nama Pupuk<span style="color:red"> *</span></label>
-                                  <input class="form-control" name="id_pupuk" id="id_pupuk" rows="3" value="<?php echo $pupuk['id_pupuk']?>" type="hidden" required></input>
-                                  <input class="form-control" name="nama_pupuk" id="nama_pupuk" rows="3" value="<?php echo $pupuk['nama_pupuk']?>" required></input>
+                                  <label class="form-label">Nama Semprotan<span style="color:red"> *</span></label>
+                                  <input class="form-control" name="id_semprotan" id="id_semprotan" rows="3" value="<?php echo $semprotan['id_semprotan']?>" type="hidden" required></input>
+                                  <input class="form-control" name="nama_semprotan" id="nama_semprotan" rows="3" value="<?php echo $semprotan['nama_semprotan']?>" required></input>
                               </div>
                               <div class="mb-3">
                                   <div class="row g-3">
                                       <div class="col">
                                           <label class="form-label">Harga<span style="color:red"> *</span></label>
-                                          <input class="form-control" name="harga" id="harga" rows="3" value="<?php echo $pupuk['harga']?>" required></input>
+                                          <input class="form-control" name="harga" id="harga" rows="3" value="<?php echo $semprotan['harga']?>" required></input>
                                       </div>
                                       <div class="col">
                                           <label class="form-label">Jumlah (Kg)<span style="color:red"> *</span></label>
-                                          <input class="form-control" name="jumlah" id="jumlah" rows="3" value="<?php echo $pupuk['jumlah']?>" required></input>
+                                          <input class="form-control" name="jumlah" id="jumlah" rows="3" value="<?php echo $semprotan['jumlah']?>" required></input>
                                       </div>
                                   </div>
                               </div>
@@ -309,16 +309,16 @@
                       </div>
                       <div class="tab-pane fade" id="nav-rincian" role="tabpanel" aria-labelledby="nav-rincian-tab" tabindex="0">
                           <div class="mb-3 mt-3">
-                                  <label for="id_pupuk" class="form-label">Kegunaan Utama (max. 1 kegunaan)<span style="color:red"> *</span></label>
-                                  <input class="form-control" name="kegunaan" id="kegunaan" rows="3" value="<?php echo $pupuk['kegunaan']?>"required></input>
+                                  <label for="id_semprotan" class="form-label">Kegunaan Utama (max. 1 kegunaan)<span style="color:red"> *</span></label>
+                                  <input class="form-control" name="kegunaan" id="kegunaan" rows="3" value="<?php echo $semprotan['kegunaan']?>"required></input>
                           </div>
                           <div class="mb-3 mt-3">
-                                  <label for="id_pupuk" class="form-label">Deskripsi Singkat<span style="color:red"> *</span></label>
-                                  <input class="form-control" name="deskripsi_singkat" id="deskripsi_singkat" rows="3" value="<?php echo $pupuk['deskripsi_singkat']?>" required></input>
+                                  <label for="id_semprotan" class="form-label">Deskripsi Singkat<span style="color:red"> *</span></label>
+                                  <input class="form-control" name="deskripsi_singkat" id="deskripsi_singkat" rows="3" value="<?php echo $semprotan['deskripsi_singkat']?>" required></input>
                           </div>
                           <div class="mb-3">
                                 <label for="deskripsi_lengkap" class="form-label">Deskripsi Lengkap<span style="color:red"> *</span></label>
-                                <textarea class="form-control" name="detail_pupuk" id="detail_pupuk" rows="3"><?php echo $pupuk['detail_pupuk']?></textarea>
+                                <textarea class="form-control" name="detail_semprotan" id="detail_semprotan" rows="3"><?php echo $semprotan['detail_semprotan']?></textarea>
                           </div>
                       </div>
                       <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
@@ -326,28 +326,28 @@
                               <div class="mb-3">
                                   <label for="formFileSm" class="form-label">Gambar Utama<span style="color:red"> *</span></label>
                                   <input class="form-control form-control-sm" name="gambar_path_main" id="gambar_path_main" type="file" accept="image/*">
-                                  <?php if (!empty($pupuk['gambar_path_main'])): ?>
+                                  <?php if (!empty($semprotan['gambar_path_main'])): ?>
                                     <img style="height:150px" src="../../../../public/assets/img/bibit/<?php echo $bibit['gambar_path_main']; ?>" alt="Gambar Utama" class="img-thumbnail">
                                   <?php endif; ?>
                               </div>
                               <div class="mb-3">
                                   <label for="formFileSm" class="form-label">Gambar 1<span style="color:red"> *</span></label>
                                   <input class="form-control form-control-sm" name="gambar_path_1" id="gambar_path_1" type="file" accept="image/*">
-                                  <?php if (!empty($pupuk['gambar_path_1'])): ?>
+                                  <?php if (!empty($semprotan['gambar_path_1'])): ?>
                                     <img style="height:150px" src="../../../../public/assets/img/bibit/<?php echo $bibit['gambar_path_main']; ?>" alt="Gambar Utama" class="img-thumbnail">
                                   <?php endif; ?>
                               </div>
                               <div class="mb-3">
                                   <label for="formFileSm" class="form-label">Gambar 2</label>
                                   <input class="form-control form-control-sm" name="gambar_path_2" id="gambar_path_2" accept="image/*" type="file">
-                                  <?php if (!empty($pupuk['gambar_path_2'])): ?>
+                                  <?php if (!empty($semprotan['gambar_path_2'])): ?>
                                     <img style="height:150px" src="../../../../public/assets/img/bibit/<?php echo $bibit['gambar_path_main']; ?>" alt="Gambar Utama" class="img-thumbnail">
                                   <?php endif; ?>
                               </div>
                               <div class="mb-3">
                                   <label for="formFileSm" class="form-label">Gambar 3</label>
                                   <input class="form-control form-control-sm" name="gambar_path_3" id="gambar_path_3" accept="image/*" type="file">
-                                  <?php if (!empty($pupuk['gambar_path_3'])): ?>
+                                  <?php if (!empty($semprotan['gambar_path_3'])): ?>
                                     <img style="height:150px" src="../../../../public/assets/img/bibit/<?php echo $bibit['gambar_path_main']; ?>" alt="Gambar Utama" class="img-thumbnail">
                                   <?php endif; ?>
                               </div>
@@ -355,7 +355,7 @@
                       </div>
                       <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">...</div>
                       <div class="mt-2">
-                              <button type="submit" id="createPupuk" class="btn btn-success text-white" style="padding:8px; padding-right:40px; padding-left:40px; justify-content: center;align-items: center;">Edit pupuk</button>
+                              <button type="submit" id="createSemprotan" class="btn btn-success text-white" style="padding:8px; padding-right:40px; padding-left:40px; justify-content: center;align-items: center;">Edit semprotan</button>
                           </div>
                     </div>
                   </div>
@@ -395,7 +395,7 @@
    
     <script src="../../../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <script>
-      document.getElementById("createPupuk").addEventListener("submit", function(event) {
+      document.getElementById("createSemprotan").addEventListener("submit", function(event) {
           // Add your form submission logic here, for example, using AJAX to submit the form data asynchronously
           // Prevent the default form submission
           event.preventDefault();
@@ -404,7 +404,7 @@
             // Tambahkan parameter action=create untuk memanggil fungsi create
             formData.append('action', 'edit');
 
-            fetch("../../../../app/Http/Controllers/pupuk/editController.php", {
+            fetch("../../../../app/Http/Controllers/semprotan/editController.php", {
                 method: "POST",
                 body: formData,
             })
