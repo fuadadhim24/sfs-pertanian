@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Nov 2023 pada 02.44
+-- Waktu pembuatan: 23 Nov 2023 pada 05.40
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -48,7 +48,7 @@ CREATE TABLE `bibit` (
 --
 
 INSERT INTO `bibit` (`id_bibit`, `nama_bibit`, `harga`, `jumlah`, `deskripsi_singkat`, `deskripsi`, `jenis_tanah`, `cuaca`, `estimasi_panen`, `gambar_path_main`, `gambar_path_1`, `gambar_path_2`, `gambar_path_3`) VALUES
-(1, 'After Padi Pera', '85000', 5, 'Nasi bertekstur sedikit keras', 'Padi pera diproduksi dan populer di daerah Sumatera Barat dan Riau. Padi dengan kadar amilosa tinggi tak hanya dijadikan nasi, pun juga menjadi bahan utama pembuatan bihun dan tepung beras.', 'Tanah Gambur', 'Hujan Sedang', '3-5', 'IMG_5949.JPG', '', '', ''),
+(1, 'After Padi Pera', '85000', 5, 'Nasi bertekstur sedikit keras', 'Padi pera diproduksi dan populer di daerah Sumatera Barat dan Riau. Padi dengan kadar amilosa tinggi tak hanya dijadikan nasi, pun juga menjadi bahan utama pembuatan bihun dan tepung beras.', 'Tanah Gambur', 'Hujan Sedang', '3-5', 'padi pera.png', '', '', ''),
 (2, 'After Padi Gogo', '65000', 1, 'Tekstur nasi agak pulen', 'Padi gogo adalah jenis padi yang tidak ditanam di sawah seperti pada umumnya. Jenis padi ini ditanam di kebun atau di ladang. Kelebihan padi gogo adalah tidak memerlukan irigasi khusus. Daerah yang sering mengembangkan padi gogo adalah daerah tadah hujan, contohnya di Lombok.', 'Tanah Lempung', 'Hujan Tinggi', '4-5', 'IMG_5949.JPG', 'WhatsApp Image 2023-09-05 at 14.38.26.jpg', 'IMG_5949.JPG', '');
 
 -- --------------------------------------------------------
@@ -60,12 +60,19 @@ INSERT INTO `bibit` (`id_bibit`, `nama_bibit`, `harga`, `jumlah`, `deskripsi_sin
 CREATE TABLE `catatan_pemupukan` (
   `id_catatan_pemupukan` int(11) NOT NULL,
   `jenis_pemupukan` varchar(50) NOT NULL,
-  `deskripsi` text NOT NULL,
   `tanggal` datetime NOT NULL,
+  `jumlah_penggunaan` int(50) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_pupuk` int(11) NOT NULL,
   `id_sawah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `catatan_pemupukan`
+--
+
+INSERT INTO `catatan_pemupukan` (`id_catatan_pemupukan`, `jenis_pemupukan`, `tanggal`, `jumlah_penggunaan`, `id_user`, `id_pupuk`, `id_sawah`) VALUES
+(3, 'Pupuk Pertama', '2023-04-28 09:19:00', 20, 14, 2, 39);
 
 -- --------------------------------------------------------
 
@@ -76,12 +83,19 @@ CREATE TABLE `catatan_pemupukan` (
 CREATE TABLE `catatan_penyemprotan` (
   `id_catatan_penyemprotan` int(11) NOT NULL,
   `jenis_penyemprotan` varchar(50) NOT NULL,
-  `deskripsi` text NOT NULL,
   `tanggal` datetime NOT NULL,
+  `jumlah_penggunaan` int(50) NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_semprotan` int(11) NOT NULL,
   `id_sawah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `catatan_penyemprotan`
+--
+
+INSERT INTO `catatan_penyemprotan` (`id_catatan_penyemprotan`, `jenis_penyemprotan`, `tanggal`, `jumlah_penggunaan`, `id_user`, `id_semprotan`, `id_sawah`) VALUES
+(2, 'Penyemprotan Pertama', '2023-05-02 09:19:48', 10, 14, 2, 39);
 
 -- --------------------------------------------------------
 
@@ -91,12 +105,21 @@ CREATE TABLE `catatan_penyemprotan` (
 
 CREATE TABLE `catatan_semai` (
   `id_catatan_semai` int(11) NOT NULL,
-  `jenis` varchar(50) NOT NULL,
+  `jenis_semai` varchar(50) NOT NULL,
   `deskripsi` text NOT NULL,
   `tanggal` datetime NOT NULL,
   `id_user` int(11) NOT NULL,
   `id_sawah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `catatan_semai`
+--
+
+INSERT INTO `catatan_semai` (`id_catatan_semai`, `jenis_semai`, `deskripsi`, `tanggal`, `id_user`, `id_sawah`) VALUES
+(3, 'Persiapan Tempat', 'Ditentukan berdasarkan jadwal yaitu di rumah pak aben', '2023-03-14 09:14:38', 14, 39),
+(4, 'Pemilihan Media Semai', 'Memakai tray semai', '2023-03-17 09:15:33', 14, 39),
+(5, 'Proses Penyemaian', 'dilakukan penyemaian hari ini hingga 25 hari ke depan', '2023-11-23 03:16:34', 14, 39);
 
 -- --------------------------------------------------------
 
@@ -105,10 +128,19 @@ CREATE TABLE `catatan_semai` (
 --
 
 CREATE TABLE `detail_sawah` (
-  `id_detail_sawah` int(11) DEFAULT NULL,
+  `id_detail_sawah` int(11) NOT NULL,
   `id_sawah` int(11) NOT NULL,
-  `id_bibit` int(11) NOT NULL
+  `id_bibit` int(11) NOT NULL,
+  `tanggal_tanam` date NOT NULL,
+  `jumlah_benih` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `detail_sawah`
+--
+
+INSERT INTO `detail_sawah` (`id_detail_sawah`, `id_sawah`, `id_bibit`, `tanggal_tanam`, `jumlah_benih`) VALUES
+(2, 39, 1, '2023-04-05', 500);
 
 -- --------------------------------------------------------
 
@@ -121,8 +153,15 @@ CREATE TABLE `kualitas` (
   `rate_kualitas` int(11) NOT NULL,
   `catatan_kualitas` text NOT NULL,
   `id_user` int(11) NOT NULL,
-  `id_beras` int(11) NOT NULL
+  `id_detail_sawah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `kualitas`
+--
+
+INSERT INTO `kualitas` (`id_kualitas`, `rate_kualitas`, `catatan_kualitas`, `id_user`, `id_detail_sawah`) VALUES
+(3, 4, 'Memiliki kualitas bagus namun beberapa bulir beras tidak utuh', 14, 2);
 
 -- --------------------------------------------------------
 
@@ -149,7 +188,7 @@ CREATE TABLE `literasi` (
 
 INSERT INTO `literasi` (`id_literasi`, `bentuk_kategori`, `jenis`, `judul`, `tanggal`, `deskripsi`, `gambar_path_main`, `gambar_path_1`, `gambar_path_2`, `gambar_path_3`) VALUES
 (1, 'link_artikel_web/video/pdf', 'panduan_pemupukan', 'TUTORIAL PEMUPUKAN PADI Dari Awal-Akhir Untuk PETA', '2023-11-19', 'https://www.youtube.com/watch?v=8L0kKEHjWiQ', 'panduan pupuk.png', '', '', ''),
-(3, 'link_artikel_web/video/pdf', 'umum', 'judul cek', '2023-11-20', 'deskripsi cek', 'WhatsApp Image 2023-07-28 at 05.26.43.jpg', 'IMG_5946.JPG', '', '');
+(6, 'konten_text', '', 'cek judul', '2023-11-23', 'cek deskripsi', 'WIN_20230908_23_42_55_Pro.jpg', 'Fuad Adhim Al Hasan_Teknik Informatika.jpg', '', '');
 
 -- --------------------------------------------------------
 
@@ -164,9 +203,17 @@ CREATE TABLE `masa_panen` (
   `quest_3` varchar(50) NOT NULL,
   `quest_4` varchar(50) NOT NULL,
   `jumlah_panen` int(11) NOT NULL,
+  `tanggal_panen` date NOT NULL,
   `id_sawah` int(11) NOT NULL,
   `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `masa_panen`
+--
+
+INSERT INTO `masa_panen` (`id_masa_panen`, `quest_1`, `quest_2`, `quest_3`, `quest_4`, `jumlah_panen`, `tanggal_panen`, `id_sawah`, `id_user`) VALUES
+(2, 'true', 'true', 'true', 'true', 42, '2023-11-22', 39, 14);
 
 -- --------------------------------------------------------
 
@@ -213,7 +260,7 @@ CREATE TABLE `pupuk` (
 --
 
 INSERT INTO `pupuk` (`id_pupuk`, `nama_pupuk`, `harga`, `jumlah`, `kegunaan`, `detail_pupuk`, `deskripsi_singkat`, `gambar_path_main`, `gambar_path_1`, `gambar_path_2`, `gambar_path_3`) VALUES
-(1, 'Pupuk NPK', '50000', 3, 'Membantu menyuburkan tanaman, Meningkatkan PH tanah', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ', 'Membantu menyuburkan tanaman', 'cek', 'cek', 'cek', 'cek'),
+(1, 'Pupuk NPK', '55000', 3, 'Membantu menyuburkan tanaman, Meningkatkan PH tanah', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ', 'Menyuburkan tanaman', 'cek', 'cek', 'cek', ''),
 (2, 'Pupuk Kompos', '22000', 2, 'Meningkatkan PH', 'deskripsi lengkap 2', 'deskripsi singkat ', 'IMG_5950.JPG', 'IMG_5950.JPG', '', '');
 
 -- --------------------------------------------------------
@@ -228,7 +275,7 @@ CREATE TABLE `sawah` (
   `lokasi_sawah` text NOT NULL,
   `luas_sawah` int(11) NOT NULL,
   `deskripsi` text NOT NULL,
-  `created_by` enum('Admin','Petani') NOT NULL,
+  `id_user` int(11) NOT NULL,
   `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -236,8 +283,8 @@ CREATE TABLE `sawah` (
 -- Dumping data untuk tabel `sawah`
 --
 
-INSERT INTO `sawah` (`id_sawah`, `nama_sawah`, `lokasi_sawah`, `luas_sawah`, `deskripsi`, `created_by`, `created_at`) VALUES
-(36, 'Sawah Manggarai', 'LatLng(-8.265698, 113.660924)', 10, 'Sawah depan rumah pak Adi', 'Admin', '2023-11-16');
+INSERT INTO `sawah` (`id_sawah`, `nama_sawah`, `lokasi_sawah`, `luas_sawah`, `deskripsi`, `id_user`, `created_at`) VALUES
+(39, 'Sawah Manggarai', 'LatLng(-8.271064, 113.664534)', 2, 'Lokasi depan rumah pak Afif', 14, '2023-02-23');
 
 -- --------------------------------------------------------
 
@@ -259,6 +306,13 @@ CREATE TABLE `semprotan` (
   `gambar_path_3` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `semprotan`
+--
+
+INSERT INTO `semprotan` (`id_semprotan`, `nama_semprotan`, `harga`, `jumlah`, `kegunaan`, `detail_semprotan`, `deskripsi_singkat`, `gambar_path_main`, `gambar_path_1`, `gambar_path_2`, `gambar_path_3`) VALUES
+(2, 'Grass Booster', '78000', 3, 'Pembasmi Ilalang', 'Cara pakai :\nGunakan sarung tangan\nkocok sebelum digunakan\nSemprotkan secara merata\nSimpan di tempat aman\nCuci tangan setelah pemakaian', 'Pembasmi Ilalang', 'grass booster.png', 'grass booster 2.png', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -267,6 +321,7 @@ CREATE TABLE `semprotan` (
 
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
+  `oauth_uid` varchar(50) NOT NULL,
   `nama_depan` varchar(50) NOT NULL,
   `nama_belakang` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
@@ -275,6 +330,7 @@ CREATE TABLE `users` (
   `tanggal_lahir` date NOT NULL,
   `hak_akses` enum('Petani','Konsumen','Admin','') NOT NULL,
   `password` varchar(100) NOT NULL,
+  `last_login` datetime NOT NULL,
   `tanggal_daftar` date NOT NULL DEFAULT current_timestamp(),
   `gambar_path` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -283,8 +339,9 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id_user`, `nama_depan`, `nama_belakang`, `alamat`, `email`, `no_handphone`, `tanggal_lahir`, `hak_akses`, `password`, `tanggal_daftar`, `gambar_path`) VALUES
-(10, 'Alif', 'Firmansyah', 'Jl Kebonsari', 'admin@gmail.com', '082311723123', '1993-11-02', 'Admin', '$2y$10$zybleksOtnzNawMeo8IVZOZAythWOX7jNmflQQ.GLhonouib0aAjy', '2023-10-26', 'Fuad Adhim Al Hasan_Teknik Informatika.png');
+INSERT INTO `users` (`id_user`, `oauth_uid`, `nama_depan`, `nama_belakang`, `alamat`, `email`, `no_handphone`, `tanggal_lahir`, `hak_akses`, `password`, `last_login`, `tanggal_daftar`, `gambar_path`) VALUES
+(10, '', 'Alif', 'Firmansyah', 'Jl Kebonsari', 'admin@gmail.com', '082311723123', '1993-11-02', 'Admin', '$2y$10$zybleksOtnzNawMeo8IVZOZAythWOX7jNmflQQ.GLhonouib0aAjy', '0000-00-00 00:00:00', '2023-10-26', 'Fuad Adhim Al Hasan_Teknik Informatika.png'),
+(14, '', 'Fuad', 'Adhim', 'Jalan Kenanga', 'fuadadhim24@gmail.com', '087840199095', '2004-09-05', 'Petani', '$2y$10$zybleksOtnzNawMeo8IVZOZAythWOX7jNmflQQ.GLhonouib0aAjy', '2023-11-22 07:03:15', '2023-11-22', 'Fuad Adhim Al Hasan_Teknik Informatika.pnf');
 
 --
 -- Indexes for dumped tables
@@ -309,6 +366,7 @@ ALTER TABLE `catatan_pemupukan`
 -- Indeks untuk tabel `catatan_penyemprotan`
 --
 ALTER TABLE `catatan_penyemprotan`
+  ADD PRIMARY KEY (`id_catatan_penyemprotan`),
   ADD KEY `id_akun` (`id_user`,`id_semprotan`,`id_sawah`),
   ADD KEY `id_sawah` (`id_sawah`),
   ADD KEY `id_semprotan` (`id_semprotan`);
@@ -317,6 +375,7 @@ ALTER TABLE `catatan_penyemprotan`
 -- Indeks untuk tabel `catatan_semai`
 --
 ALTER TABLE `catatan_semai`
+  ADD PRIMARY KEY (`id_catatan_semai`),
   ADD KEY `id_akun` (`id_user`,`id_sawah`),
   ADD KEY `id_sawah` (`id_sawah`);
 
@@ -324,6 +383,7 @@ ALTER TABLE `catatan_semai`
 -- Indeks untuk tabel `detail_sawah`
 --
 ALTER TABLE `detail_sawah`
+  ADD PRIMARY KEY (`id_detail_sawah`),
   ADD KEY `id_sawah` (`id_sawah`,`id_bibit`),
   ADD KEY `id_bibit` (`id_bibit`);
 
@@ -332,8 +392,9 @@ ALTER TABLE `detail_sawah`
 --
 ALTER TABLE `kualitas`
   ADD PRIMARY KEY (`id_kualitas`),
-  ADD KEY `id_akun` (`id_user`,`id_beras`),
-  ADD KEY `id_beras` (`id_beras`);
+  ADD KEY `id_akun` (`id_user`,`id_detail_sawah`),
+  ADD KEY `id_beras` (`id_detail_sawah`),
+  ADD KEY `id_sawah` (`id_detail_sawah`);
 
 --
 -- Indeks untuk tabel `literasi`
@@ -367,7 +428,8 @@ ALTER TABLE `pupuk`
 -- Indeks untuk tabel `sawah`
 --
 ALTER TABLE `sawah`
-  ADD PRIMARY KEY (`id_sawah`);
+  ADD PRIMARY KEY (`id_sawah`),
+  ADD KEY `id_user` (`id_user`);
 
 --
 -- Indeks untuk tabel `semprotan`
@@ -395,25 +457,43 @@ ALTER TABLE `bibit`
 -- AUTO_INCREMENT untuk tabel `catatan_pemupukan`
 --
 ALTER TABLE `catatan_pemupukan`
-  MODIFY `id_catatan_pemupukan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_catatan_pemupukan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `catatan_penyemprotan`
+--
+ALTER TABLE `catatan_penyemprotan`
+  MODIFY `id_catatan_penyemprotan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `catatan_semai`
+--
+ALTER TABLE `catatan_semai`
+  MODIFY `id_catatan_semai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `detail_sawah`
+--
+ALTER TABLE `detail_sawah`
+  MODIFY `id_detail_sawah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `kualitas`
 --
 ALTER TABLE `kualitas`
-  MODIFY `id_kualitas` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kualitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `literasi`
 --
 ALTER TABLE `literasi`
-  MODIFY `id_literasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_literasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `masa_panen`
 --
 ALTER TABLE `masa_panen`
-  MODIFY `id_masa_panen` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_masa_panen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `produk_beras`
@@ -431,19 +511,19 @@ ALTER TABLE `pupuk`
 -- AUTO_INCREMENT untuk tabel `sawah`
 --
 ALTER TABLE `sawah`
-  MODIFY `id_sawah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_sawah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT untuk tabel `semprotan`
 --
 ALTER TABLE `semprotan`
-  MODIFY `id_semprotan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_semprotan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -484,7 +564,7 @@ ALTER TABLE `detail_sawah`
 --
 ALTER TABLE `kualitas`
   ADD CONSTRAINT `kualitas_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
-  ADD CONSTRAINT `kualitas_ibfk_2` FOREIGN KEY (`id_beras`) REFERENCES `produk_beras` (`id_beras`);
+  ADD CONSTRAINT `kualitas_ibfk_2` FOREIGN KEY (`id_detail_sawah`) REFERENCES `detail_sawah` (`id_detail_sawah`);
 
 --
 -- Ketidakleluasaan untuk tabel `masa_panen`
@@ -498,6 +578,12 @@ ALTER TABLE `masa_panen`
 --
 ALTER TABLE `produk_beras`
   ADD CONSTRAINT `produk_beras_ibfk_2` FOREIGN KEY (`id_sawah`) REFERENCES `sawah` (`id_sawah`);
+
+--
+-- Ketidakleluasaan untuk tabel `sawah`
+--
+ALTER TABLE `sawah`
+  ADD CONSTRAINT `sawah_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

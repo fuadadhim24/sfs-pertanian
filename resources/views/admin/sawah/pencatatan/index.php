@@ -344,8 +344,6 @@ if (isset($_GET['id'])) {
                       </div>
                     </div>
               </div>
-              
-              
             </div>
             
           </div>
@@ -537,6 +535,8 @@ if (isset($_GET['id'])) {
             </div>
             
           </div>
+        </div>
+      </div>
           
           
       <footer class="footer">
