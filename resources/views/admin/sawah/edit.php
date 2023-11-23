@@ -306,7 +306,7 @@
                                       $id = $_GET['id'];
 
                                       // Query untuk mengambil data sawah berdasarkan ID
-                                      $query = "SELECT * FROM sawah WHERE id_sawah = $id";
+                                      $query = "SELECT * FROM sawah JOIN users ON users.id_user=sawah.id_user WHERE id_sawah = $id";
                                       $result = mysqli_query($conn, $query);
                                       $sawah = mysqli_fetch_array($result);
 
@@ -335,6 +335,26 @@
                                           <div class="mb-3">
                                               <label class="form-label">Tanggal Pengadaan</label>
                                               <input style="padding-bottom: 5px" type="date" class="form-control" name="created_at" id="created_at" rows="3" value="<?php echo $sawah['created_at']?>" required></input>
+                                          </div>
+                                          <div class="mb-3">
+                                              <label class="form-label">Nama Petani</label>
+                                              <input type="hidden" class="form-control" name="id_user" id="nama_sawah" rows="3" required></input>
+                                              <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_user" id="id_user" required>
+                                                <option value="<?php echo $sawag['id_user']; ?>" selected><?php echo $sawah['nama_depan']; ?></option>
+                                                <?php 
+                                                  include_once '../../../../config/database.php';
+                                                  $query = "SELECT * FROM users WHERE users.hak_akses='Petani'";
+
+                                                  $result = mysqli_query($conn, $query);
+
+                                                  // Ganti fetch menjadi fetch_assoc untuk mendapatkan associative array
+                                                  while ($user = mysqli_fetch_array($result)) {
+                                                  ?>
+                                                      <option value="<?php echo $user['id_user']; ?>"><?php echo $user['nama_depan']; ?></option>
+                                                  <?php 
+                                                  }
+                                                ?>
+                                              </select>
                                           </div>
                                           <div class="mt-2">
                                               <button type="submit" id="createLokasi" class="btn btn-success text-white" style="padding:8px; padding-right:40px; padding-left:40px; justify-content: center;align-items: center;">Edit Sawah</button>

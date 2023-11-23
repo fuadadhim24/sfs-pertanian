@@ -302,6 +302,26 @@
                                               <label class="form-label">Luas Sawah <label style='font-size:smaller;'>/hektar</label></label>
                                               <input class="form-control" name="luas_sawah" id="luas_sawah" rows="3" required></input>
                                           </div>
+                                          <div class="mb-3">
+                                              <label class="form-label">Nama Petani</label>
+                                              <input type="hidden" class="form-control" name="id_user" id="nama_sawah" rows="3" required></input>
+                                              <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="id_user" id="id_user" required>
+                                                <option selected disabled>Pilih petani sebagai kontrol aktivitas</option>
+                                                <?php 
+                                                  include_once '../../../../config/database.php';
+                                                  $query = "SELECT * FROM users WHERE users.hak_akses='Petani'";
+
+                                                  $result = mysqli_query($conn, $query);
+
+                                                  // Ganti fetch menjadi fetch_assoc untuk mendapatkan associative array
+                                                  while ($user = mysqli_fetch_array($result)) {
+                                                  ?>
+                                                      <option value="<?php echo $user['id_user']; ?>"><?php echo $user['nama_depan']; ?></option>
+                                                  <?php 
+                                                  }
+                                                ?>
+                                              </select>
+                                          </div>
                                           <div class="mt-2">
                                               <button type="submit" id="createLokasi" class="btn btn-success text-white" style="padding:8px; padding-right:40px; padding-left:40px; justify-content: center;align-items: center;">Tambah Sawah</button>
                                           </div>

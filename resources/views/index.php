@@ -1,3 +1,32 @@
+<!-- <?php
+
+            // require_once '../../vendor/autoload.php';
+
+            // //menampung client id, client secret dan redirect uri
+            // $client_id='257712218696-7qu4d9dekltst8r6rhmedp42fsq5e5a6.apps.googleusercontent.com';
+            // $sclient_secret='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';
+            // $redirect_uri='http://localhost/project/sfs-petanian/resources/views/index.php';
+
+            // // inisiasi googllle client
+            // $client = new Google_Client();
+
+            // // konfigurasi google client
+            // $client->setClientId($client_id);
+            // $client->setClientSecret($sclient_secret);
+            // $client->setRedirectUri($redirect_uri);  
+            
+
+            // $client->addScope("email");
+            // $client->addScope("profile");
+
+            // if(isset($_GET['code'])){
+            //   $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
+            //   echo "<pre>";
+            //   print_r($token);
+            //   echo "</pre>";
+            // }
+            
+            ?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,9 +82,13 @@
             <div style="color:#FFFFFF;">
               <p>atau</p>
             </div>
-            <div class="google-login" style="margin-top:10px">
-                <button style="border-radius: 10px;background-color: white" onclick="loginWithGoogle()">Login dengan akun Google</button>
-            </div>
+            
+            
+            <!-- echo $client->createAuthUrl(); -->
+            <a style="margin-top:10px" href="">
+              <img src="../../public/assets/img/auth/btn_signIn_google.png" alt="Button Sign In Google"
+            </a>
+            
         </div>
       </div>
     </div>
@@ -116,7 +149,7 @@
           <div class="content col-xl-5 d-flex align-items-stretch" data-aos="fade-up">
             <div class="content" >
               <h1>PadiTrace</h1>
-              <h10 style="margin-top:20px; color: black;">Sistem jejak pertanian padi untuk petani mandiri. Memberdayakan petani dengan sistem pelacakan pertanian yang mudah.</h10>
+              <h10 style="margin-top:20px; color: green;">Sistem jejak pertanian padi untuk petani mandiri. Memberdayakan petani dengan sistem pelacakan pertanian yang mudah.</h10>
               <p></p>
               <h7 style="padding:5px 20px; background: rgba(255, 255, 255, 0.28); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(13.1px); -webkit-backdrop-filter: blur(13.1px); border: 1px solid rgba(255, 255, 255, 0.3);"><a href="#" class="about-btn">Scan QR Produk Beras<i class="bx bx-chevron-right"></i></a></h7>
             </div>
@@ -706,6 +739,20 @@
             });
         });
     </script>
+
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          const authButtons = document.querySelectorAll('authBtn');
+
+          authButtons.forEach(button => {
+              button.addEventListener('click', function () {
+                  // Assuming $client is a PHP object available in the current context
+                  window.location.href = "<?php echo $client->createAuthUrl(); ?>";
+              });
+          });
+      });
+  </script>
+
 
 </body>
 

@@ -283,16 +283,16 @@
                     <th>Lokasi</th>
                     <th>Luas</th>
                     <th>Deskripsi</th>
-                    <th>Dibuat Oleh</th>
-                    <th>Tanggal Terdaftar</th>
-                    <th>Action</th>
+                    <th>Nama Petani</th>
+                    <th style="text-align: center" width="10%">Terdaftar</th>
+                    <th style="text-align: center">Action</th>
                 </tr>
             </thead>
             <tbody>
             <?php
             include_once '../../../../config/database.php';
             $no = 1;
-            $result = mysqli_query($conn, "SELECT * FROM sawah");
+            $result = mysqli_query($conn, "SELECT * FROM sawah JOIN users ON users.id_user=sawah.id_user;");
             while ($sawah = mysqli_fetch_array($result)) {
                 echo "<tr>";
                 echo "<td>{$no}</td>";
@@ -300,7 +300,7 @@
                 echo "<td>{$sawah['lokasi_sawah']}</td>";
                 echo "<td>{$sawah['luas_sawah']}</td>";
                 echo "<td>{$sawah['deskripsi']}</td>";
-                echo "<td>{$sawah['created_by']}</td>";
+                echo "<td>{$sawah['nama_depan']}</td>";
                 echo "<td>{$sawah['created_at']}</td>";
                 echo "<td>
                     <button type='button' class='btn btn-danger btn-with-icon' id='deleteBtn{$sawah['id_sawah']}' data-id='{$sawah['id_sawah']}'>

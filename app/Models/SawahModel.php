@@ -34,27 +34,27 @@ class SawahModel
         }
     }
 
-    public function createSawah($nama_sawah, $lokasi_sawah, $luas_sawah, $deskripsi, $created_by, $created_at) {
-        $stmt = $this->conn->prepare("INSERT INTO `sawah` (`id_sawah`, `nama_sawah`, `lokasi_sawah`, `luas_sawah`,`deskripsi`, `created_by`, `created_at`) VALUES (NULL, ?, ?, ?, ?, ?, ?)");
+    public function createSawah($nama_sawah, $lokasi_sawah, $luas_sawah, $deskripsi, $id_user, $created_at) {
+        $stmt = $this->conn->prepare("INSERT INTO `sawah` (`id_sawah`, `nama_sawah`, `lokasi_sawah`, `luas_sawah`,`deskripsi`, `id_user`, `created_at`) VALUES (NULL, ?, ?, ?, ?, ?, ?)");
         
         if (!$stmt) {
             return false; // Kembalikan false jika gagal mempersiapkan pernyataan SQL
         }
 
-        $stmt->bind_param("ssssss", $nama_sawah, $lokasi_sawah, $luas_sawah, $deskripsi, $created_by, $created_at);
+        $stmt->bind_param("ssssss", $nama_sawah, $lokasi_sawah, $luas_sawah, $deskripsi, $id_user, $created_at);
         $result = $stmt->execute();
         $stmt->close();
 
         return $result;
     }
-    public function editSawah($id, $nama_sawah, $lokasi_sawah, $deskripsi, $created_by, $created_at) {
-        $stmt = $this->conn->prepare("UPDATE `sawah` SET `nama_sawah`=?, `lokasi_sawah`=?, `deskripsi`=?, `created_by`=?, `created_at`=? WHERE `id_sawah`=?");
+    public function editSawah($id, $nama_sawah, $lokasi_sawah, $deskripsi, $id_user, $created_at) {
+        $stmt = $this->conn->prepare("UPDATE `sawah` SET `nama_sawah`=?, `lokasi_sawah`=?, `deskripsi`=?, `id_user`=?, `created_at`=? WHERE `id_sawah`=?");
     
         if (!$stmt) {
             return false;
         }
     
-        $stmt->bind_param("ssssss", $nama_sawah, $lokasi_sawah, $deskripsi, $created_by, $created_at, $id);
+        $stmt->bind_param("ssssss", $nama_sawah, $lokasi_sawah, $deskripsi, $id_user, $created_at, $id);
         $result = $stmt->execute();
         $stmt->close();
     

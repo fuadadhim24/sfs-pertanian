@@ -9,12 +9,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nama_sawah = $_POST['nama_sawah'];
     $deskripsi = $_POST['deskripsi'];
     $created_at = $_POST['created_at'];
-    $created_by = "Admin";
+    $id_user = $_POST['id_user'];
 
     $sawahModel = new SawahModel($conn);
         if (!empty($lokasi_sawah)) {
 
-        if ($sawahModel->createSawah($nama_sawah, $lokasi_sawah, $luas_sawah, $deskripsi, $created_by, $created_at)) {
+        if ($sawahModel->createSawah($nama_sawah, $lokasi_sawah, $luas_sawah, $deskripsi, $id_user, $created_at)) {
             // Pendaftaran berhasil
             $response = array(
                 'success' => true,
