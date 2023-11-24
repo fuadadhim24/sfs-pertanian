@@ -158,9 +158,8 @@ if (isset($_GET['id'])) {
                                       if ($sawah) { echo $sawah['nama_sawah'];}
                                       } else {echo "Tidak Ada Data Sawah Yang Dipilih!";}?>
                   </div>
-                  
                 </div>
-                <a href="./create.php"  class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;">Buat QR Code Produk</a>
+                <a href="./create.php"  class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;"><img width="20px" style="margin-right:5px" src="../../../public/assets/icons/qr-code-icon.png"/>Cetak QR Code</a>
               </div>
               <div style="margin-top:20px">
                     <div class="card mb-3" style="justify-content: center; align-content:center: center; max-height: 350px;">

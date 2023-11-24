@@ -114,24 +114,55 @@
     />
   </head>
   <body>
+    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+      <div class="sidebar-brand d-none d-md-flex">
+        <img src="../../../public/assets/brand/logo-brand.png" width="80"/>
+      </div>
+      <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
+        <li class="nav-item"><a class="nav-link" href="#">
+            <svg class="nav-icon">
+              <use xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-speedometer"></use>
+            </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">UTAMA</span></a></li>
+        <li class="nav-title">Manajemen</li>
+        <li class="nav-item"><a class="nav-link" href="sawah/index.php">
+            <svg class="nav-icon">
+              <use xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-layers"></use>
+            </svg> Sawah</a></li>
+        <li class="nav-item"><a class="nav-link" href="auth/index.php">
+            <svg class="nav-icon">
+              <use xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-people"></use>
+            </svg> Akun</a></li>
+        <li class="nav-title">Pengembangan</li>
+        <li class="nav-item"><a class="nav-link" href="literasi/index.php">
+            <svg class="nav-icon">
+              <use xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-book"></use>
+            </svg> Literasi</a></li>
+        <li class="nav-title">Pengadaan</li>
+        <li class="nav-item"><a class="nav-link" href="bibit/index.php">
+            <svg class="nav-icon">
+              <use xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-eco"></use>
+            </svg> Bibit</a></li>
+        <li class="nav-item"><a class="nav-link" href="semprotan/index.php">
+            <svg class="nav-icon">
+              <use xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-drop"></use>
+            </svg> Semprotan</a></li>
+        <li class="nav-item"><a class="nav-link" href="pupuk/index.php">
+            <svg class="nav-icon">
+              <use xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-storage"></use>
+            </svg> Pupuk</a></li>
+      </ul>
+      <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
+    </div>
     <div class="wrapper d-flex flex-column min-vh-100 bg-light">
-      <header class="header header-sticky mb-4">
-        <div class="container-fluid" >
-          <button
-            class="header-toggler px-md-0 me-md-3"
-            type="button"
-            onclick=""
-          >
-          </button>
-          <ul class="header-nav d-none d-md-flex">
-            <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
-            <li class="nav-item"><a class="nav-link" href="sawah/index.php">Sawah</a></li>
-            <li class="nav-item"><a class="nav-link" href="bibit/index.php">Bibit</a></li>
-            <li class="nav-item"><a class="nav-link" href="pupuk/index.php">Pupuk</a></li>
-            <li class="nav-item"><a class="nav-link" href="Semprotan/index.php">Semprotan</a></li>
-            <li class="nav-item"><a class="nav-link" href="literasi/index.php">Literasi</a></li>
-            <li class="nav-item"><a class="nav-link" href="user/index.php">Akun</a></li>
-          </ul>
+      <header class="header header-sticky mb-3">  
+        <div class="container-fluid">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb my-0 ms-2">
+              <li class="breadcrumb-item">
+                <!-- if breadcrumb is single--><span>Dashboard</span>
+              </li>
+            </ol>
+          </nav>
           <ul class="header-nav ms-3">
             <li class="nav-item dropdown">
               <a
@@ -242,92 +273,77 @@
               </div>
             </li>
           </ul>
-        </div>
-        <div class="header-divider"></div>
-        <div class="container-fluid"style="height:2px; font-size:11px">
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb my-0 ms-2">
-              <li class="breadcrumb-item">
-                <!-- if breadcrumb is single--><span>Home</span>
-              </li>
-              <li class="breadcrumb-item active"><span>Dashboard</span></li>
-            </ol>
-          </nav>
         </div> 
       </header>
       <div class="body flex-grow-1 px-3">
         <div class="container-lg">
           <div class="row">
             <div class="col-sm-6 col-lg-3">
-              <div class="card mb-4 text-white bg-primary">
+              <div class="card mb-4 text-black" style="padding-bottom:15px ;background-color:#ffffff">
                 <div class="card-body pb-0 d-flex justify-content-between align-items-start">
                   <div>
-                    <div class="fs-4 fw-semibold">
+                    <div class="fw-semibold">Jumlah Produk</div>
+                    <div class="fs-1 fw-semibold">
                       50
                       <span class="fs-6 fw-normal"
                         >(pcs)</span>
                     </div>
-                    <div>Jumlah Produk</div>
+                    
                   </div>
-                </div>
-                <div class="c-chart-wrapper mt-3 mx-3" style="height: 70px">
-                  <canvas class="chart" id="card-chart1" height="70"></canvas>
                 </div>
               </div>
             </div>
             <!-- /.col-->
             <div class="col-sm-6 col-lg-3">
-              <div class="card mb-4 text-white bg-info">
+              <div class="card mb-4 text-black" style="padding-bottom:15px ;background-color:#5EEB5B">
                 <div
                   class="card-body pb-0 d-flex justify-content-between align-items-start"
                 >
+                
                   <div>
-                    <div class="fs-4 fw-semibold">
+                  <div class="fw-semibold">Sawah</div>
+                    <div class="fs-1 fw-semibold">
                       20
                       <span class="fs-6 fw-normal"
                         >(titik lokasi)</span
                       >
                     </div>
-                    <div>Sawah</div>
+                    
                   </div>
-                </div>
-                <div class="c-chart-wrapper mt-3 mx-3" style="height: 70px">
-                  <canvas class="chart" id="card-chart2" height="70"></canvas>
                 </div>
               </div>
             </div>
             <!-- /.col-->
             <div class="col-sm-6 col-lg-3">
-              <div class="card mb-4 text-white bg-warning">
+              <div class="card mb-4 text-black bg-warning" style="padding-bottom:15px ;">
                 <div
                   class="card-body pb-0 d-flex justify-content-between align-items-start"
                 >
                   <div>
-                    <div class="fs-4 fw-semibold">
+                    <div class="fw-semibold">Jenis Bibit</div>
+                    <div class="fs-1 fw-semibold">
                       30
                       <span class="fs-6 fw-normal"
                         >(varian)
                       </span>
                     </div>
-                    <div>Jenis Bibit</div>
+                    
                   </div>
-                </div>
-                <div class="c-chart-wrapper mt-3" style="height: 70px">
-                  <canvas class="chart" id="card-chart3" height="70"></canvas>
                 </div>
               </div>
             </div>
             <!-- /.col-->
             <div class="col-sm-6 col-lg-3">
-              <div class="card mb-4 text-white bg-danger">
+              <div class="card mb-4 text-black" style="padding-bottom:15px ;background-color:#62ab37">
                 <div class="card-body pb-0 d-flex justify-content-between align-items-start">
                   <div>
-                    <div class="fs-4 fw-semibold">
+                    <div class="fw-semibold">Jumlah Akun</div>
+                    <div class="fs-1 fw-semibold">
                       7
                       <span class="fs-6 fw-normal">(petani)
                       </span>
                     </div>
-                    <div>Jumlah Akun</div>
+                    
                   </div>
                   <div class="dropdown">
                     <button
@@ -350,149 +366,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="c-chart-wrapper mt-3 mx-3" style="height: 70px">
-                  <canvas class="chart" id="card-chart4" height="70"></canvas>
-                </div>
               </div>
             </div>
             <!-- /.col-->
           </div>
           <!-- /.row-->
           <div class="card mb-4">
-            <div class="card-body">
-              <div class="d-flex justify-content-between">
-                <div>
-                  <h4 class="card-title mb-0">Traffic</h4>
-                  <div class="small text-medium-emphasis">
-                    January - July 2022
-                  </div>
-                </div>
-                <div
-                  class="btn-toolbar d-none d-md-block"
-                  role="toolbar"
-                  aria-label="Toolbar with buttons"
-                >
-                  <div
-                    class="btn-group btn-group-toggle mx-3"
-                    data-coreui-toggle="buttons"
-                  >
-                    <input
-                      class="btn-check"
-                      id="option1"
-                      type="radio"
-                      name="options"
-                      autocomplete="off"
-                    />
-                    <label class="btn btn-outline-secondary"> Day</label>
-                    <input
-                      class="btn-check"
-                      id="option2"
-                      type="radio"
-                      name="options"
-                      autocomplete="off"
-                      checked=""
-                    />
-                    <label class="btn btn-outline-secondary active">
-                      Month</label
-                    >
-                    <input
-                      class="btn-check"
-                      id="option3"
-                      type="radio"
-                      name="options"
-                      autocomplete="off"
-                    />
-                    <label class="btn btn-outline-secondary"> Year</label>
-                  </div>
-                  <button class="btn btn-primary" type="button">
-                    <svg class="icon">
-                      <use
-                        xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-cloud-download"
-                      ></use>
-                    </svg>
-                  </button>
-                </div>
-              </div>
-              <div
-                class="c-chart-wrapper"
-                style="height: 300px; margin-top: 40px"
-              >
-                <canvas class="chart" id="main-chart" height="300"></canvas>
-              </div>
-            </div>
-            <div class="card-footer">
-              <div class="row row-cols-1 row-cols-md-5 text-center">
-                <div class="col mb-sm-2 mb-0">
-                  <div class="text-medium-emphasis">Visits</div>
-                  <div class="fw-semibold">29.703 Users (40%)</div>
-                  <div class="progress progress-thin mt-2">
-                    <div
-                      class="progress-bar bg-success"
-                      role="progressbar"
-                      style="width: 40%"
-                      aria-valuenow="40"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-                <div class="col mb-sm-2 mb-0">
-                  <div class="text-medium-emphasis">Unique</div>
-                  <div class="fw-semibold">24.093 Users (20%)</div>
-                  <div class="progress progress-thin mt-2">
-                    <div
-                      class="progress-bar bg-info"
-                      role="progressbar"
-                      style="width: 20%"
-                      aria-valuenow="20"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-                <div class="col mb-sm-2 mb-0">
-                  <div class="text-medium-emphasis">Pageviews</div>
-                  <div class="fw-semibold">78.706 Views (60%)</div>
-                  <div class="progress progress-thin mt-2">
-                    <div
-                      class="progress-bar bg-warning"
-                      role="progressbar"
-                      style="width: 60%"
-                      aria-valuenow="60"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-                <div class="col mb-sm-2 mb-0">
-                  <div class="text-medium-emphasis">New Users</div>
-                  <div class="fw-semibold">22.123 Users (80%)</div>
-                  <div class="progress progress-thin mt-2">
-                    <div
-                      class="progress-bar bg-danger"
-                      role="progressbar"
-                      style="width: 80%"
-                      aria-valuenow="80"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-                <div class="col mb-sm-2 mb-0">
-                  <div class="text-medium-emphasis">Bounce Rate</div>
-                  <div class="fw-semibold">40.15%</div>
-                  <div class="progress progress-thin mt-2">
-                    <div
-                      class="progress-bar"
-                      role="progressbar"
-                      style="width: 40%"
-                      aria-valuenow="40"
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
-                </div>
-              </div>
+            <div class="card-body" style="height:500px">
+              
             </div>
           </div>
           <!-- /.card.mb-4-->
@@ -1534,15 +1415,12 @@
         </div>
       </div>
       <footer class="footer">
-        <div>
-          <a href="https://coreui.io">CoreUI </a
-          ><a href="https://coreui.io">Bootstrap Admin Template</a> © 2023
-          creativeLabs.
-        </div>
-        <div class="ms-auto">
-          Powered by&nbsp;<a href="https://coreui.io/docs/"
-            >CoreUI UI Components</a
-          >
+        <div style="text-align:right">
+            <div>
+              Powered by&nbsp;<a href="#"
+                >NexGen Team.</a
+              >
+            </div>
         </div>
       </footer>
     </div>

@@ -451,7 +451,7 @@
                   Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="../../public/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                <!-- <img src="../../public/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt=""> -->
                 <h3>Saul Goodman</h3>
                 <h4>Ceo &amp; Founder</h4>
               </div>
@@ -464,7 +464,7 @@
                   Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="../../public/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
+                <!-- <img src="../../public/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt=""> -->
                 <h3>Sara Wilsson</h3>
                 <h4>Designer</h4>
               </div>
@@ -477,7 +477,7 @@
                   Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="../../public/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                <!-- <img src="../../public/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt=""> -->
                 <h3>Jena Karlis</h3>
                 <h4>Store Owner</h4>
               </div>
@@ -490,7 +490,7 @@
                   Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="../../public/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
+                <!-- <img src="../../public/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt=""> -->
                 <h3>Matt Brandon</h3>
                 <h4>Freelancer</h4>
               </div>
@@ -503,7 +503,7 @@
                   Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="../../public/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
+                <!-- <img src="../../public/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt=""> -->
                 <h3>John Larson</h3>
                 <h4>Entrepreneur</h4>
               </div>
@@ -529,8 +529,8 @@
           <div class="col-lg-6">
             <div class="info-box mb-4">
               <i class="bx bx-map"></i>
-              <h3>Our Address</h3>
-              <p>A108 Adam Street, New York, NY 535022</p>
+              <h3>Alamat Kami</h3>
+              <p>Jenggawah, Jember</p>
             </div>
           </div>
 
@@ -538,15 +538,15 @@
             <div class="info-box  mb-4">
               <i class="bx bx-envelope"></i>
               <h3>Email Us</h3>
-              <p>contact@example.com</p>
+              <p>jejakPadi@gmail.com</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6">
             <div class="info-box  mb-4">
               <i class="bx bx-phone-call"></i>
-              <h3>Call Us</h3>
-              <p>+1 5589 55488 55</p>
+              <h3>Hubungi Kami</h3>
+              <p>+62 878 4019 9095</p>
             </div>
           </div>
 
@@ -601,10 +601,9 @@
               <h3>SFS - Pertanian</h3>
               <p class="pb-3"><em>Qui repudiandae et eum dolores alias sed ea. Qui suscipit veniam excepturi quod.</em></p>
               <p>
-                A108 Adam Street <br>
-                NY 535022, USA<br><br>
-                <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+              Jenggawah, Jember<br><br>
+                <strong>Phone:</strong> +62 878 4019 9095<br>
+                <strong>Email:</strong> jejakpadi@gmail.com<br>
               </p>
               <div class="social-links mt-3">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
@@ -653,14 +652,10 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>Squadfree</span></strong>. All Rights Reserved
+        &copy; Build by <strong><span>Politeknik Negeri Jember</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/squadfree-free-bootstrap-template-creative/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://bootstrapmade.com/">NexGen Team</a>
       </div>
     </div>
   </footer><!-- End Footer -->
