@@ -1,32 +1,12 @@
-<!-- <?php
-
-            // require_once '../../vendor/autoload.php';
-
-            // //menampung client id, client secret dan redirect uri
-            // $client_id='257712218696-7qu4d9dekltst8r6rhmedp42fsq5e5a6.apps.googleusercontent.com';
-            // $sclient_secret='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';
-            // $redirect_uri='http://localhost/project/sfs-petanian/resources/views/index.php';
-
-            // // inisiasi googllle client
-            // $client = new Google_Client();
-
-            // // konfigurasi google client
-            // $client->setClientId($client_id);
-            // $client->setClientSecret($sclient_secret);
-            // $client->setRedirectUri($redirect_uri);  
-            
-
-            // $client->addScope("email");
-            // $client->addScope("profile");
-
-            // if(isset($_GET['code'])){
-            //   $token = $client->fetchAccessTokenWithAuthCode($_GET['code']);
-            //   echo "<pre>";
-            //   print_r($token);
-            //   echo "</pre>";
-            // }
-            
-            ?> -->
+<?php
+                  include_once '../../config/database.php';
+                  $no = 1;
+                  $result = mysqli_query($conn, "SELECT
+                    (SELECT COUNT(id_user) FROM users) AS jumlah_users,
+                    (SELECT COUNT(id_beras) FROM produk_beras) AS jumlah_beras,
+                    (SELECT COUNT(id_literasi) FROM literasi) as jumlah_literasi;
+                  ");
+                  $data = mysqli_fetch_array($result)?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +14,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>PadiTrace | Sistem Ketelusuran Pertanian</title>
+  <title>JejakPadi | Sistem Ketelusuran Pertanian</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -108,8 +88,9 @@
         <ul>
           <li><a id="beranda" class="nav-link scrollto active" href="#hero">Beranda</a></li>
           <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
+          <li><a class="nav-link scrollto" href="#scan">Scan QR Code</a></li>
           <li><a class="nav-link scrollto" href="#portfolio">Dokumentasi</a></li>
-          <li class="dropdown"><a href="#"><span>Literasi</span> <i class="bi bi-chevron-down"></i></a>
+          <!-- <li class="dropdown"><a href="#"><span>Literasi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
             <li class="dropdown"><a href="#"><span>Pra Tanam</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
@@ -129,10 +110,9 @@
               </li>
               <li><a href="#">Pasca Tanam</a></li>
             </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          </li> -->
+          <li><a class="nav-link scrollto" href="#contact">Kontak</a></li>
           <li><a class="nav-link scrollto" href="#">Unduh App</a></li>
-          <li><a class="nav-link scrollto" href="#scan">SCAN QR</a></li>
           <li><a id="one" class="nav-link scrollto login button" href="#hero" >Masuk</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -146,16 +126,18 @@
     <div class="hero-container" data-aos="fade-up">
       <div class="container-transparent">
         <div class="row no-gutters">
-          <div class="content col-xl-5 d-flex align-items-stretch" data-aos="fade-up">
+          <div class="content col-xl-7 d-flex align-items-stretch" data-aos="fade-up">
             <div class="content" >
-              <h1>PadiTrace</h1>
-              <h10 style="margin-top:20px; color: green;">Sistem jejak pertanian padi untuk petani mandiri. Memberdayakan petani dengan sistem pelacakan pertanian yang mudah.</h10>
+              <h1>JejakPadi</h1>
+              <h10 style="margin-top:20px; ">Sistem jejak pertanian padi untuk petani mandiri. Memberdayakan petani dengan sistem pelacakan pertanian yang mudah.</h10>
               <p></p>
               <h7 style="padding:5px 20px; background: rgba(255, 255, 255, 0.28); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(13.1px); -webkit-backdrop-filter: blur(13.1px); border: 1px solid rgba(255, 255, 255, 0.3);"><a href="#" class="about-btn">Scan QR Produk Beras<i class="bx bx-chevron-right"></i></a></h7>
             </div>
           </div>
-          
+          <div class="col-xl-7 d-flex align-items-stretch">
+          </div>  
         </div>
+        
       </div>
       <!-- <h1>PadiTrace</h1>
       <h2>Sistem Jejak Pertanian Padi untuk Petani Mandiri. Memberdayakan Petani dengan Sistem Pelacakan Pertanian yang Mudah</h2> -->
@@ -172,7 +154,7 @@
         <div class="row no-gutters">
           <div class="content col-xl-5 d-flex align-items-stretch" data-aos="fade-up">
             <div class="content">
-              <h3>Penacatatan waktunya beralih ke digital</h3>
+              <h3>Pencatatan waktunya beralih ke digital</h3>
               <p>
                 Petani mencatat aktivitas pertanian dimana dan situasi apapun tanpa perlu khawatir catatan terselip atau hilang. Memudahkan petani adalah prioritas kami.
               </p>
@@ -189,8 +171,8 @@
                 </div>
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
                   <i class="bx bx-cube-alt"></i>
-                  <h4>Quality Control</h4>
-                  <p>Pencegahan terhadap hal yang merugikan dapat diantisipasi</p>
+                  <h4>Manajemen Sawah</h4>
+                  <p>Mengatur sawah untuk meningkatkan produktivitas</p>
                 </div>
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
                   <i class="bx bx-images"></i>
@@ -199,8 +181,8 @@
                 </div>
                 <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
                   <i class="bx bx-shield"></i>
-                  <h4>Manajemen Sawah</h4>
-                  <p>Mengatur sawah untuk meningkatkan produktivitas</p>
+                  <h4>Quality Control</h4>
+                  <p>Pencegahan terhadap hal yang merugikan dapat diantisipasi</p>
                 </div>
               </div>
             </div><!-- End .content-->
@@ -214,45 +196,45 @@
     <section id="services" class="services">
       <div class="container">
 
-        <div class="section-title" data-aos="fade-in" data-aos-delay="100">
+      <div class="section-title" data-aos="fade-in" data-aos-delay="100">
           <h2>Fitur</h2>
-          <p>Kecepatan dan ketepatan. Kesesuaian dengan kebutuhan petani yang terus berkembang. Efisien dan efektif juga seringkali menjadi pertimbangan  . PadiTrace memerhatikan segala aspek untuk menjawab permasalahan anda.</p>
-        </div>
+          <p>PadiTrace menghadirkan fitur-fitur unggul untuk menjawab kebutuhan petani modern. Kecepatan dan ketepatan menjadi prioritas kami, menyelaraskan dengan perkembangan terus-menerus dalam dunia pertanian. Kami memberikan solusi efisien dan efektif, mempertimbangkan segala aspek untuk menjawab setiap permasalahan Anda.</p>
+      </div>
 
-        <div class="row">
+      <div class="row">
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box" data-aos="fade-up">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4 class="title"><a href="">Seperti Permainan</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-            </div>
+              <div class="icon-box" data-aos="fade-up">
+                  <div class="icon"><i class="bx bxl-dribbble"></i></div>
+                  <h4 class="title"><a href="">Seperti Permainan</a></h4>
+                  <p class="description">Fitur ini dirancang seperti permainan untuk memudahkan penggunaan dan memastikan pengalaman yang menyenangkan.</p>
+              </div>
           </div>
 
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4 class="title"><a href="">Data Aman</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-            </div>
+              <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                  <div class="icon"><i class="bx bx-file"></i></div>
+                  <h4 class="title"><a href="">Data Aman</a></h4>
+                  <p class="description">PadiTrace menjamin keamanan data Anda, melindungi informasi penting petani dari risiko pencurian atau penyalahgunaan.</p>
+              </div>
           </div>
 
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4 class="title"><a href="">Performa Baik</a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            </div>
+              <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+                  <div class="icon"><i class="bx bx-tachometer"></i></div>
+                  <h4 class="title"><a href="">Performa Baik</a></h4>
+                  <p class="description">PadiTrace memastikan performa tinggi, memberikan pengalaman yang lancar dan efisien bagi pengguna.</p>
+              </div>
           </div>
 
           <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-              <div class="icon"><i class="bx bx-world"></i></div>
-              <h4 class="title"><a href="">Jangkauan Luas</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            </div>
+              <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <div class="icon"><i class="bx bx-world"></i></div>
+                  <h4 class="title"><a href="">Jangkauan Luas</a></h4>
+                  <p class="description">PadiTrace menjangkau luas, memberikan akses terluas kepada petani untuk mengoptimalkan produksi mereka.</p>
+              </div>
           </div>
+      </div>
 
-        </div>
 
       </div>
     </section><!-- End Services Section -->
@@ -266,32 +248,32 @@
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
             <div class="count-box">
               <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Happy Clients</strong> consequuntur quae</p>
+              <span data-purecounter-start="0" data-purecounter-end="<?php echo $data['jumlah_literasi']?>" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Literasi Panduan</strong> untuk petani independen</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
             <div class="count-box">
               <i class="bi bi-journal-richtext"></i>
-              <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Projects</strong> adipisci atque cum quia aut</p>
+              <span data-purecounter-start="0" data-purecounter-end="<?php echo $data['jumlah_beras']?>" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Produk Beras</strong> dengan riwayat ketelusuran</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
             <div class="count-box">
               <i class="bi bi-headset"></i>
-              <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hours Of Support</strong> aut commodi quaerat</p>
+              <span data-purecounter-start="0" data-purecounter-end="24" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Jam siap melayani</strong> dimanapun dan kapanpun</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
             <div class="count-box">
               <i class="bi bi-people"></i>
-              <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Hard Workers</strong> rerum asperiores dolor</p>
+              <span data-purecounter-start="0" data-purecounter-end="<?php echo $data['jumlah_users']?>" data-purecounter-duration="1" class="purecounter"></span>
+              <p><strong>Pengguna Aktif</strong> saling berkolaborasi</p>
             </div>
           </div>
 
@@ -451,7 +433,7 @@
                   Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <!-- <img src="../../public/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt=""> -->
+                <img src="../../public/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
                 <h3>Saul Goodman</h3>
                 <h4>Ceo &amp; Founder</h4>
               </div>
@@ -464,7 +446,7 @@
                   Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <!-- <img src="../../public/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt=""> -->
+                <img src="../../public/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
                 <h3>Sara Wilsson</h3>
                 <h4>Designer</h4>
               </div>
@@ -477,7 +459,7 @@
                   Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <!-- <img src="../../public/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt=""> -->
+                <img src="../../public/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
                 <h3>Jena Karlis</h3>
                 <h4>Store Owner</h4>
               </div>
@@ -490,7 +472,7 @@
                   Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <!-- <img src="../../public/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt=""> -->
+                <img src="../../public/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
                 <h3>Matt Brandon</h3>
                 <h4>Freelancer</h4>
               </div>
@@ -503,7 +485,7 @@
                   Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <!-- <img src="../../public/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt=""> -->
+                <img src="../../public/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
                 <h3>John Larson</h3>
                 <h4>Entrepreneur</h4>
               </div>
@@ -521,8 +503,8 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            <h2>Kontak</h2>
+            <p>Hubungi kami untuk pertanyaan, informasi lebih lanjut, atau berbagi pandangan Anda. Jejak Padi menghadirkan sistem ketelusuran pertanian komoditas padi yang memungkinkan Anda mengeksplorasi sumber daya alam dengan transparansi dan keberlanjutan. Kami siap memberikan layanan terbaik dan menjembatani informasi antara Anda dan dunia pertanian modern.</p>
         </div>
 
         <div class="row">
@@ -537,7 +519,7 @@
           <div class="col-lg-3 col-md-6">
             <div class="info-box  mb-4">
               <i class="bx bx-envelope"></i>
-              <h3>Email Us</h3>
+              <h3>Email</h3>
               <p>jejakPadi@gmail.com</p>
             </div>
           </div>
@@ -555,31 +537,31 @@
         <div class="row">
 
           <div class="col-lg-6 ">
-            <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15792.556047407033!2d113.6663902!3d-8.2889614!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd69a20f47d88ff%3A0xb0bddd47527cde49!2sUd.%20Tani%20Rejo!5e0!3m2!1sid!2sid!4v1700829330028!5m2!1sid!2sid" style="border:0; width: 100%; height: 384px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
 
           <div class="col-lg-6">
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Nama Anda" required>
                 </div>
                 <div class="col-md-6 form-group mt-3 mt-md-0">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Gmail Anda" required>
                 </div>
               </div>
               <div class="form-group mt-3">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subjek" required>
               </div>
               <div class="form-group mt-3">
-                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                <textarea class="form-control" name="message" rows="5" placeholder="Pesan" required></textarea>
               </div>
               <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit">Kirim Pesan</button></div>
             </form>
           </div>
 
@@ -598,8 +580,8 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="footer-info">
-              <h3>SFS - Pertanian</h3>
-              <p class="pb-3"><em>Qui repudiandae et eum dolores alias sed ea. Qui suscipit veniam excepturi quod.</em></p>
+              <h3>JejakPadi</h3>
+              <p class="pb-3"><em>Lebih dekat dengan pemanfaatan teknologi untuk pertanian.</em></p>
               <p>
               Jenggawah, Jember<br><br>
                 <strong>Phone:</strong> +62 878 4019 9095<br>
@@ -615,18 +597,18 @@
             </div>
           </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+          <div class="col-lg-2 col-md-6 footer-links ms-auto" >
+            <h4>Link Tautan</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Beranda</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Tentang Kami</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Scan QR Code</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Dokumentasi</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Unduh App</a></li>
             </ul>
           </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
+          <!-- <div class="col-lg-2 col-md-6 footer-links">
             <h4>Our Services</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
@@ -635,11 +617,11 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
             </ul>
-          </div>
+          </div> -->
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <h4>Berita Terbaru Kami</h4>
+            <p>Apakah anda tertarik untuk mendapat informasi terbaru kami? Kirim email anda</p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>

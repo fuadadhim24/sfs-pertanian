@@ -159,7 +159,10 @@ if (isset($_GET['id'])) {
                                       } else {echo "Tidak Ada Data Sawah Yang Dipilih!";}?>
                   </div>
                 </div>
-                <a href="./create.php"  class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;"><img width="20px" style="margin-right:5px" src="../../../public/assets/icons/qr-code-icon.png"/>Cetak QR Code</a>
+                <form method="POST">
+                  <input type="hidden" name="" value="" />
+                  <button type="submit" name="generate"  class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;"><img width="20px" style="margin-right:5px" src="../../../public/assets/icons/qr-code-icon.png"/>Cetak QR Code</button>
+                </form>
               </div>
               <div style="margin-top:20px">
                     <div class="card mb-3" style="justify-content: center; align-content:center: center; max-height: 350px;">
@@ -396,14 +399,14 @@ if (isset($_GET['id'])) {
           
       <footer class="footer">
         <div>
-          <a href="https://coreui.io">CoreUI </a
-          ><a href="https://coreui.io">Bootstrap Admin Template</a> © 2023
-          creativeLabs.
-        </div>
-        <div class="ms-auto">
-          Powered by&nbsp;<a href="https://coreui.io/docs/"
-            >CoreUI UI Components</a
-          >
+          <div>
+            
+            </div>
+            <div class="ms-auto" style="text-align:right">
+              Powered by&nbsp;<a href="#"
+                >NexGen Team.</a
+              >
+            </div>
         </div>
       </footer>
         </div>
