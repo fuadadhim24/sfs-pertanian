@@ -41,16 +41,6 @@ if (isset($_GET['id'])) {
 
         // Output the image directly to the browser
         echo $image_data;
-
-        // Show SweetAlert notification
-            echo "<script>
-            Swal.fire({
-                title: 'QR Code Generated!',
-                text: 'The QR code has been generated successfully.',
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
-        </script>";
     }
     ?>
 <!DOCTYPE html>
@@ -172,15 +162,28 @@ if (isset($_GET['id'])) {
 
     <!-- search location -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    
+    <!-- Style Timeline -->
+    <link href="../../css/admin/qr_code/style.css" rel="stylesheet" />
   </head>
   <body>
     <div class="wrapper d-flex flex-column min-vh-100 bg-light">
-      
+    <header class="header header-sticky mb-3">  
+        <div class="container-fluid">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb my-0 ms-2">
+              <li class="breadcrumb-item">
+                <!-- if breadcrumb is single--><span>JejakPadi</span>
+              </li>
+            </ol>
+          </nav>
+        </div> 
+      </header>
       <div class="body flex-grow-1 px-3">
         <div class="container-lg">
           <!-- /.row-->
-          <div class="card mb-2">
-            <div class="card-body">
+          <div class="card mb-3">
+            <div class="card-body" style="">
               <div class="d-flex justify-content-between">
                 <div>
                   <h4 class="card-title mb-0">Pencatatan Ketelusuran</h4>
@@ -215,22 +218,22 @@ if (isset($_GET['id'])) {
                                 <p class="card-text"><small class="text-body-secondary">Sawah didaftarkan <?php echo $sawah['created_at']?></small></p>
                                 <div class="container text-center" style="margin-right: 50px; ">
                                   <div class="row">
-                                    <div class="col" style='background: rgba(15, 255, 255, 0.2);
+                                    <div class="col" style='padding:5px;background: rgba(15, 255, 255, 0.2);
                                         border-radius: 15px 50px;
                                         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
                                         backdrop-filter: blur(5px);
                                         -webkit-backdrop-filter: blur(5px);
                                         border: 1px solid rgba(255, 255, 255, 0.3);'>
-                                      <h4><?php echo $sawah['tanggal_tanam']?></h4>
-                                      <h5>Tanggal Tanam</h5>
+                                      <h6><?php echo $sawah['tanggal_tanam']?></h6>
+                                      <p>Tanggal Tanam</p>
                                     </div>
-                                    <div class="col" style='border-radius: 15px 50px;
+                                    <div class="col" style='padding:5px;border-radius: 15px 50px;
                                         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
                                         backdrop-filter: blur(5px);
                                         -webkit-backdrop-filter: blur(5px);
                                         border: 1px solid rgba(15, 255, 255, 0.2);'>
-                                      <h4><?php echo $sawah['tanggal_panen']?></h4>
-                                      <h5>Tanggal Panen</h5>
+                                      <h6><?php echo $sawah['tanggal_panen']?></h6>
+                                      <p>Tanggal Panen</p>
                                     </div>
                                   </div>
                                 </div>
@@ -246,7 +249,7 @@ if (isset($_GET['id'])) {
           </div>
           
           <div class="card mb-2">
-            <div class="row">
+            <div class="row" style="padding-top:10px; padding-inline:10px">
               <div class="col-4">
                 <div class="card mb-4">
                   <div class="card-body">
@@ -267,11 +270,8 @@ if (isset($_GET['id'])) {
                                       <p>Tanggal Daftar: <?php echo $sawah['tanggal_daftar']?></p>
                                   </div>
                           </div>
-                    </div>
-                    
-                    
+                    </div>   
                   </div>
-                  
                 </div>
               </div>
               <div class="col-8">
@@ -303,6 +303,78 @@ if (isset($_GET['id'])) {
             </div>
           </div>
           
+          <div class="card mb-4">
+            <div class="card-body">
+              <div>
+                <div class="c-chart-wrapper" >
+                                      
+
+                  <h1 style=" 	  
+                    color:#333;
+                    font-weight:700;
+                    margin-top:55px;	 
+                    text-align:center;
+                    text-transform:uppercase;
+                    letter-spacing:4px;
+                    line-height:23px;">Kalender Padi</h1>
+                  <br> 
+                  <div class="process-wrapper">
+                  <div id="progress-bar-container">
+                    <ul>
+                      <li class="step step01 active"><div class="step-inner">PENABURAN
+                        <div class="subtitle" style="font-size:10px; margin: 0;">1 Jan - 20 Jan</div>
+                      </div></li>
+                      <li class="step step02"><div class="step-inner">ANAKAN
+                        <div class="subtitle" style="font-size:10px; margin: 0;">1 Jan - 20 Jan</div>
+                      </div></li>
+                      <li class="step step03"><div class="step-inner">BUNTING
+                        <div class="subtitle" style="font-size:10px; margin: 0;">1 Jan - 20 Jan</div>
+                      </div></li>
+                      <li class="step step04"><div class="step-inner">PEMASAKAN
+                        <div class="subtitle" style="font-size:10px; margin: 0;">1 Jan - 20 Jan</div>
+                      </div></li>
+                      <li class="step step05"><div class="step-inner">PANEN
+                        <div class="subtitle" style="font-size:10px; margin: 0;">1 Jan - 20 Jan</div>
+                      </div></li>
+                    </ul>
+                    
+                    <div id="line">
+                      <div id="line-progress"></div>
+                    </div>
+                  </div>
+
+                  <div id="progress-content-section">
+                    <div class="section-content discovery active">
+                      <h2>HOME SECTION</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque justo, consequat non fermentum ac, tempor eu turpis. Proin nulla eros, placerat non ipsum ut, dapibus ullamcorper ex. Nulla in dapibus lorem. Suspendisse vitae velit ac ante consequat placerat ut sed eros. Nullam porttitor mattis mi, id fringilla ex consequat eu. Praesent pulvinar tincidunt leo et condimentum. Maecenas volutpat turpis at felis egestas malesuada. Phasellus sem odio, venenatis at ex a, lacinia suscipit orci.</p>
+                    </div>
+                    
+                    <div class="section-content strategy">
+                      <h2>GALLERY SECTION</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque justo, consequat non fermentum ac, tempor eu turpis. Proin nulla eros, placerat non ipsum ut, dapibus ullamcorper ex. Nulla in dapibus lorem. Suspendisse vitae velit ac ante consequat placerat ut sed eros. Nullam porttitor mattis mi, id fringilla ex consequat eu. Praesent pulvinar tincidunt leo et condimentum. Maecenas volutpat turpis at felis egestas malesuada. Phasellus sem odio, venenatis at ex a, lacinia suscipit orci.</p>
+                    </div>
+                    
+                    <div class="section-content creative">
+                      <h2>Creative CREATIONS</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque justo, consequat non fermentum ac, tempor eu turpis. Proin nulla eros, placerat non ipsum ut, dapibus ullamcorper ex. Nulla in dapibus lorem. Suspendisse vitae velit ac ante consequat placerat ut sed eros. Nullam porttitor mattis mi, id fringilla ex consequat eu. Praesent pulvinar tincidunt leo et condimentum. Maecenas volutpat turpis at felis egestas malesuada. Phasellus sem odio, venenatis at ex a, lacinia suscipit orci.</p>
+                    </div>
+                    
+                    <div class="section-content production">
+                      <h2>TESTIMONIALS NOW</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque justo, consequat non fermentum ac, tempor eu turpis. Proin nulla eros, placerat non ipsum ut, dapibus ullamcorper ex. Nulla in dapibus lorem. Suspendisse vitae velit ac ante consequat placerat ut sed eros. Nullam porttitor mattis mi, id fringilla ex consequat eu. Praesent pulvinar tincidunt leo et condimentum. Maecenas volutpat turpis at felis egestas malesuada. Phasellus sem odio, venenatis at ex a, lacinia suscipit orci.</p>
+                    </div>
+                    
+                    <div class="section-content analysis">
+                      <h2>OUR LOCATIONS</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque justo, consequat non fermentum ac, tempor eu turpis. Proin nulla eros, placerat non ipsum ut, dapibus ullamcorper ex. Nulla in dapibus lorem. Suspendisse vitae velit ac ante consequat placerat ut sed eros. Nullam porttitor mattis mi, id fringilla ex consequat eu. Praesent pulvinar tincidunt leo et condimentum. Maecenas volutpat turpis at felis egestas malesuada. Phasellus sem odio, venenatis at ex a, lacinia suscipit orci.</p>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div class="card">
             <div class="card-body">
               <div>
@@ -487,7 +559,7 @@ if (isset($_GET['id'])) {
         }).addTo(map);
 
         const marker = L.marker([latitude, longitude]).addTo(map)
-		    .bindPopup('<b>Titik Lokasi!</b><br />Sawah anda.').openPopup();
+		    .bindPopup('<b>Titik Lokasi</b><br />').openPopup();
 
         // Set peta ke koordinat yang ditemukan
         // map.setView([latitude, longitude], 10);
@@ -525,5 +597,41 @@ if (isset($_GET['id'])) {
       })
     })
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        
+        $(".step").click( function() {
+      $(this).addClass("active").prevAll().addClass("active");
+      $(this).nextAll().removeClass("active");
+    });
+
+    $(".step01").click( function() {
+      $("#line-progress").css("width", "3%");
+      $(".discovery").addClass("active").siblings().removeClass("active");
+    });
+
+    $(".step02").click( function() {
+      $("#line-progress").css("width", "25%");
+      $(".strategy").addClass("active").siblings().removeClass("active");
+    });
+
+    $(".step03").click( function() {
+      $("#line-progress").css("width", "50%");
+      $(".creative").addClass("active").siblings().removeClass("active");
+    });
+
+    $(".step04").click( function() {
+      $("#line-progress").css("width", "75%");
+      $(".production").addClass("active").siblings().removeClass("active");
+    });
+
+    $(".step05").click( function() {
+      $("#line-progress").css("width", "100%");
+      $(".analysis").addClass("active").siblings().removeClass("active");
+    });
+
+    
+        </script>
   </body>
 </html>

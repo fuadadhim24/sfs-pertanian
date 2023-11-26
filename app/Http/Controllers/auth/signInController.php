@@ -18,8 +18,7 @@
             $response = array(
                 'success' => false,
                 'message' => 'Email belum terdaftar. Silahkan daftar atau menghubungi cs.'
-            );
-
+            ); 
         } else {
             if ($userModel->authenticateUser($email, $password)) {
                 $_SESSION['user_email'] = $email;

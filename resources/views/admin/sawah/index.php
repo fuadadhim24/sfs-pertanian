@@ -1,6 +1,24 @@
 <?php
-// index.php
-?>
+// Mulai sesi (pastikan ini ada di awal skrip)
+session_start();
+
+// Jika pengguna belum login, redirect ke halaman login
+if (!isset($_SESSION['user_email'])) {
+    header("Location: ../../index.php");
+    exit(); // Pastikan untuk keluar setelah melakukan redirect
+}
+// Check if the logout link is clicked
+if (isset($_GET['logout'])) {
+  // Unset all session variables
+  $_SESSION = array();
+
+  // Destroy the session
+  session_destroy();
+
+  // Redirect to '../index.php'
+  header('Location: ../../index.php');
+  exit();
+}?>
 
 <!DOCTYPE html>
 <!--
