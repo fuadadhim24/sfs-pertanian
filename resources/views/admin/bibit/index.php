@@ -15,8 +15,9 @@ if (isset($_GET['logout'])) {
   // Destroy the session
   session_destroy();
 
-  // Redirect to '../index.php'
-  header('Location: ../../index.php');
+  // Send JSON response
+  header('Content-Type: application/json');
+  echo json_encode(['success' => true, 'message' => 'Logout successful']);
   exit();
 }?>
 <!DOCTYPE html>
@@ -202,23 +203,8 @@ if (isset($_GET['logout'])) {
               </a>
               <div class="dropdown-menu dropdown-menu-end pt-0">
                 <div class="dropdown-header bg-light py-2">
-                  <div class="fw-semibold">Settings</div>
+                  <div class="fw-semibold">Aksi</div>
                 </div>
-                <a class="dropdown-item" href="#">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-user"
-                    ></use>
-                  </svg>
-                  Profile</a
-                ><a class="dropdown-item" href="#">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-settings"
-                    ></use>
-                  </svg>
-                  Settings</a
-                >
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">
                   <svg class="icon me-2">
@@ -248,22 +234,24 @@ if (isset($_GET['logout'])) {
                 <a href="./create.php"  class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;">Tambah Bibit</a>
               </div>
               <div class="table-responsive" style="margin-top: 40px">
-                <table class="table" style="width:2000px;">
+                <table class="table" style="width:2500px;">
                   <thead>
                   <tr>
                       <th>No</th>
-                      <th width="7%">Nama Bibit</th>
+                      <th width="5%">Nama Bibit</th>
                       <th>Harga</th>
-                      <th width="6%">Jumlah /Kg</th>
-                      <th width="14%">Deskripsi Singkat</th>
-                      <th width="13%">Deskripsi</th>
-                      <th width="8%">Jenis Tanah</th>
-                      <th width="8%">Cuaca</th>
-                      <th width="8%">Estimasi Panen</th>
+                      <th width="5%">Jumlah (Kg)</th>
+                      <th width="12%">Deskripsi Singkat</th>
+                      <th width="11%">kelebihan</th>
+                      <th width="11%">Kekurangan</th>
+                      <th width="10%">Ketahanan Hama Penyakit</th>
+                      <th width="6%">Jenis Tanah</th>
+                      <th width="6%">Musim Taman</th>
+                      <th width="6%">Estimasi Panen</th>
                       <th width="8%">Gambar Utama</th>
-                      <th width="5%">Gambar 1</th>
-                      <th width="5%">Gambar 2</th>
-                      <th width="5%">Gambar 3</th>
+                      <th width="4%">Gambar 1</th>
+                      <th width="4%">Gambar 2</th>
+                      <th width="4%">Gambar 3</th>
                       <th style="padding-left:10px;text-align:center;"width="17%">Action</th>
                   </tr>
                   </thead>
@@ -279,9 +267,11 @@ if (isset($_GET['logout'])) {
                       echo "<td style='text-align: center'>{$bibit['harga']}</td>";
                       echo "<td style='text-align: center'>{$bibit['jumlah']}</td>";
                       echo "<td>{$bibit['deskripsi_singkat']}</td>";
-                      echo "<td style='text-align: justify'>{$bibit['deskripsi']}</td>";
+                      echo "<td style='text-align: justify'>{$bibit['kelebihan']}</td>";
+                      echo "<td style='text-align: justify'>{$bibit['kekurangan']}</td>";
+                      echo "<td style='text-align: justify'>{$bibit['ketahanan_hama_penyakit']}</td>";
                       echo "<td>{$bibit['jenis_tanah']}</td>";
-                      echo "<td>{$bibit['cuaca']}</td>";
+                      echo "<td>{$bibit['musim_tanam']}</td>";
                       echo "<td style='margin-left:5px; text-align: center'>{$bibit['estimasi_panen']}</td>";
                       if (!empty($bibit['gambar_path_main'])) {
                         echo "<td style='text-align: center'>

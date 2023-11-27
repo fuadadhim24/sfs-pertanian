@@ -119,7 +119,7 @@
           <div class="content col-xl-7 d-flex align-items-stretch" data-aos="fade-up">
             <div class="content" >
               <h1>JejakPadi</h1>
-              <h10 style="margin-top:20px; ">Sistem jejak pertanian padi untuk petani mandiri. Memberdayakan petani dengan sistem pelacakan pertanian yang mudah.</h10>
+              <h10 style="margin-top:20px; color:white;">Sistem jejak pertanian padi untuk petani mandiri. Memberdayakan petani dengan sistem pelacakan pertanian yang mudah.</h10>
               <p></p>
               <h7 style="padding:5px 20px; background: rgba(255, 255, 255, 0.28); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(13.1px); -webkit-backdrop-filter: blur(13.1px); border: 1px solid rgba(255, 255, 255, 0.3);"><a href="#scan" class="about-btn">Scan QR Produk Beras<i class="bx bx-chevron-right"></i></a></h7>
             </div>

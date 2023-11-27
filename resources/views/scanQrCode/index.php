@@ -7,14 +7,14 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     // Query untuk mengambil data sawah berdasarkan ID
-    $query = "SELECT bibit.id_bibit, bibit.nama_bibit, bibit.deskripsi_singkat as 'bibit.deskripsi_singkat', bibit.deskripsi as 'bibit.deskripsi', bibit.gambar_path_main as 'bibit.gambar_path_main',
+    $query = "SELECT bibit.id_bibit, bibit.nama_bibit, bibit.deskripsi_singkat as 'bibit.deskripsi_singkat', bibit.kelebihan as 'bibit.kelebihans', bibit.gambar_path_main as 'bibit.gambar_path_main',
     sawah.id_sawah, sawah.deskripsi as 'sawah.deskripsi', sawah.nama_sawah, sawah.lokasi_sawah, sawah.luas_sawah, sawah.created_at,
     detail_sawah.id_detail_sawah, detail_sawah.jumlah_benih, detail_sawah.tanggal_tanam, detail_sawah.jumlah_benih,
     masa_panen.id_masa_panen, masa_panen.tanggal_panen, masa_panen.jumlah_panen, masa_panen.quest_1, masa_panen.quest_2, masa_panen.quest_3, masa_panen.quest_4,
     kualitas.id_kualitas, kualitas.rate_kualitas, kualitas.catatan_kualitas,
     users.id_user,users.nama_depan,users.nama_belakang,users.no_handphone, users.alamat,users.email, users.tanggal_lahir,users.tanggal_daftar, users.gambar_path as 'users.gambar_path' FROM bibit, sawah, detail_sawah, masa_panen, kualitas, users WHERE sawah.id_sawah = $id;";
 
-    // $queryPenyemaian="SELECT catatan_semai.id_catatan_semai, catatan_semai.tanggal as 'catatan_semai.tanggal', catatan_semai.jenis_semai, catatan_semai.deskripsi as 'catatan_semai.deskripsi', catatan_semai.id_user, catatan_semai.id_sawah FROM catatan_semai WHERE catatan_semai.id_sawah = $id;";
+    // $queryPenyemaian="SELECT catatan_semai.id_catatan_semai, catatan_semai.tanggal as 'catatan_semai.tanggal', catatan_semai.jenis_semai, catatan_semai.kelebihan as 'catatan_semai.kelebihan', catatan_semai.id_user, catatan_semai.id_sawah FROM catatan_semai WHERE catatan_semai.id_sawah = $id;";
     $result = mysqli_query($conn, $query);
     // $resultPenyemaian = mysqli_query($conn, $queryPenyemaian);
 
@@ -214,7 +214,7 @@ if (isset($_GET['id'])) {
                           <div class="col-md-8">
                             <div class="card-body" style>
                                 <h5 class="card-title">Varietas Bibit <?php echo $sawah['nama_bibit']?></h5>
-                                <p class="card-text"><?php echo $sawah['bibit.deskripsi_singkat'];?>. <?php echo $sawah['bibit.deskripsi']?>.</p>
+                                <p class="card-text"><?php echo $sawah['bibit.deskripsi_singkat'];?>. <?php echo $sawah['bibit.kelebihan']?>.</p>
                                 <p class="card-text"><small class="text-body-secondary">Sawah didaftarkan <?php echo $sawah['created_at']?></small></p>
                                 <div class="container text-center" style="margin-right: 50px; ">
                                   <div class="row">
@@ -321,7 +321,7 @@ if (isset($_GET['id'])) {
                   <div class="process-wrapper">
                   <div id="progress-bar-container">
                     <ul>
-                      <li class="step step01 active"><div class="step-inner">PENABURAN
+                      <li class="step step01 active"><div class="step-inner">PENANAMAN
                         <div class="subtitle" style="font-size:10px; margin: 0;">1 Jan - 20 Jan</div>
                       </div></li>
                       <li class="step step02"><div class="step-inner">ANAKAN

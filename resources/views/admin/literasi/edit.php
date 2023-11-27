@@ -15,8 +15,9 @@ if (isset($_GET['logout'])) {
   // Destroy the session
   session_destroy();
 
-  // Redirect to '../index.php'
-  header('Location: ../../index.php');
+  // Send JSON response
+  header('Content-Type: application/json');
+  echo json_encode(['success' => true, 'message' => 'Logout successful']);
   exit();
 }?>
 <!--
@@ -204,23 +205,8 @@ if (isset($_GET['logout'])) {
               </a>
               <div class="dropdown-menu dropdown-menu-end pt-0">
                 <div class="dropdown-header bg-light py-2">
-                  <div class="fw-semibold">Settings</div>
+                  <div class="fw-semibold">Aksi</div>
                 </div>
-                <a class="dropdown-item" href="#">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-user"
-                    ></use>
-                  </svg>
-                  Profile</a
-                ><a class="dropdown-item" href="#">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-settings"
-                    ></use>
-                  </svg>
-                  Settings</a
-                >
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">
                   <svg class="icon me-2">

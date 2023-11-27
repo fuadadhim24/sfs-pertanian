@@ -17,7 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $jumlah_perkg = $_POST['jumlah_perkg'];
 
     $deskripsi_singkat = $_POST['deskripsi_singkat'];
-    $deskripsi_lengkap = $_POST['deskripsi_lengkap'];
+    $kelebihan = $_POST['kelebihan'];
+    $kekurangan = $_POST['kekurangan'];
+    $ketahanan_hama_penyakit = $_POST['ketahanan_hama_penyakit'];
     
     //dapat nama file
     $gambar_path_main = $_FILES['gambar_path_main']['name'];      
@@ -52,12 +54,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     $jenis_tanah = $_POST['jenis_tanah'];
-    $cuaca = $_POST['cuaca'];
+    $musim_tanam = $_POST['musim_tanam'];
     $estimasi_panen = $_POST['estimasi_panen'];
 
     $bibitModel = new BibitModel($conn);
 
-    if ($bibitModel->editBibit($id, $nama_bibit, $harga, $jumlah_perkg, $deskripsi_singkat, $deskripsi_lengkap, $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3, $jenis_tanah, $cuaca, $estimasi_panen)) {
+    if ($bibitModel->editBibit($id, $nama_bibit, $harga, $jumlah_perkg, $deskripsi_singkat, $kelebihan, $kekurangan, $ketahanan_hama_penyakit, $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3, $jenis_tanah, $musim_tanam, $estimasi_panen)) {
         // Edit berhasil
         $response = array(
             'success' => true,

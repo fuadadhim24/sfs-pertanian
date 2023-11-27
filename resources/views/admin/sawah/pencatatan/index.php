@@ -15,8 +15,9 @@ if (isset($_GET['logout'])) {
   // Destroy the session
   session_destroy();
 
-  // Redirect to '../index.php'
-  header('Location: ../../../index.php');
+  // Send JSON response
+  header('Content-Type: application/json');
+  echo json_encode(['success' => true, 'message' => 'Logout successful']);
   exit();
 }?>
 <?php
@@ -28,7 +29,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     // Query untuk mengambil data sawah berdasarkan ID
-    $query = "SELECT bibit.id_bibit, bibit.nama_bibit, bibit.deskripsi_singkat as 'bibit.deskripsi_singkat', bibit.deskripsi as 'bibit.deskripsi', bibit.gambar_path_main as 'bibit.gambar_path_main',
+    $query = "SELECT bibit.id_bibit, bibit.nama_bibit, bibit.deskripsi_singkat as 'bibit.deskripsi_singkat', bibit.kelebihan as 'bibit.kelebihan', bibit.gambar_path_main as 'bibit.gambar_path_main',
     sawah.id_sawah, sawah.deskripsi as 'sawah.deskripsi', sawah.nama_sawah, sawah.lokasi_sawah, sawah.luas_sawah, sawah.created_at,
     detail_sawah.id_detail_sawah, detail_sawah.jumlah_benih, detail_sawah.tanggal_tanam, detail_sawah.jumlah_benih,
     masa_panen.id_masa_panen, masa_panen.tanggal_panen, masa_panen.jumlah_panen, masa_panen.quest_1, masa_panen.quest_2, masa_panen.quest_3, masa_panen.quest_4,
@@ -160,43 +161,45 @@ if (isset($_GET['id'])) {
 
     <!-- search location -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <!-- Style Timeline -->
+    <link href="../../../../css/admin/qr_code/style.css" rel="stylesheet" />
   </head>
   <body>
   <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
       <div class="sidebar-brand d-none d-md-flex">
-        <img src="../../../../public/assets/brand/logo-brand.png" width="80"/>
+        <img src="../../../../../public/assets/brand/logo-brand.png" width="80"/>
       </div>
       <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
         <li class="nav-item"><a class="nav-link" href="../../index.php">
             <svg class="nav-icon">
-              <use xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-speedometer"></use>
+              <use xlink:href="../../../../../vendor/@coreui/icons/svg/free.svg#cil-speedometer"></use>
             </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">UTAMA</span></a></li>
         <li class="nav-title">Manajemen</li>
         <li class="nav-item"><a class="nav-link" href="../index.php">
             <svg class="nav-icon">
-              <use xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-layers"></use>
+              <use xlink:href="../../../../../vendor/@coreui/icons/svg/free.svg#cil-layers"></use>
             </svg> Sawah</a></li>
         <li class="nav-item"><a class="nav-link" href="../../user/index.php">
             <svg class="nav-icon">
-              <use xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-people"></use>
+              <use xlink:href="../../../../../vendor/@coreui/icons/svg/free.svg#cil-people"></use>
             </svg> Akun</a></li>
         <li class="nav-title">Pengembangan</li>
         <li class="nav-item"><a class="nav-link" href="../../literasi/index.php">
             <svg class="nav-icon">
-              <use xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-book"></use>
+              <use xlink:href="../../../../../vendor/@coreui/icons/svg/free.svg#cil-book"></use>
             </svg> Literasi</a></li>
         <li class="nav-title">Pengadaan</li>
         <li class="nav-item"><a class="nav-link" href="../../bibit/index.php">
             <svg class="nav-icon">
-              <use xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-eco"></use>
+              <use xlink:href="../../../../../vendor/@coreui/icons/svg/free.svg#cil-eco"></use>
             </svg> Bibit</a></li>
         <li class="nav-item"><a class="nav-link" href="../../semprotan/index.php">
             <svg class="nav-icon">
-              <use xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-drop"></use>
+              <use xlink:href="../../../../../vendor/@coreui/icons/svg/free.svg#cil-drop"></use>
             </svg> Semprotan</a></li>
         <li class="nav-item"><a class="nav-link" href="../../pupuk/index.php">
             <svg class="nav-icon">
-              <use xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-storage"></use>
+              <use xlink:href="../../../../../vendor/@coreui/icons/svg/free.svg#cil-storage"></use>
             </svg> Pupuk</a></li>
       </ul>
       <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
@@ -231,23 +234,8 @@ if (isset($_GET['id'])) {
               </a>
               <div class="dropdown-menu dropdown-menu-end pt-0">
                 <div class="dropdown-header bg-light py-2">
-                  <div class="fw-semibold">Settings</div>
+                  <div class="fw-semibold">Aksi</div>
                 </div>
-                <a class="dropdown-item" href="#">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-user"
-                    ></use>
-                  </svg>
-                  Profile</a
-                ><a class="dropdown-item" href="#">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-settings"
-                    ></use>
-                  </svg>
-                  Settings</a
-                >
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">
                   <svg class="icon me-2">
@@ -291,7 +279,7 @@ if (isset($_GET['id'])) {
                           <div class="col-md-8">
                             <div class="card-body" style>
                                 <h5 class="card-title">Varietas Bibit <?php echo $sawah['nama_bibit']?></h5>
-                                <p class="card-text"><?php echo $sawah['bibit.deskripsi_singkat'];?>. <?php echo $sawah['bibit.deskripsi']?>.</p>
+                                <p class="card-text"><?php echo $sawah['bibit.deskripsi_singkat'];?>. <?php echo $sawah['bibit.kelebihan']?>.</p>
                                 <p class="card-text"><small class="text-body-secondary">Sawah didaftarkan <?php echo $sawah['created_at']?></small></p>
                                 <div class="container text-center" style="margin-right: 50px; ">
                                   <div class="row">
@@ -376,6 +364,78 @@ if (isset($_GET['id'])) {
                     
                   </div>
                   
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mb-4">
+            <div class="card-body">
+              <div>
+                <div class="c-chart-wrapper" >
+                                      
+
+                  <h1 style=" 	  
+                    color:#333;
+                    font-weight:700;
+                    margin-top:55px;	 
+                    text-align:center;
+                    text-transform:uppercase;
+                    letter-spacing:4px;
+                    line-height:23px;">Kalender Padi</h1>
+                  <br> 
+                  <div class="process-wrapper">
+                  <div id="progress-bar-container">
+                    <ul>
+                      <li class="step step01 active"><div class="step-inner">PENANAMAN
+                        <div class="subtitle" style="font-size:10px; margin: 0;">1 Jan - 20 Jan</div>
+                      </div></li>
+                      <li class="step step02"><div class="step-inner">ANAKAN
+                        <div class="subtitle" style="font-size:10px; margin: 0;">1 Jan - 20 Jan</div>
+                      </div></li>
+                      <li class="step step03"><div class="step-inner">BUNTING
+                        <div class="subtitle" style="font-size:10px; margin: 0;">1 Jan - 20 Jan</div>
+                      </div></li>
+                      <li class="step step04"><div class="step-inner">PEMASAKAN
+                        <div class="subtitle" style="font-size:10px; margin: 0;">1 Jan - 20 Jan</div>
+                      </div></li>
+                      <li class="step step05"><div class="step-inner">PANEN
+                        <div class="subtitle" style="font-size:10px; margin: 0;">1 Jan - 20 Jan</div>
+                      </div></li>
+                    </ul>
+                    
+                    <div id="line">
+                      <div id="line-progress"></div>
+                    </div>
+                  </div>
+
+                  <div id="progress-content-section">
+                    <div class="section-content discovery active">
+                      <h2>HOME SECTION</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque justo, consequat non fermentum ac, tempor eu turpis. Proin nulla eros, placerat non ipsum ut, dapibus ullamcorper ex. Nulla in dapibus lorem. Suspendisse vitae velit ac ante consequat placerat ut sed eros. Nullam porttitor mattis mi, id fringilla ex consequat eu. Praesent pulvinar tincidunt leo et condimentum. Maecenas volutpat turpis at felis egestas malesuada. Phasellus sem odio, venenatis at ex a, lacinia suscipit orci.</p>
+                    </div>
+                    
+                    <div class="section-content strategy">
+                      <h2>GALLERY SECTION</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque justo, consequat non fermentum ac, tempor eu turpis. Proin nulla eros, placerat non ipsum ut, dapibus ullamcorper ex. Nulla in dapibus lorem. Suspendisse vitae velit ac ante consequat placerat ut sed eros. Nullam porttitor mattis mi, id fringilla ex consequat eu. Praesent pulvinar tincidunt leo et condimentum. Maecenas volutpat turpis at felis egestas malesuada. Phasellus sem odio, venenatis at ex a, lacinia suscipit orci.</p>
+                    </div>
+                    
+                    <div class="section-content creative">
+                      <h2>Creative CREATIONS</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque justo, consequat non fermentum ac, tempor eu turpis. Proin nulla eros, placerat non ipsum ut, dapibus ullamcorper ex. Nulla in dapibus lorem. Suspendisse vitae velit ac ante consequat placerat ut sed eros. Nullam porttitor mattis mi, id fringilla ex consequat eu. Praesent pulvinar tincidunt leo et condimentum. Maecenas volutpat turpis at felis egestas malesuada. Phasellus sem odio, venenatis at ex a, lacinia suscipit orci.</p>
+                    </div>
+                    
+                    <div class="section-content production">
+                      <h2>TESTIMONIALS NOW</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque justo, consequat non fermentum ac, tempor eu turpis. Proin nulla eros, placerat non ipsum ut, dapibus ullamcorper ex. Nulla in dapibus lorem. Suspendisse vitae velit ac ante consequat placerat ut sed eros. Nullam porttitor mattis mi, id fringilla ex consequat eu. Praesent pulvinar tincidunt leo et condimentum. Maecenas volutpat turpis at felis egestas malesuada. Phasellus sem odio, venenatis at ex a, lacinia suscipit orci.</p>
+                    </div>
+                    
+                    <div class="section-content analysis">
+                      <h2>OUR LOCATIONS</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque justo, consequat non fermentum ac, tempor eu turpis. Proin nulla eros, placerat non ipsum ut, dapibus ullamcorper ex. Nulla in dapibus lorem. Suspendisse vitae velit ac ante consequat placerat ut sed eros. Nullam porttitor mattis mi, id fringilla ex consequat eu. Praesent pulvinar tincidunt leo et condimentum. Maecenas volutpat turpis at felis egestas malesuada. Phasellus sem odio, venenatis at ex a, lacinia suscipit orci.</p>
+                    </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -605,5 +665,41 @@ if (isset($_GET['id'])) {
       })
     })
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        
+        $(".step").click( function() {
+      $(this).addClass("active").prevAll().addClass("active");
+      $(this).nextAll().removeClass("active");
+    });
+
+    $(".step01").click( function() {
+      $("#line-progress").css("width", "3%");
+      $(".discovery").addClass("active").siblings().removeClass("active");
+    });
+
+    $(".step02").click( function() {
+      $("#line-progress").css("width", "25%");
+      $(".strategy").addClass("active").siblings().removeClass("active");
+    });
+
+    $(".step03").click( function() {
+      $("#line-progress").css("width", "50%");
+      $(".creative").addClass("active").siblings().removeClass("active");
+    });
+
+    $(".step04").click( function() {
+      $("#line-progress").css("width", "75%");
+      $(".production").addClass("active").siblings().removeClass("active");
+    });
+
+    $(".step05").click( function() {
+      $("#line-progress").css("width", "100%");
+      $(".analysis").addClass("active").siblings().removeClass("active");
+    });
+
+    
+        </script>
   </body>
 </html>

@@ -34,27 +34,27 @@ class BibitModel
         }
     }
 
-    public function createBibit($nama_bibit, $harga, $jumlah_perkg, $deskripsi_singkat, $deskripsi_lengkap, $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3, $jenis_tanah, $cuaca, $estimasi_panen) {
-        $stmt = $this->conn->prepare("INSERT INTO `bibit` (`id_bibit`, `nama_bibit`, `harga`, `jumlah`,`deskripsi_singkat`, `deskripsi`, `gambar_path_main`, `gambar_path_1`, `gambar_path_2`, `gambar_path_3`, `jenis_tanah`, `cuaca`, `estimasi_panen`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    public function createBibit($nama_bibit, $harga, $jumlah_perkg, $deskripsi_singkat, $kelebihan, $kekurangan, $ketahanan_hama_penyakit, $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3, $jenis_tanah, $musim_tanam, $estimasi_panen) {
+        $stmt = $this->conn->prepare("INSERT INTO `bibit` (`id_bibit`, `nama_bibit`, `harga`, `jumlah`,`deskripsi_singkat`, `kelebihan`, `kekurangan`, `ketahanan_hama_penyakit`, `gambar_path_main`, `gambar_path_1`, `gambar_path_2`, `gambar_path_3`, `jenis_tanah`, `musim_tanam`, `estimasi_panen`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         
         if (!$stmt) {
             return false; // Kembalikan false jika gagal mempersiapkan pernyataan SQL
         }
 
-        $stmt->bind_param("ssssssssssss", $nama_bibit, $harga, $jumlah_perkg, $deskripsi_singkat, $deskripsi_lengkap, $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3, $jenis_tanah, $cuaca, $estimasi_panen);
+        $stmt->bind_param("ssssssssssssss", $nama_bibit, $harga, $jumlah_perkg, $deskripsi_singkat, $kelebihan, $kekurangan, $ketahanan_hama_penyakit, $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3, $jenis_tanah, $musim_tanam, $estimasi_panen);
         $result = $stmt->execute();
         $stmt->close();
 
         return $result;
     }
-    public function editBibit($id,$nama_bibit, $harga, $jumlah_perkg, $deskripsi_singkat, $deskripsi_lengkap, $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3, $jenis_tanah, $cuaca, $estimasi_panen) {
-        $stmt = $this->conn->prepare("UPDATE `bibit` SET `nama_bibit`=?, `harga`=?, `jumlah`=?,`deskripsi_singkat`=?, `deskripsi`=?, `gambar_path_main`=?, `gambar_path_1`=?, `gambar_path_2`=?, `gambar_path_3`=?, `jenis_tanah`=?, `cuaca`=?, `estimasi_panen`=? WHERE `id_bibit`=?");
+    public function editBibit($id,$nama_bibit, $harga, $jumlah_perkg, $deskripsi_singkat, $kelebihan, $kekurangan, $ketahanan_hama_penyakit, $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3, $jenis_tanah, $musim_tanam, $estimasi_panen) {
+        $stmt = $this->conn->prepare("UPDATE `bibit` SET `nama_bibit`=?, `harga`=?, `jumlah`=?,`deskripsi_singkat`=?, `kelebihan`=?, `kekurangan`=?, `ketahanan_hama_penyakit`=?, `gambar_path_main`=?, `gambar_path_1`=?, `gambar_path_2`=?, `gambar_path_3`=?, `jenis_tanah`=?, `musim_tanam`=?, `estimasi_panen`=? WHERE `id_bibit`=?");
     
         if (!$stmt) {
             return false;
         }
     
-        $stmt->bind_param("sssssssssssss", $nama_bibit, $harga, $jumlah_perkg, $deskripsi_singkat, $deskripsi_lengkap, $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3, $jenis_tanah, $cuaca, $estimasi_panen,$id);
+        $stmt->bind_param("sssssssssssssss", $nama_bibit, $harga, $jumlah_perkg, $deskripsi_singkat, $kelebihan, $kekurangan, $ketahanan_hama_penyakit, $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3, $jenis_tanah, $musim_tanam, $estimasi_panen,$id);
         $result = $stmt->execute();
         $stmt->close();
     

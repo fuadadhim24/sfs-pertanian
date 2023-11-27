@@ -9,17 +9,18 @@ if (!isset($_SESSION['user_email'])) {
 }
 // Check if the logout link is clicked
 if (isset($_GET['logout'])) {
-    // Unset all session variables
-    $_SESSION = array();
+  // Unset all session variables
+  $_SESSION = array();
 
-    // Destroy the session
-    session_destroy();
+  // Destroy the session
+  session_destroy();
 
-    // Redirect to '../index.php'
-    header('Location: ../index.php');
-    exit();
-}
-?>
+  // Send JSON response
+  header('Content-Type: application/json');
+  echo json_encode(['success' => true, 'message' => 'Logout successful']);
+  exit();
+}?>
+
 <!DOCTYPE html>
 <!--
 
@@ -134,6 +135,26 @@ if (isset($_GET['logout'])) {
       href="../../../vendor/@coreui/chartjs/css/coreui-chartjs.css"
       rel="stylesheet"
     />
+    <script>
+        function logoutClicked() {
+            // Assuming you are using AJAX (fetch) to call the PHP script
+            fetch('?logout=true')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Redirect to '../index.php' after successful logout
+                        window.location.href = '../index.php';
+                    } else {
+                        // Handle any error messages if needed
+                        console.error(data.message);
+                    }
+                })
+                .catch(error => {
+                    // Handle fetch error
+                    console.error('Error:', error);
+                });
+        }
+    </script>
   </head>
   <body>
     <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
@@ -205,89 +226,13 @@ if (isset($_GET['logout'])) {
               </a>
               <div class="dropdown-menu dropdown-menu-end pt-0">
                 <div class="dropdown-header bg-light py-2">
-                  <div class="fw-semibold">Account</div>
+                  <div class="fw-semibold">Aksi</div>
                 </div>
-                <a class="dropdown-item" href="#">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-bell"
-                    ></use>
-                  </svg>
-                  Updates<span class="badge badge-sm bg-info ms-2">42</span></a
-                ><a class="dropdown-item" href="#">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-envelope-open"
-                    ></use>
-                  </svg>
-                  Messages<span class="badge badge-sm bg-success ms-2"
-                    >42</span
-                  ></a
-                ><a class="dropdown-item" href="#">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-task"
-                    ></use>
-                  </svg>
-                  Tasks<span class="badge badge-sm bg-danger ms-2">42</span></a
-                ><a class="dropdown-item" href="#">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-comment-square"
-                    ></use>
-                  </svg>
-                  Comments<span class="badge badge-sm bg-warning ms-2"
-                    >42</span
-                  ></a
-                >
-                <div class="dropdown-header bg-light py-2">
-                  <div class="fw-semibold">Settings</div>
-                </div>
-                <a class="dropdown-item" href="#">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-user"
-                    ></use>
-                  </svg>
-                  Profile</a
-                ><a class="dropdown-item" href="#">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-settings"
-                    ></use>
-                  </svg>
-                  Settings</a
-                ><a class="dropdown-item" href="#">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-credit-card"
-                    ></use>
-                  </svg>
-                  Payments<span class="badge badge-sm bg-secondary ms-2"
-                    >42</span
-                  ></a
-                ><a class="dropdown-item" href="#">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-file"
-                    ></use>
-                  </svg>
-                  Projects<span class="badge badge-sm bg-primary ms-2"
-                    >42</span
-                  ></a
-                >
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="#" onclick="logoutClicked()">
                   <svg class="icon me-2">
                     <use
-                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-lock-locked"
-                    ></use>
-                  </svg>
-                  Lock Account</a
-                ><a class="dropdown-item" href="?logout">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
+                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
                     ></use>
                   </svg>
                   Logout</a

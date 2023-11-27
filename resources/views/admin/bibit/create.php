@@ -15,8 +15,9 @@ if (isset($_GET['logout'])) {
   // Destroy the session
   session_destroy();
 
-  // Redirect to '../index.php'
-  header('Location: ../../index.php');
+  // Send JSON response
+  header('Content-Type: application/json');
+  echo json_encode(['success' => true, 'message' => 'Logout successful']);
   exit();
 }?>
 <!--
@@ -243,25 +244,10 @@ if (isset($_GET['logout'])) {
               </a>
               <div class="dropdown-menu dropdown-menu-end pt-0">
                 <div class="dropdown-header bg-light py-2">
-                  <div class="fw-semibold">Settings</div>
+                  <div class="fw-semibold">Aksi</div>
                 </div>
-                <a class="dropdown-item" href="#">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-user"
-                    ></use>
-                  </svg>
-                  Profile</a
-                ><a class="dropdown-item" href="#">
-                  <svg class="icon me-2">
-                    <use
-                      xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-settings"
-                    ></use>
-                  </svg>
-                  Settings</a
-                >
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="?logout">
+                <a class="dropdown-item" href="#">
                   <svg class="icon me-2">
                     <use
                       xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
@@ -302,7 +288,7 @@ if (isset($_GET['logout'])) {
                                           <input class="form-control" name="harga" id="harga" rows="3" required></input>
                                       </div>
                                       <div class="col">
-                                          <label class="form-label">Jumlah (perKg)<span style="color:red"> *</span></label>
+                                          <label class="form-label">Jumlah (Kg)<span style="color:red"> *</span></label>
                                           <input class="form-control" name="jumlah_perkg" id="jumlah_perkg" rows="3" required></input>
                                       </div>
                                   </div>
@@ -315,8 +301,16 @@ if (isset($_GET['logout'])) {
                                   <input class="form-control" name="deskripsi_singkat" id="deskripsi_singkat" rows="3" required></input>
                               </div>
                               <div class="mb-3">
-                                <label for="deskripsi_lengkap" class="form-label">Deskripsi Lengkap<span style="color:red"> *</span></label>
-                                <textarea class="form-control" name="deskripsi_lengkap" id="deskripsi_lengkap" rows="3"></textarea>
+                                <label for="kelebihan" class="form-label">Kelebihan<span style="color:red"> *</span></label>
+                                <input class="form-control" name="kelebihan" id="kelebihan" rows="3"></input>
+                          </div>
+                              <div class="mb-3">
+                                <label for="kekurangan" class="form-label">Kekurangan<span style="color:red"> *</span></label>
+                                <input class="form-control" name="kekurangan" id="kekurangan" rows="3"></input>
+                          </div>
+                              <div class="mb-3">
+                                <label for="ketahanan_hama_penyakit" class="form-label">Ketahanan hama & Penyakit<span style="color:red"> *</span></label>
+                                <textarea class="form-control" name="ketahanan_hama_penyakit" id="ketahanan_hama_penyakit" rows="3"></textarea>
                           </div>
                       </div>
                       <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
@@ -346,8 +340,8 @@ if (isset($_GET['logout'])) {
                                   <input class="form-control" name="jenis_tanah" id="jenis_tanah" rows="3" required></input>
                               </div>
                               <div class="mb-3">
-                                  <label class="form-label">Cuaca<span style="color:red"> *</span></label>
-                                  <input class="form-control" name="cuaca" id="cuaca" rows="3" required></input>
+                                  <label class="form-label">Musim Tanam<span style="color:red"> *</span></label>
+                                  <input class="form-control" name="musim_tanam" id="musim_tanam" rows="3" required></input>
                               </div>
                               <div class="mb-3">
                                   <label class="form-label">Estimasi Panen (bulan)<span style="color:red"> *</span></label>
