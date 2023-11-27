@@ -248,6 +248,7 @@ if (isset($_GET['logout'])) {
                         <button class="nav-link" id="nav-rincian-tab" data-coreui-toggle="tab" data-coreui-target="#nav-rincian" type="button" role="tab" aria-controls="nav-rincian" aria-selected="false">Rincian</button>
                         <button class="nav-link" id="nav-profile-tab" data-coreui-toggle="tab" data-coreui-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Gambar</button>
                         <button class="nav-link" id="nav-contact-tab" data-coreui-toggle="tab" data-coreui-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Rekomendasi</button>
+                        <button class="nav-link" id="nav-contact-tab" data-coreui-toggle="tab" data-coreui-target="#nav-kalender" type="button" role="tab" aria-controls="nav-kalender" aria-selected="false">Kalender Pertanian</button>
                       </div>
                     </nav>
                     <div class="tab-content" id="nav-tabContent">
@@ -336,6 +337,26 @@ if (isset($_GET['logout'])) {
                               <div class="mb-3">
                                   <label class="form-label">Estimasi Panen<span style="color:red"> *</span></label>
                                   <input class="form-control" name="estimasi_panen" id="estimasi_panen" rows="3" value="<?php echo $bibit['estimasi_panen']?>" required></input>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-kalender" role="tabpanel" aria-labelledby="nav-kalender-tab" tabindex="0">
+                          <div class="row">
+                              <div class="mb-3 mt-3">
+                                  <label class="form-label">Durasi Penanaman (Bln)<span style="color:red"> *</span></label>
+                                  <input class="form-control" name="durasi_penanaman" id="durasi_penanaman" rows="3" required></input>
+                              </div>
+                              <div class="mb-3 mt-3">
+                                  <label class="form-label">Durasi Anakan (Bln)<span style="color:red"> *</span></label>
+                                  <input class="form-control" name="durasi_anakan" id="durasi_anakan" rows="3" required></input>
+                              </div>
+                              <div class="mb-3">
+                                  <label class="form-label">Durasi Bunting (Bln)<span style="color:red"> *</span></label>
+                                  <input class="form-control" name="durasi_bunting" id="durasi_bunting" rows="3" required></input>
+                              </div>
+                              <div class="mb-3">
+                                  <label class="form-label">Durasi Pemasakan (Bln)<span style="color:red"> *</span></label>
+                                  <input class="form-control" name="durasi_pemasakan" id="durasi_pemasakan" rows="3" required></input>
                               </div>
                               
                           </div>

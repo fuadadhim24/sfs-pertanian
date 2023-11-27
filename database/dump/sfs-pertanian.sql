@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 23 Nov 2023 pada 05.40
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.2.4
+-- Waktu pembuatan: 27 Nov 2023 pada 10.36
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -33,10 +33,16 @@ CREATE TABLE `bibit` (
   `harga` varchar(30) NOT NULL,
   `jumlah` int(11) NOT NULL,
   `deskripsi_singkat` text NOT NULL,
-  `deskripsi` text NOT NULL,
+  `kelebihan` text NOT NULL,
+  `kekurangan` text NOT NULL,
+  `ketahanan_hama_penyakit` text NOT NULL,
   `jenis_tanah` varchar(30) NOT NULL,
-  `cuaca` varchar(30) NOT NULL,
+  `musim_tanam` varchar(30) NOT NULL,
   `estimasi_panen` varchar(30) NOT NULL,
+  `durasi_penanaman` int(11) NOT NULL,
+  `durasi_anakan` int(11) NOT NULL,
+  `durasi_bunting` int(11) NOT NULL,
+  `durasi_pemasakan` int(11) NOT NULL,
   `gambar_path_main` text NOT NULL,
   `gambar_path_1` text NOT NULL,
   `gambar_path_2` text NOT NULL,
@@ -47,9 +53,12 @@ CREATE TABLE `bibit` (
 -- Dumping data untuk tabel `bibit`
 --
 
-INSERT INTO `bibit` (`id_bibit`, `nama_bibit`, `harga`, `jumlah`, `deskripsi_singkat`, `deskripsi`, `jenis_tanah`, `cuaca`, `estimasi_panen`, `gambar_path_main`, `gambar_path_1`, `gambar_path_2`, `gambar_path_3`) VALUES
-(1, 'After Padi Pera', '85000', 5, 'Nasi bertekstur sedikit keras', 'Padi pera diproduksi dan populer di daerah Sumatera Barat dan Riau. Padi dengan kadar amilosa tinggi tak hanya dijadikan nasi, pun juga menjadi bahan utama pembuatan bihun dan tepung beras.', 'Tanah Gambur', 'Hujan Sedang', '3-5', 'padi pera.png', '', '', ''),
-(2, 'After Padi Gogo', '65000', 1, 'Tekstur nasi agak pulen', 'Padi gogo adalah jenis padi yang tidak ditanam di sawah seperti pada umumnya. Jenis padi ini ditanam di kebun atau di ladang. Kelebihan padi gogo adalah tidak memerlukan irigasi khusus. Daerah yang sering mengembangkan padi gogo adalah daerah tadah hujan, contohnya di Lombok.', 'Tanah Lempung', 'Hujan Tinggi', '4-5', 'IMG_5949.JPG', 'WhatsApp Image 2023-09-05 at 14.38.26.jpg', 'IMG_5949.JPG', '');
+INSERT INTO `bibit` (`id_bibit`, `nama_bibit`, `harga`, `jumlah`, `deskripsi_singkat`, `kelebihan`, `kekurangan`, `ketahanan_hama_penyakit`, `jenis_tanah`, `musim_tanam`, `estimasi_panen`, `durasi_penanaman`, `durasi_anakan`, `durasi_bunting`, `durasi_pemasakan`, `gambar_path_main`, `gambar_path_1`, `gambar_path_2`, `gambar_path_3`) VALUES
+(1, 'IR 64', '85000', 5, 'Nasi bertekstur sedikit keras', 'Tahan terhadap penyakit blas dan hawar daun. Hasil tinggi', 'Rentan terhadap wereng coklat', 'Tahan terhadap hama tikus', 'Tanah Gambur', 'Musim Kemarau', '120-125 hari', 0, 0, 0, 0, 'padi pera.png', '', '', ''),
+(2, 'Ciherang', '65000', 1, 'Tekstur nasi agak pulen', 'Padi gogo adalah jenis padi yang tidak ditanam di sawah seperti pada umumnya. Jenis padi ini ditanam di kebun atau di ladang. Kelebihan padi gogo adalah tidak memerlukan irigasi khusus. Daerah yang sering mengembangkan padi gogo adalah daerah tadah hujan, contohnya di Lombok. Cepat tumbuh dan memiliki hasil tinggi', 'Rentan terhadap tungro', 'Rentan terhadap serangan wereng coklat', 'Tanah Lempung', 'Musim Hujan', '115-120 hari', 0, 0, 0, 0, 'IMG_5949.JPG', 'WhatsApp Image 2023-09-05 at 14.38.26.jpg', 'IMG_5949.JPG', ''),
+(8, 'Ciapus', '', 0, '', 'Hasil tinggi, Tahan terhadap serangan hama tikus', 'Rentan terhadap penyakit hawar daun', 'Tahan terhadap hama tikus', '', 'Musim Kemarau', 'Sekitar 120-125 hari', 0, 0, 0, 0, '', '', '', ''),
+(9, 'Inpari 30', '', 0, '', 'Tahan terhadap hama tikus dan penyakit blas', 'Produktivitas sedang', 'Tahan terhadap penyakit hawar daun', '', 'Musim Hujan', 'Sekitar 120-125 hari', 0, 0, 0, 0, '', '', '', ''),
+(11, 'cek nama bibit', '30000', 10, 'cek deskripsi singkat', 'cek kelebihan', 'cek kekurangan', 'cek ketahanan', 'cek jenis tanah', 'cek musim tanam', 'cek estimasi panen', 3, 4, 2, 4, 'qr_code.png', 'panduan pupuk.png', '', '');
 
 -- --------------------------------------------------------
 
@@ -284,7 +293,8 @@ CREATE TABLE `sawah` (
 --
 
 INSERT INTO `sawah` (`id_sawah`, `nama_sawah`, `lokasi_sawah`, `luas_sawah`, `deskripsi`, `id_user`, `created_at`) VALUES
-(39, 'Sawah Manggarai', 'LatLng(-8.271064, 113.664534)', 2, 'Lokasi depan rumah pak Afif', 14, '2023-02-23');
+(39, 'Sawah Manggarai', 'LatLng(-8.271064, 113.664534)', 2, 'Lokasi depan rumah pak Afif', 14, '2023-02-23'),
+(41, 'Sawah Garaga', 'LatLng(-8.275222, 113.673099)', 4, 'Dekat masjid Al Ikhlas', 14, '2023-11-27');
 
 -- --------------------------------------------------------
 
@@ -321,7 +331,7 @@ INSERT INTO `semprotan` (`id_semprotan`, `nama_semprotan`, `harga`, `jumlah`, `k
 
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
-  `oauth_uid` varchar(50) NOT NULL,
+  `reset_token` varchar(50) NOT NULL,
   `nama_depan` varchar(50) NOT NULL,
   `nama_belakang` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
@@ -339,9 +349,9 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id_user`, `oauth_uid`, `nama_depan`, `nama_belakang`, `alamat`, `email`, `no_handphone`, `tanggal_lahir`, `hak_akses`, `password`, `last_login`, `tanggal_daftar`, `gambar_path`) VALUES
-(10, '', 'Alif', 'Firmansyah', 'Jl Kebonsari', 'admin@gmail.com', '082311723123', '1993-11-02', 'Admin', '$2y$10$zybleksOtnzNawMeo8IVZOZAythWOX7jNmflQQ.GLhonouib0aAjy', '0000-00-00 00:00:00', '2023-10-26', 'Fuad Adhim Al Hasan_Teknik Informatika.png'),
-(14, '', 'Fuad', 'Adhim', 'Jalan Kenanga', 'fuadadhim24@gmail.com', '087840199095', '2004-09-05', 'Petani', '$2y$10$zybleksOtnzNawMeo8IVZOZAythWOX7jNmflQQ.GLhonouib0aAjy', '2023-11-22 07:03:15', '2023-11-22', 'Fuad Adhim Al Hasan_Teknik Informatika.pnf');
+INSERT INTO `users` (`id_user`, `reset_token`, `nama_depan`, `nama_belakang`, `alamat`, `email`, `no_handphone`, `tanggal_lahir`, `hak_akses`, `password`, `last_login`, `tanggal_daftar`, `gambar_path`) VALUES
+(10, '', 'Alif', 'Firmansyah', 'Jl Kebonsari', 'fuadadhim24@gmail.com', '082311723123', '1993-11-02', 'Admin', '$2y$10$BORP5mdMnAzG9ZEESLSavuoOTgkVHJh9bJGi5.vjBT4Aqj7mkiLgu', '0000-00-00 00:00:00', '2023-10-26', 'Fuad Adhim Al Hasan_Teknik Informatika.png'),
+(14, '1ff221894f4c277c8edafc21737bef9ca4a3bc050633998bb4', 'Fuad', 'Adhim', 'Jalan Kenanga', 'fuadadhim@gmail.com', '087840199095', '2004-09-05', 'Petani', '$2y$10$zybleksOtnzNawMeo8IVZOZAythWOX7jNmflQQ.GLhonouib0aAjy', '2023-11-22 07:03:15', '2023-11-22', 'Fuad Adhim Al Hasan_Teknik Informatika.pnf');
 
 --
 -- Indexes for dumped tables
@@ -451,7 +461,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `bibit`
 --
 ALTER TABLE `bibit`
-  MODIFY `id_bibit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_bibit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT untuk tabel `catatan_pemupukan`
@@ -511,7 +521,7 @@ ALTER TABLE `pupuk`
 -- AUTO_INCREMENT untuk tabel `sawah`
 --
 ALTER TABLE `sawah`
-  MODIFY `id_sawah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_sawah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT untuk tabel `semprotan`

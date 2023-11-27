@@ -234,25 +234,29 @@ if (isset($_GET['logout'])) {
                 <a href="./create.php"  class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;">Tambah Bibit</a>
               </div>
               <div class="table-responsive" style="margin-top: 40px">
-                <table class="table" style="width:2500px;">
+                <table class="table" style="width:3000px;">
                   <thead>
                   <tr>
                       <th>No</th>
-                      <th width="5%">Nama Bibit</th>
+                      <th width="4%">Nama Bibit</th>
                       <th>Harga</th>
-                      <th width="5%">Jumlah (Kg)</th>
-                      <th width="12%">Deskripsi Singkat</th>
-                      <th width="11%">kelebihan</th>
-                      <th width="11%">Kekurangan</th>
-                      <th width="10%">Ketahanan Hama Penyakit</th>
-                      <th width="6%">Jenis Tanah</th>
-                      <th width="6%">Musim Taman</th>
-                      <th width="6%">Estimasi Panen</th>
-                      <th width="8%">Gambar Utama</th>
-                      <th width="4%">Gambar 1</th>
-                      <th width="4%">Gambar 2</th>
+                      <th width="4%">Jumlah (Kg)</th>
+                      <th width="7%">Deskripsi Singkat</th>
+                      <th width="7%">kelebihan</th>
+                      <th width="7%">Kekurangan</th>
+                      <th width="8%">Ketahanan Hama Penyakit</th>
+                      <th width="5%">Jenis Tanah</th>
+                      <th width="5%">Musim Taman</th>
+                      <th width="5%">Estimasi Panen</th>
+                      <th width="7%">Durasi Penanaman (Bln)</th>
+                      <th width="6%">Durasi Anakan (Bln)</th>
+                      <th width="6%">Durasi Bunting (Bln)</th>
+                      <th width="7%">Durasi Pemasakan (Bln)</th>
+                      <th width="5%">Gambar Utama</th>
+                      <th width="3%">Gambar 1</th>
+                      <th width="3%">Gambar 2</th>
                       <th width="4%">Gambar 3</th>
-                      <th style="padding-left:10px;text-align:center;"width="17%">Action</th>
+                      <th style="padding-left:10px;text-align:center;"width="15%">Action</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -273,6 +277,10 @@ if (isset($_GET['logout'])) {
                       echo "<td>{$bibit['jenis_tanah']}</td>";
                       echo "<td>{$bibit['musim_tanam']}</td>";
                       echo "<td style='margin-left:5px; text-align: center'>{$bibit['estimasi_panen']}</td>";
+                      echo "<td style='margin-left:5px; text-align: center'>{$bibit['durasi_penanaman']}</td>";
+                      echo "<td style='margin-left:5px; text-align: center'>{$bibit['durasi_anakan']}</td>";
+                      echo "<td style='margin-left:5px; text-align: center'>{$bibit['durasi_bunting']}</td>";
+                      echo "<td style='margin-left:5px; text-align: center'>{$bibit['durasi_pemasakan']}</td>";
                       if (!empty($bibit['gambar_path_main'])) {
                         echo "<td style='text-align: center'>
                             <button style='padding-right:30px;padding-left:30px' type='button' class='btn btn-warning' onclick=\"window.open('../../../../public/assets/img/bibit/{$bibit['gambar_path_main']}', '_blank')\">

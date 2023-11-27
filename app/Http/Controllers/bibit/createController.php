@@ -26,9 +26,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $musim_tanam = $_POST['musim_tanam'];
     $estimasi_panen = $_POST['estimasi_panen'];
 
+    $durasi_penanaman = $_POST['durasi_penanaman'];
+    $durasi_anakan = $_POST['durasi_anakan'];
+    $durasi_bunting = $_POST['durasi_bunting'];
+    $durasi_pemasakan = $_POST['durasi_pemasakan'];
+
     $bibitModel = new BibitModel($conn);
 
-        if ($bibitModel->createBibit($nama_bibit, $harga, $jumlah_perkg, $deskripsi_singkat, $kelebihan, $kekurangan, $ketahanan_hama_penyakit, $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3, $jenis_tanah, $musim_tanam, $estimasi_panen)) {
+        if ($bibitModel->createBibit($nama_bibit, $harga, $jumlah_perkg, $deskripsi_singkat, $kelebihan, $kekurangan, $ketahanan_hama_penyakit, $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3, $jenis_tanah, $musim_tanam, $estimasi_panen, $durasi_penanaman, $durasi_anakan, $durasi_bunting, $durasi_pemasakan)) {
             // Pendaftaran berhasil
             $response = array(
                 'success' => true,
