@@ -55,20 +55,10 @@
                   <input class="form-control" name="email" id="email" type="text" placeholder="Email" required></input>
                   <p></p>
                   <input class="form-control" name="password" id="password" type="password" placeholder="Password" required></input>
-                    <p style="margin-top: 5px; text-align:right;"><a href="#" style="color: white;" >Lupa Password?</a></p>
+                    <p style="margin-top: 5px; text-align:right;"><a href="auth/index.php" style="color: white;" >Lupa Password?</a></p>
                   <button type="submit" style="border-radius: 10px;background-color: white;padding:8px; padding-right:40px; padding-left:40px;">Masuk</button>
                 </form>
             </div>
-            <div style="color:#FFFFFF;">
-              <p>atau</p>
-            </div>
-            
-            
-            <!-- echo $client->createAuthUrl(); -->
-            <a style="margin-top:10px" href="">
-              <img src="../../public/assets/img/auth/btn_signIn_google.png" alt="Button Sign In Google"
-            </a>
-            
         </div>
       </div>
     </div>
@@ -131,7 +121,7 @@
               <h1>JejakPadi</h1>
               <h10 style="margin-top:20px; ">Sistem jejak pertanian padi untuk petani mandiri. Memberdayakan petani dengan sistem pelacakan pertanian yang mudah.</h10>
               <p></p>
-              <h7 style="padding:5px 20px; background: rgba(255, 255, 255, 0.28); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(13.1px); -webkit-backdrop-filter: blur(13.1px); border: 1px solid rgba(255, 255, 255, 0.3);"><a href="#" class="about-btn">Scan QR Produk Beras<i class="bx bx-chevron-right"></i></a></h7>
+              <h7 style="padding:5px 20px; background: rgba(255, 255, 255, 0.28); border-radius: 16px; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); backdrop-filter: blur(13.1px); -webkit-backdrop-filter: blur(13.1px); border: 1px solid rgba(255, 255, 255, 0.3);"><a href="#scan" class="about-btn">Scan QR Produk Beras<i class="bx bx-chevron-right"></i></a></h7>
             </div>
           </div>
           <div class="col-xl-7 d-flex align-items-stretch">
@@ -419,8 +409,7 @@
       <div class="container">
 
         <div class="section-title" data-aos="fade-in" data-aos-delay="100">
-          <h2>Testimonials</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Apa kata mereka?</h2>
         </div>
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
@@ -434,8 +423,8 @@
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="../../public/assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
+                <h3>M. Angga Gumilang</h3>
+                <h4>Dosen Riset SFS</h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -447,8 +436,8 @@
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="../../public/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
+                <h3>Sucipto Trisno</h3>
+                <h4>Owner Bisnis</h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -460,8 +449,8 @@
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="../../public/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
+                <h3>Fuad Adhim A. H.</h3>
+                <h4>Ketua Research Development Team</h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -473,8 +462,8 @@
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="../../public/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
+                <h3>Sucipto Trisno</h3>
+                <h4>Petani</h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -486,8 +475,8 @@
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="../../public/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
+                <h3>Bayu Candra</h3>
+                <h4>Distributor</h4>
               </div>
             </div><!-- End testimonial item -->
 
