@@ -248,10 +248,10 @@ if (isset($_GET['logout'])) {
                       <th width="5%">Jenis Tanah</th>
                       <th width="5%">Musim Taman</th>
                       <th width="5%">Estimasi Panen</th>
-                      <th width="7%">Durasi Penanaman (Bln)</th>
-                      <th width="6%">Durasi Anakan (Bln)</th>
-                      <th width="6%">Durasi Bunting (Bln)</th>
-                      <th width="7%">Durasi Pemasakan (Bln)</th>
+                      <th width="7%">Durasi Penanaman (Hari)</th>
+                      <th width="6%">Durasi Anakan (Hari)</th>
+                      <th width="6%">Durasi Bunting (Hari)</th>
+                      <th width="7%">Durasi Pemasakan (Hari)</th>
                       <th width="5%">Gambar Utama</th>
                       <th width="3%">Gambar 1</th>
                       <th width="3%">Gambar 2</th>

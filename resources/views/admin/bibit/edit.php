@@ -343,19 +343,19 @@ if (isset($_GET['logout'])) {
                       <div class="tab-pane fade" id="nav-kalender" role="tabpanel" aria-labelledby="nav-kalender-tab" tabindex="0">
                           <div class="row">
                               <div class="mb-3 mt-3">
-                                  <label class="form-label">Durasi Penanaman (Bln)<span style="color:red"> *</span></label>
+                                  <label class="form-label">Durasi Penanaman (Hari)<span style="color:red"> *</span></label>
                                   <input class="form-control" name="durasi_penanaman" id="durasi_penanaman" rows="3" required></input>
                               </div>
                               <div class="mb-3 mt-3">
-                                  <label class="form-label">Durasi Anakan (Bln)<span style="color:red"> *</span></label>
+                                  <label class="form-label">Durasi Anakan (Hari)<span style="color:red"> *</span></label>
                                   <input class="form-control" name="durasi_anakan" id="durasi_anakan" rows="3" required></input>
                               </div>
                               <div class="mb-3">
-                                  <label class="form-label">Durasi Bunting (Bln)<span style="color:red"> *</span></label>
+                                  <label class="form-label">Durasi Bunting (Hari)<span style="color:red"> *</span></label>
                                   <input class="form-control" name="durasi_bunting" id="durasi_bunting" rows="3" required></input>
                               </div>
                               <div class="mb-3">
-                                  <label class="form-label">Durasi Pemasakan (Bln)<span style="color:red"> *</span></label>
+                                  <label class="form-label">Durasi Pemasakan (Hari)<span style="color:red"> *</span></label>
                                   <input class="form-control" name="durasi_pemasakan" id="durasi_pemasakan" rows="3" required></input>
                               </div>
                               

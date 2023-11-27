@@ -29,18 +29,14 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     // Query untuk mengambil data sawah berdasarkan ID
-    $query = "SELECT bibit.id_bibit, bibit.nama_bibit, bibit.deskripsi_singkat as 'bibit.deskripsi_singkat', bibit.kelebihan as 'bibit.kelebihan', bibit.gambar_path_main as 'bibit.gambar_path_main',
+    $query = "SELECT bibit.id_bibit, bibit.nama_bibit, bibit.deskripsi_singkat as 'bibit.deskripsi_singkat', bibit.kelebihan as 'bibit.kelebihan', bibit.durasi_penanaman, bibit.durasi_anakan, bibit.durasi_bunting, bibit.durasi_pemasakan,bibit.gambar_path_main as 'bibit.gambar_path_main',
     sawah.id_sawah, sawah.deskripsi as 'sawah.deskripsi', sawah.nama_sawah, sawah.lokasi_sawah, sawah.luas_sawah, sawah.created_at,
     detail_sawah.id_detail_sawah, detail_sawah.jumlah_benih, detail_sawah.tanggal_tanam, detail_sawah.jumlah_benih,
     masa_panen.id_masa_panen, masa_panen.tanggal_panen, masa_panen.jumlah_panen, masa_panen.quest_1, masa_panen.quest_2, masa_panen.quest_3, masa_panen.quest_4,
     kualitas.id_kualitas, kualitas.rate_kualitas, kualitas.catatan_kualitas,
     users.id_user,users.nama_depan,users.nama_belakang,users.no_handphone, users.alamat,users.email, users.tanggal_lahir,users.tanggal_daftar, users.gambar_path as 'users.gambar_path' FROM bibit, sawah, detail_sawah, masa_panen, kualitas, users WHERE sawah.id_sawah = $id;";
 
-    // $queryPenyemaian="SELECT catatan_semai.id_catatan_semai, catatan_semai.tanggal as 'catatan_semai.tanggal', catatan_semai.jenis_semai, catatan_semai.deskripsi as 'catatan_semai.deskripsi', catatan_semai.id_user, catatan_semai.id_sawah FROM catatan_semai WHERE catatan_semai.id_sawah = $id;";
     $result = mysqli_query($conn, $query);
-    // $resultPenyemaian = mysqli_query($conn, $queryPenyemaian);
-
-    // $penyemaian = mysqli_fetch_array($resultPenyemaian);
     $sawah = mysqli_fetch_array($result);?>
 <!DOCTYPE html>
 <html lang="en">
@@ -289,16 +285,16 @@ if (isset($_GET['id'])) {
                                         backdrop-filter: blur(5px);
                                         -webkit-backdrop-filter: blur(5px);
                                         border: 1px solid rgba(255, 255, 255, 0.3);'>
-                                      <h4><?php echo $sawah['tanggal_tanam']?></h4>
-                                      <h5>Tanggal Tanam</h5>
+                                      <h5><?php echo $sawah['tanggal_tanam']?></h5>
+                                      <p>Tanggal Tanam</p>
                                     </div>
                                     <div class="col" style='border-radius: 15px 50px;
                                         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
                                         backdrop-filter: blur(5px);
                                         -webkit-backdrop-filter: blur(5px);
                                         border: 1px solid rgba(15, 255, 255, 0.2);'>
-                                      <h4><?php echo $sawah['tanggal_panen']?></h4>
-                                      <h5>Tanggal Panen</h5>
+                                      <h5><?php echo $sawah['tanggal_panen']?></h5>
+                                      <p>Tanggal Panen</p>
                                     </div>
                                   </div>
                                 </div>
@@ -372,6 +368,27 @@ if (isset($_GET['id'])) {
           <div class="card mb-4">
             <div class="card-body">
               <div>
+                <?php
+                  // Ambil tanggal tanam dari $sawah
+                  $tanggal_tanam = new DateTime($sawah['tanggal_tanam']);
+                  $durasi_penanaman = $sawah['durasi_penanaman'];
+                  $durasi_anakan = $sawah['durasi_anakan'];;
+                  $durasi_bunting = $sawah['durasi_bunting'];;
+                  $durasi_pemasakan = $sawah['durasi_pemasakan'];;
+
+                  // Hitung tanggal-tanggal berdasarkan durasi
+                  $tanggal_anakan = clone $tanggal_tanam;
+                  $tanggal_anakan->add(new DateInterval("P{$durasi_penanaman}D"))->add(new DateInterval("P1D"));
+
+                  $tanggal_bunting = clone $tanggal_anakan;
+                  $tanggal_bunting->add(new DateInterval("P{$durasi_anakan}D"))->add(new DateInterval("P1D"));
+
+                  $tanggal_pemasakan = clone $tanggal_bunting;
+                  $tanggal_pemasakan->add(new DateInterval("P{$durasi_bunting}D"))->add(new DateInterval("P1D"));
+
+                  $tanggal_panen = clone $tanggal_pemasakan;
+                  $tanggal_panen->add(new DateInterval("P{$durasi_pemasakan}D"))->add(new DateInterval("P1D"));
+?>
                 <div class="c-chart-wrapper" >
                                       
 
@@ -388,19 +405,19 @@ if (isset($_GET['id'])) {
                   <div id="progress-bar-container">
                     <ul>
                       <li class="step step01 active"><div class="step-inner">PENANAMAN
-                        <div class="subtitle" style="font-size:10px; margin: 0;">1 Jan - 20 Jan</div>
+                        <div class="subtitle" style="font-size:10px; margin: 0;"><?php echo $tanggal_tanam->format('j M') . " - " . $tanggal_anakan->format('j M')?></div>
                       </div></li>
                       <li class="step step02"><div class="step-inner">ANAKAN
-                        <div class="subtitle" style="font-size:10px; margin: 0;">1 Jan - 20 Jan</div>
+                        <div class="subtitle" style="font-size:10px; margin: 0;"><?php echo ($tanggal_anakan->format('j M')) . " - " . $tanggal_bunting->format('j M')?></div>
                       </div></li>
                       <li class="step step03"><div class="step-inner">BUNTING
-                        <div class="subtitle" style="font-size:10px; margin: 0;">1 Jan - 20 Jan</div>
+                        <div class="subtitle" style="font-size:10px; margin: 0;"><?php echo ($tanggal_bunting->format('j M')) . " - " . $tanggal_pemasakan->format('j M')?></div>
                       </div></li>
                       <li class="step step04"><div class="step-inner">PEMASAKAN
-                        <div class="subtitle" style="font-size:10px; margin: 0;">1 Jan - 20 Jan</div>
+                        <div class="subtitle" style="font-size:10px; margin: 0;"><?php echo ($tanggal_pemasakan->format('j M')) . " - " . $tanggal_pemasakan->add(new DateInterval("P{$durasi_pemasakan}D"))->format('j M')?></div>
                       </div></li>
                       <li class="step step05"><div class="step-inner">PANEN
-                        <div class="subtitle" style="font-size:10px; margin: 0;">1 Jan - 20 Jan</div>
+                        <div class="subtitle" style="font-size:10px; margin: 0;"><?php echo ($tanggal_pemasakan->format('j M')) . " - " . $tanggal_panen->format('j M')?></div>
                       </div></li>
                     </ul>
                     
@@ -411,28 +428,28 @@ if (isset($_GET['id'])) {
 
                   <div id="progress-content-section">
                     <div class="section-content discovery active">
-                      <h2>HOME SECTION</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque justo, consequat non fermentum ac, tempor eu turpis. Proin nulla eros, placerat non ipsum ut, dapibus ullamcorper ex. Nulla in dapibus lorem. Suspendisse vitae velit ac ante consequat placerat ut sed eros. Nullam porttitor mattis mi, id fringilla ex consequat eu. Praesent pulvinar tincidunt leo et condimentum. Maecenas volutpat turpis at felis egestas malesuada. Phasellus sem odio, venenatis at ex a, lacinia suscipit orci.</p>
+                      <h2>Tahapan Penanaman</h2>
+                      <p>Tahapan penanaman adalah awal dari siklus pertumbuhan padi. Pada tahap ini, bibit padi ditanam di sawah dengan cermat. Proses ini memerlukan perhatian khusus untuk memastikan pertumbuhan yang sehat.</p>
                     </div>
                     
                     <div class="section-content strategy">
-                      <h2>GALLERY SECTION</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque justo, consequat non fermentum ac, tempor eu turpis. Proin nulla eros, placerat non ipsum ut, dapibus ullamcorper ex. Nulla in dapibus lorem. Suspendisse vitae velit ac ante consequat placerat ut sed eros. Nullam porttitor mattis mi, id fringilla ex consequat eu. Praesent pulvinar tincidunt leo et condimentum. Maecenas volutpat turpis at felis egestas malesuada. Phasellus sem odio, venenatis at ex a, lacinia suscipit orci.</p>
+                      <h2>Tahapan Anakan</h2>
+                      <p>Pada tahap anakan, padi mulai tumbuh dan membentuk anak-anak daun pertamanya. Ini adalah fase penting dalam perkembangan tanaman padi, dan perlu perawatan ekstra untuk memastikan pertumbuhan yang optimal.</p>
                     </div>
                     
                     <div class="section-content creative">
-                      <h2>Creative CREATIONS</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque justo, consequat non fermentum ac, tempor eu turpis. Proin nulla eros, placerat non ipsum ut, dapibus ullamcorper ex. Nulla in dapibus lorem. Suspendisse vitae velit ac ante consequat placerat ut sed eros. Nullam porttitor mattis mi, id fringilla ex consequat eu. Praesent pulvinar tincidunt leo et condimentum. Maecenas volutpat turpis at felis egestas malesuada. Phasellus sem odio, venenatis at ex a, lacinia suscipit orci.</p>
+                      <h2>Tahapan Bunting</h2>
+                      <p>Tahapan bunting adalah ketika padi mulai membentuk malai bunga dan butir-butir padi. Proses pembuahan ini membutuhkan kondisi lingkungan yang baik dan perawatan yang cermat untuk memastikan hasil panen yang maksimal.</p>
                     </div>
                     
                     <div class="section-content production">
-                      <h2>TESTIMONIALS NOW</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque justo, consequat non fermentum ac, tempor eu turpis. Proin nulla eros, placerat non ipsum ut, dapibus ullamcorper ex. Nulla in dapibus lorem. Suspendisse vitae velit ac ante consequat placerat ut sed eros. Nullam porttitor mattis mi, id fringilla ex consequat eu. Praesent pulvinar tincidunt leo et condimentum. Maecenas volutpat turpis at felis egestas malesuada. Phasellus sem odio, venenatis at ex a, lacinia suscipit orci.</p>
+                      <h2>Tahapan Pemasakan</h2>
+                      <p>Pada tahap pemasakan, butir-butir padi mengalami pematangan. Warna padi berubah menjadi kuning, dan butir-butirnya mengeras. Tahapan ini menentukan kualitas dan kuantitas hasil panen yang akan didapatkan.</p>
                     </div>
                     
                     <div class="section-content analysis">
-                      <h2>OUR LOCATIONS</h2>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec neque justo, consequat non fermentum ac, tempor eu turpis. Proin nulla eros, placerat non ipsum ut, dapibus ullamcorper ex. Nulla in dapibus lorem. Suspendisse vitae velit ac ante consequat placerat ut sed eros. Nullam porttitor mattis mi, id fringilla ex consequat eu. Praesent pulvinar tincidunt leo et condimentum. Maecenas volutpat turpis at felis egestas malesuada. Phasellus sem odio, venenatis at ex a, lacinia suscipit orci.</p>
+                      <h2>Tahapan Panen</h2>
+                      <p>Tahapan panen adalah saat yang dinanti-nantikan, di mana padi yang telah matang dipanen untuk diambil hasilnya. Proses panen memerlukan keahlian khusus untuk memastikan kualitas butir padi tetap terjaga hingga masuk ke pasaran.</p>
                     </div>
                     </div>
                   </div>
