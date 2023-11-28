@@ -42,7 +42,7 @@ if (isset($_GET['id'])) {
     // Function to get the current page URL
     function getCurrentPageURL() {
       $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
-      $url = $protocol . "://" . $_SERVER['HTTP_HOST'] . '';
+      $url = $protocol . "://" . $_SERVER['HTTP_HOST'] . '/resources/views/scanQrCode/index.php?id='.$_GET['id'];
       return $url;
   }
 

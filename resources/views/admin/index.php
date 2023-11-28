@@ -171,7 +171,7 @@ if (isset($_GET['logout'])) {
             <svg class="nav-icon">
               <use xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-layers"></use>
             </svg> Sawah</a></li>
-        <li class="nav-item"><a class="nav-link" href="auth/index.php">
+        <li class="nav-item"><a class="nav-link" href="user/index.php">
             <svg class="nav-icon">
               <use xlink:href="../../../vendor/@coreui/icons/svg/free.svg#cil-people"></use>
             </svg> Akun</a></li>
