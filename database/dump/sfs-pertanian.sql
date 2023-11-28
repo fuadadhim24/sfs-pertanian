@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 27 Nov 2023 pada 10.36
+-- Waktu pembuatan: 28 Nov 2023 pada 05.12
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -54,11 +54,11 @@ CREATE TABLE `bibit` (
 --
 
 INSERT INTO `bibit` (`id_bibit`, `nama_bibit`, `harga`, `jumlah`, `deskripsi_singkat`, `kelebihan`, `kekurangan`, `ketahanan_hama_penyakit`, `jenis_tanah`, `musim_tanam`, `estimasi_panen`, `durasi_penanaman`, `durasi_anakan`, `durasi_bunting`, `durasi_pemasakan`, `gambar_path_main`, `gambar_path_1`, `gambar_path_2`, `gambar_path_3`) VALUES
-(1, 'IR 64', '85000', 5, 'Nasi bertekstur sedikit keras', 'Tahan terhadap penyakit blas dan hawar daun. Hasil tinggi', 'Rentan terhadap wereng coklat', 'Tahan terhadap hama tikus', 'Tanah Gambur', 'Musim Kemarau', '120-125 hari', 0, 0, 0, 0, 'padi pera.png', '', '', ''),
+(1, 'IR 64', '85000', 5, 'Nasi bertekstur sedikit keras', 'Tahan terhadap penyakit blas dan hawar daun. Hasil tinggi', 'Rentan terhadap wereng coklat', 'Tahan terhadap hama tikus', 'Tanah Gambur', 'Musim Kemarau', '120-125 hari', 14, 35, 35, 60, 'padi pera.png', '', '', ''),
 (2, 'Ciherang', '65000', 1, 'Tekstur nasi agak pulen', 'Padi gogo adalah jenis padi yang tidak ditanam di sawah seperti pada umumnya. Jenis padi ini ditanam di kebun atau di ladang. Kelebihan padi gogo adalah tidak memerlukan irigasi khusus. Daerah yang sering mengembangkan padi gogo adalah daerah tadah hujan, contohnya di Lombok. Cepat tumbuh dan memiliki hasil tinggi', 'Rentan terhadap tungro', 'Rentan terhadap serangan wereng coklat', 'Tanah Lempung', 'Musim Hujan', '115-120 hari', 0, 0, 0, 0, 'IMG_5949.JPG', 'WhatsApp Image 2023-09-05 at 14.38.26.jpg', 'IMG_5949.JPG', ''),
 (8, 'Ciapus', '', 0, '', 'Hasil tinggi, Tahan terhadap serangan hama tikus', 'Rentan terhadap penyakit hawar daun', 'Tahan terhadap hama tikus', '', 'Musim Kemarau', 'Sekitar 120-125 hari', 0, 0, 0, 0, '', '', '', ''),
 (9, 'Inpari 30', '', 0, '', 'Tahan terhadap hama tikus dan penyakit blas', 'Produktivitas sedang', 'Tahan terhadap penyakit hawar daun', '', 'Musim Hujan', 'Sekitar 120-125 hari', 0, 0, 0, 0, '', '', '', ''),
-(11, 'cek nama bibit', '30000', 10, 'cek deskripsi singkat', 'cek kelebihan', 'cek kekurangan', 'cek ketahanan', 'cek jenis tanah', 'cek musim tanam', 'cek estimasi panen', 3, 4, 2, 4, 'qr_code.png', 'panduan pupuk.png', '', '');
+(11, 'edit cek nama bibit', '33000', 3, 'edit cek deskripsi singkat', 'edit cek kelebihan', 'edit cek kekurangan', 'edit cek ketahanan', 'edit cek jenis tanah', 'edit cek musim tanam', 'edit cek estimasi panen', 3, 4, 5, 6, 'qr_code.png', 'panduan pupuk.png', '', '');
 
 -- --------------------------------------------------------
 
@@ -350,7 +350,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `reset_token`, `nama_depan`, `nama_belakang`, `alamat`, `email`, `no_handphone`, `tanggal_lahir`, `hak_akses`, `password`, `last_login`, `tanggal_daftar`, `gambar_path`) VALUES
-(10, '', 'Alif', 'Firmansyah', 'Jl Kebonsari', 'fuadadhim24@gmail.com', '082311723123', '1993-11-02', 'Admin', '$2y$10$BORP5mdMnAzG9ZEESLSavuoOTgkVHJh9bJGi5.vjBT4Aqj7mkiLgu', '0000-00-00 00:00:00', '2023-10-26', 'Fuad Adhim Al Hasan_Teknik Informatika.png'),
+(10, '794967', 'Alif', 'Firmansyah', 'Jl Kebonsari', 'fuadadhim24@gmail.com', '082311723123', '1993-11-02', 'Admin', '$2y$10$BVjO270fWSXi/CzsS8uiOOSqc4WBh4TFxPdjXhMCsEm5psvCeG/Q.', '0000-00-00 00:00:00', '2023-10-26', 'Fuad Adhim Al Hasan_Teknik Informatika.png'),
 (14, '1ff221894f4c277c8edafc21737bef9ca4a3bc050633998bb4', 'Fuad', 'Adhim', 'Jalan Kenanga', 'fuadadhim@gmail.com', '087840199095', '2004-09-05', 'Petani', '$2y$10$zybleksOtnzNawMeo8IVZOZAythWOX7jNmflQQ.GLhonouib0aAjy', '2023-11-22 07:03:15', '2023-11-22', 'Fuad Adhim Al Hasan_Teknik Informatika.pnf');
 
 --

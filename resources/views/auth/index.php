@@ -40,7 +40,7 @@ session_destroy();
               </div>
               <form id="forgot-password-form" method="POST" action="../../../app/Http/Controllers/auth/forgotPasswordController.php">
                 <div class="d-flex justify-content-between mt-4">
-                  <input class="form-control" name="email" id="email" rows="3" placeholder="youremail@example.com" required></input>
+                  <input class="form-control" name="email" id="email" rows="3" placeholder="youremail@example.com"  required></input>
                   <button class="btn btn-info" style="margin-left:10px; padding-inline:20px" type="submit">Verifikasi</button>
                 </div>
               </form>

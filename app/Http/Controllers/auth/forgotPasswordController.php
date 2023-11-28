@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Content
             $mail->isHTML(true);
             $mail->Subject = 'Password Reset';
-            $mail->Body    = "$token adalah token reset password anda: ";
+            $mail->Body    = "$token adalah token reset password anda.";
 
             $mail->send();
             $response = array(
