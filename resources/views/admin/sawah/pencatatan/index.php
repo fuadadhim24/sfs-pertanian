@@ -37,7 +37,30 @@ if (isset($_GET['id'])) {
     users.id_user,users.nama_depan,users.nama_belakang,users.no_handphone, users.alamat,users.email, users.tanggal_lahir,users.tanggal_daftar, users.gambar_path as 'users.gambar_path' FROM bibit, sawah, detail_sawah, masa_panen, kualitas, users WHERE sawah.id_sawah = $id;";
 
     $result = mysqli_query($conn, $query);
-    $sawah = mysqli_fetch_array($result);?>
+    $sawah = mysqli_fetch_array($result);
+    
+    // Function to get the current page URL
+    function getCurrentPageURL() {
+      $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
+      $url = $protocol . "://" . $_SERVER['HTTP_HOST'] . '';
+      return $url;
+  }
+
+  if(isset($_POST['generate'])){
+      $code = $_POST['text_code'];
+      $image_url = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=$code&choe=UTF-8";
+
+      // Get the contents of the image
+      $image_data = file_get_contents($image_url);
+
+      // Set headers for download
+      header("Content-type: image/png");
+      header("Content-Disposition: attachment; filename=qr_code_ketelusuran_beras.png");
+
+      // Output the image directly to the browser
+      echo $image_data;
+  }
+    ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -223,7 +246,7 @@ if (isset($_GET['id'])) {
                 <div class="avatar avatar-md">
                   <img
                     class="avatar-img"
-                    src="../../../../public/assets/img/avatars/8.jpg"
+                    src="../../../../../public/assets/img/avatars/8.jpg"
                     alt="user@email.com"
                   />
                 </div>
@@ -263,7 +286,12 @@ if (isset($_GET['id'])) {
                   </div>
                   
                 </div>
-                <a href="../../../scanQrCode/index.php?id=<?php echo $sawah['id_sawah']?>"  class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;">Buat QR Code Produk</a>
+                <form method="POST">
+                    <input type="hidden" name="text_code" value="<?php echo getCurrentPageURL(); ?>" />
+                    <button type="submit" name="generate" class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;">
+                        <img width="20px" style="margin-right:5px" src="../../../../../public/assets/icons/qr-code-icon.png"/>Cetak QR Code
+                    </button>
+                </form>
               </div>
               <div style="margin-top:20px">
                     <div class="card mb-3" style="justify-content: center; align-content:center: center; max-height: 350px;">

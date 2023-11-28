@@ -14,34 +14,11 @@ if (isset($_GET['id'])) {
     kualitas.id_kualitas, kualitas.rate_kualitas, kualitas.catatan_kualitas,
     users.id_user,users.nama_depan,users.nama_belakang,users.no_handphone, users.alamat,users.email, users.tanggal_lahir,users.tanggal_daftar, users.gambar_path as 'users.gambar_path' FROM bibit, sawah, detail_sawah, masa_panen, kualitas, users WHERE sawah.id_sawah = $id;";
 
-    // $queryPenyemaian="SELECT catatan_semai.id_catatan_semai, catatan_semai.tanggal as 'catatan_semai.tanggal', catatan_semai.jenis_semai, catatan_semai.kelebihan as 'catatan_semai.kelebihan', catatan_semai.id_user, catatan_semai.id_sawah FROM catatan_semai WHERE catatan_semai.id_sawah = $id;";
     $result = mysqli_query($conn, $query);
-    // $resultPenyemaian = mysqli_query($conn, $queryPenyemaian);
 
-    // $penyemaian = mysqli_fetch_array($resultPenyemaian);
     $sawah = mysqli_fetch_array($result);
     
-    // Function to get the current page URL
-    function getCurrentPageURL() {
-        $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
-        $url = $protocol . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-        return $url;
-    }
-
-    if(isset($_POST['generate'])){
-        $code = $_POST['text_code'];
-        $image_url = "https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=$code&choe=UTF-8";
-
-        // Get the contents of the image
-        $image_data = file_get_contents($image_url);
-
-        // Set headers for download
-        header("Content-type: image/png");
-        header("Content-Disposition: attachment; filename=qr_code_ketelusuran_beras.png");
-
-        // Output the image directly to the browser
-        echo $image_data;
-    }
+    
     ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -195,12 +172,9 @@ if (isset($_GET['id'])) {
                                       } else {echo "Tidak Ada Data Sawah Yang Dipilih!";}?>
                   </div>
                 </div>
-                <form method="POST">
-                    <input type="hidden" name="text_code" value="<?php echo getCurrentPageURL(); ?>" />
-                    <button type="submit" name="generate" class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;">
-                        <img width="20px" style="margin-right:5px" src="../../../public/assets/icons/qr-code-icon.png"/>Cetak QR Code
+                    <button type="submit"  class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;" href="../../index.php">
+                        <img width="20px" style="margin-right:5px" src="../../../public/assets/icons/qr-code-icon.png"/>Beralih ke Website JejakPadi
                     </button>
-                </form>
 
 
               </div>
