@@ -137,7 +137,26 @@ if (isset($_GET['logout'])) {
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
+    <script>
+        function logoutClicked() {
+            // Assuming you are using AJAX (fetch) to call the PHP script
+            fetch('?logout=true')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Redirect to '../index.php' after successful logout
+                        window.location.href = '../index.php';
+                    } else {
+                        // Handle any error messages if needed
+                        console.error(data.message);
+                    }
+                })
+                .catch(error => {
+                    // Handle fetch error
+                    console.error('Error:', error);
+                });
+        }
+    </script>
   </head>
   <body>
   <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
@@ -212,7 +231,7 @@ if (isset($_GET['logout'])) {
                   <div class="fw-semibold">Aksi</div>
                 </div>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="#" onclick="logoutClicked()">
                   <svg class="icon me-2">
                     <use
                       xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"

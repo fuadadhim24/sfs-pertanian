@@ -3,7 +3,7 @@
         'name' => 'fuadadhim24/sfs-pertanian',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => 'fab9bf4b7b500a59b6bad38d9f17fb00a92e33ca',
+        'reference' => 'b38cbba1273da2346be46b7057f53d5705d0dea1',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'fuadadhim24/sfs-pertanian' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => 'fab9bf4b7b500a59b6bad38d9f17fb00a92e33ca',
+            'reference' => 'b38cbba1273da2346be46b7057f53d5705d0dea1',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

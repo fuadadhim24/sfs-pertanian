@@ -139,6 +139,26 @@ if (isset($_GET['logout'])) {
       href="https://unpkg.com/leaflet-geosearch@3.0.0/dist/geosearch.css"
     />
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script>
+        function logoutClicked() {
+            // Assuming you are using AJAX (fetch) to call the PHP script
+            fetch('?logout=true')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Redirect to '../index.php' after successful logout
+                        window.location.href = '../index.php';
+                    } else {
+                        // Handle any error messages if needed
+                        console.error(data.message);
+                    }
+                })
+                .catch(error => {
+                    // Handle fetch error
+                    console.error('Error:', error);
+                });
+        }
+    </script>
 
   </head>
   <body>
@@ -214,7 +234,7 @@ if (isset($_GET['logout'])) {
                   <div class="fw-semibold">Aksi</div>
                 </div>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="#" onclick="logoutClicked()">
                   <svg class="icon me-2">
                     <use
                       xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
