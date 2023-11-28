@@ -1,0 +1,13 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteRule ^css/(.*)$ /resources/css/$1 [L,P]
+    RewriteRule ^js/(.*)$ /resources/js/$1 [L,P]
+
+    RewriteRule ^admin/(.*)$ /resources/views/admin/$1 [L,P]
+    RewriteRule ^auth/(.*)$ /resources/views/auth/$1 [L,P]
+    RewriteRule ^scanQrCode/(.*)$ /resources/views/scanQrCode/$1 [L,P]
+
+    RewriteRule ^$ /resources/views/$1 [L,P]
+
+</IfModule>
