@@ -172,8 +172,8 @@ if (isset($_GET['id'])) {
                                       } else {echo "Tidak Ada Data Sawah Yang Dipilih!";}?>
                   </div>
                 </div>
-                    <button type="submit" class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;" href="../../index.php">
-                        <img width="20px" style="margin-right:5px" src="../../../public/assets/icons/qr-code-icon.png"/>Beralih ke Website JejakPadi
+                    <button class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;" href="../../index.php">
+                        Beralih ke Website JejakPadi
                     </button>
 
 
@@ -237,10 +237,11 @@ if (isset($_GET['id'])) {
                                   <div class="card-body" style>
                                       <p>Nama Depan: <?php echo $sawah['nama_depan']?></p>
                                       <p>Nama Belakang: <?php echo $sawah['nama_belakang']?></p>
-                                      <p>No Hp/WA: <?php echo $sawah['no_handphone']?></p>
-                                      <p>Alamat: <?php echo $sawah['alamat']?></p>
                                       <p>Email: <?php echo $sawah['email']?></p>
-                                      <p>Tanggal Lahir: <?php echo $sawah['tanggal_lahir']?></p>
+                                      <p>No Hp/WA: <?php echo $sawah['no_handphone']?></p>
+                                      <!-- <p>Alamat: <?php echo $sawah['alamat']?></p> -->
+                                      
+                                      <!-- <p>Tanggal Lahir: <?php echo $sawah['tanggal_lahir']?></p> -->
                                       <p>Tanggal Daftar: <?php echo $sawah['tanggal_daftar']?></p>
                                   </div>
                           </div>
