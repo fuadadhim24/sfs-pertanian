@@ -87,7 +87,7 @@ if (!isset($_SESSION['reset_email']) || !isset($_SESSION['reset_token']) ) {
                   icon: "success",
                   confirmButtonText: "OK",
                 }).then(function(){
-                    window.location.href ='../index.php';
+                    window.location.href ='../../../';
                 });
               } else {
                 // Pendaftaran gagal

@@ -55,7 +55,7 @@
                   <input class="form-control" name="email" id="email" type="text" placeholder="Email" required></input>
                   <p></p>
                   <input class="form-control" name="password" id="password" type="password" placeholder="Password" required></input>
-                    <p style="margin-top: 5px; text-align:right;"><a href="auth/index.php" style="color: white;" >Lupa Password?</a></p>
+                    <p style="margin-top: 5px; text-align:right;"><a href="resources/views/auth/index.php" style="color: white;" >Lupa Password?</a></p>
                   <button type="submit" style="border-radius: 10px;background-color: white;padding:8px; padding-right:40px; padding-left:40px;">Masuk</button>
                 </form>
             </div>
