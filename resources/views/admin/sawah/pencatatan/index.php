@@ -4,7 +4,7 @@ session_start();
 
 // Jika pengguna belum login, redirect ke halaman login
 if (!isset($_SESSION['user_email'])) {
-    header("Location: ../../../index.php");
+    header("Location: ../../../../../");
     exit(); // Pastikan untuk keluar setelah melakukan redirect
 }
 // Check if the logout link is clicked
@@ -182,6 +182,26 @@ if (isset($_GET['id'])) {
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
     <!-- Style Timeline -->
     <link href="../../../../css/admin/qr_code/style.css" rel="stylesheet" />
+    <script>
+        function logoutClicked() {
+            // Assuming you are using AJAX (fetch) to call the PHP script
+            fetch('?logout=true')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Redirect to '../../../' after successful logout
+                        window.location.href = '../../../../../';
+                    } else {
+                        // Handle any error messages if needed
+                        console.error(data.message);
+                    }
+                })
+                .catch(error => {
+                    // Handle fetch error
+                    console.error('Error:', error);
+                });
+        }
+    </script>
   </head>
   <body>
   <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
@@ -189,7 +209,7 @@ if (isset($_GET['id'])) {
         <img src="../../../../../public/assets/brand/logo-brand.png" width="80"/>
       </div>
       <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-        <li class="nav-item"><a class="nav-link" href="../../index.php">
+        <li class="nav-item"><a class="nav-link" onclick="logoutClicked()">
             <svg class="nav-icon">
               <use xlink:href="../../../../../vendor/@coreui/icons/svg/free.svg#cil-speedometer"></use>
             </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">UTAMA</span></a></li>

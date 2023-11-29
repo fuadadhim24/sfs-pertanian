@@ -4,7 +4,7 @@ session_start();
 
 // Jika pengguna belum login, redirect ke halaman login
 if (!isset($_SESSION['user_email'])) {
-    header("Location: ../index.php");
+    header("Location: ../../../");
     exit(); // Pastikan untuk keluar setelah melakukan redirect
 }
 // Check if the logout link is clicked
@@ -143,7 +143,7 @@ if (isset($_GET['logout'])) {
                 .then(data => {
                     if (data.success) {
                         // Redirect to '../index.php' after successful logout
-                        window.location.href = '../index.php';
+                        window.location.href = '../../../';
                     } else {
                         // Handle any error messages if needed
                         console.error(data.message);
@@ -229,7 +229,7 @@ if (isset($_GET['logout'])) {
                   <div class="fw-semibold">Aksi</div>
                 </div>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" onclick="logoutClicked()">
+                <a class="dropdown-item" onclick="logoutClicked()">
                   <svg class="icon me-2">
                     <use
                       xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"

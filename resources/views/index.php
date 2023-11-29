@@ -33,9 +33,9 @@
   <link href="../../vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="../css/style.css" rel="stylesheet">
+  <link href="../resources/css/style.css" rel="stylesheet">
   
-  <link rel="stylesheet" href="../css/auth/stylenew.css">
+  <link rel="stylesheet" href="../resources/css/auth/stylenew.css">
 
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
@@ -653,7 +653,7 @@
   <script src="../../vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="../js/main.js"></script>
+  <script src="../resources/js/main.js"></script>
   <script src="../../node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
   
   <!-- sweet alert and redirect -->
@@ -680,7 +680,7 @@
                   confirmButtonText: "OK",
                 }).then(function () {
                   // Redirect atau lakukan tindakan lain setelah pengguna menekan tombol OK
-                  window.location.href = "admin/index.php";
+                  window.location.href = "resources/views/admin/index.php";
                 });
               } else {
                 // Pendaftaran gagal

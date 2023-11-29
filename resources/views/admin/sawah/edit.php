@@ -4,7 +4,7 @@ session_start();
 
 // Jika pengguna belum login, redirect ke halaman login
 if (!isset($_SESSION['user_email'])) {
-    header("Location: ../../index.php");
+    header("Location: ../../../../");
     exit(); // Pastikan untuk keluar setelah melakukan redirect
 }
 // Check if the logout link is clicked
@@ -144,8 +144,8 @@ if (isset($_GET['logout'])) {
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        // Redirect to '../index.php' after successful logout
-                        window.location.href = '../index.php';
+                        // Redirect to '../../../' after successful logout
+                        window.location.href = '../../../../';
                     } else {
                         // Handle any error messages if needed
                         console.error(data.message);
@@ -164,7 +164,7 @@ if (isset($_GET['logout'])) {
         <img src="../../../../public/assets/brand/logo-brand.png" width="80"/>
       </div>
       <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-        <li class="nav-item"><a class="nav-link" href="../index.php">
+        <li class="nav-item"><a class="nav-link" onclick="logoutClicked()">
             <svg class="nav-icon">
               <use xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-speedometer"></use>
             </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">UTAMA</span></a></li>
@@ -231,7 +231,7 @@ if (isset($_GET['logout'])) {
                   <div class="fw-semibold">Aksi</div>
                 </div>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" onclick="logoutClicked()">
+                <a class="dropdown-item" onclick="logoutClicked()">
                   <svg class="icon me-2">
                     <use
                       xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"
