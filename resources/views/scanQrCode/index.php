@@ -11,8 +11,7 @@ if (isset($_GET['id'])) {
     sawah.id_sawah, sawah.deskripsi as 'sawah.deskripsi', sawah.nama_sawah, sawah.lokasi_sawah, sawah.luas_sawah, sawah.created_at,
     detail_sawah.id_detail_sawah, detail_sawah.jumlah_benih, detail_sawah.tanggal_tanam, detail_sawah.jumlah_benih,
     masa_panen.id_masa_panen, masa_panen.tanggal_panen, masa_panen.jumlah_panen, masa_panen.quest_1, masa_panen.quest_2, masa_panen.quest_3, masa_panen.quest_4,
-    kualitas.id_kualitas, kualitas.rate_kualitas, kualitas.catatan_kualitas,
-    users.id_user,users.nama_depan,users.nama_belakang,users.no_handphone, users.alamat,users.email, users.tanggal_lahir,users.tanggal_daftar, users.gambar_path as 'users.gambar_path' FROM bibit, sawah, detail_sawah, masa_panen, kualitas, users WHERE sawah.id_sawah = $id;";
+    users.id_user,users.nama_depan,users.nama_belakang,users.no_handphone, users.alamat,users.email, users.tanggal_lahir,users.tanggal_daftar, users.gambar_path as 'users.gambar_path' FROM bibit, sawah, detail_sawah, masa_panen, users WHERE sawah.id_sawah = $id;";
 
     $result = mysqli_query($conn, $query);
 
@@ -206,8 +205,10 @@ if (isset($_GET['id'])) {
                                         backdrop-filter: blur(5px);
                                         -webkit-backdrop-filter: blur(5px);
                                         border: 1px solid rgba(15, 255, 255, 0.2);'>
+                                      <h3>Tanggal Panen</h3>
                                       <h5><?php echo $sawah['tanggal_panen']?></h5>
-                                      <p>Tanggal Panen</p>
+                                      <p></p>
+                                      <h2>Jumlah: <?php echo $sawah['jumlah_panen']?> Kwn</h2>
                                     </div>
                                   </div>
                                 </div>

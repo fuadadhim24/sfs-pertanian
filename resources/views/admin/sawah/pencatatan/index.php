@@ -33,8 +33,7 @@ if (isset($_GET['id'])) {
     sawah.id_sawah, sawah.deskripsi as 'sawah.deskripsi', sawah.nama_sawah, sawah.lokasi_sawah, sawah.luas_sawah, sawah.created_at,
     detail_sawah.id_detail_sawah, detail_sawah.jumlah_benih, detail_sawah.tanggal_tanam, detail_sawah.jumlah_benih,
     masa_panen.id_masa_panen, masa_panen.tanggal_panen, masa_panen.jumlah_panen, masa_panen.quest_1, masa_panen.quest_2, masa_panen.quest_3, masa_panen.quest_4,
-    kualitas.id_kualitas, kualitas.rate_kualitas, kualitas.catatan_kualitas,
-    users.id_user,users.nama_depan,users.nama_belakang,users.no_handphone, users.alamat,users.email, users.tanggal_lahir,users.tanggal_daftar, users.gambar_path as 'users.gambar_path' FROM bibit, sawah, detail_sawah, masa_panen, kualitas, users WHERE sawah.id_sawah = $id;";
+    users.id_user,users.nama_depan,users.nama_belakang,users.no_handphone, users.alamat,users.email, users.tanggal_lahir,users.tanggal_daftar, users.gambar_path as 'users.gambar_path' FROM bibit, sawah, detail_sawah, masa_panen, users WHERE sawah.id_sawah = $id;";
 
     $result = mysqli_query($conn, $query);
     $sawah = mysqli_fetch_array($result);
@@ -609,22 +608,11 @@ if (isset($_GET['id'])) {
                                   margin-right: auto;
                                   margin-top:20px;
                                   margin-bottom:50px;">
-                                    <h3>Rating & Catatan Kualitas Oleh Petani.</h3>
-                                    <form action="#">
-                                      <div class="rating">
-                                        <input type="number" name="rating" hidden>
-                                        <i class='bx bx-star star' style="--i: 0;"></i>
-                                        <i class='bx bx-star star' style="--i: 1;"></i>
-                                        <i class='bx bx-star star' style="--i: 2;"></i>
-                                        <i class='bx bx-star star' style="--i: 3;"></i>
-                                        <i class='bx bx-star star' style="--i: 4;"></i>
-                                      </div>
-                                      <textarea name="opinion" cols="30" rows="5" placeholder="<?php $sawah['catatan_kualitas']?>"></textarea>
-                                      <div class="btn-group">
-                                        <button type="submit" class="btn submit">Submit</button>
-                                        <button class="btn cancel">Cancel</button>
-                                      </div>
-                                    </form>
+                                    <h3>Tanggal Panen</h3>
+                                    <h5><?php echo $sawah['tanggal_panen']?></h5>
+                                    <p></p>
+                                    <h2>Jumlah: <?php echo $sawah['jumlah_panen']?> Kwn</h2>
+
                                   </div>
                                 </div>
                                 </div>
