@@ -208,7 +208,7 @@ if (isset($_GET['id'])) {
                   <div class="fw-semibold">Aksi</div>
                 </div>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" onclick="logoutClicked()">
                   <svg class="icon me-2">
                     <use
                       xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-account-logout"

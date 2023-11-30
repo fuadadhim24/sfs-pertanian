@@ -36,7 +36,7 @@ session_destroy();
                     UD Tani Rejo Jenggawah
                   </div>
                 </div>
-                <a href="../index.php"  class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;">Kembali ke halaman utama</a>
+                <a href="../../../"  class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;">Kembali ke halaman utama</a>
               </div>
               <form id="forgot-password-form" method="POST" action="../../../app/Http/Controllers/auth/forgotPasswordController.php">
                 <div class="d-flex justify-content-between mt-4">

@@ -32,7 +32,7 @@ if (!isset($_SESSION['reset_email']) || !isset($_SESSION['reset_token']) ) {
                     UD Tani Rejo Jenggawah
                   </div>
                 </div>
-                <a href="../index.php"  class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;">Kembali ke halaman utama</a>
+                <a href="../../../"  class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;">Kembali ke halaman utama</a>
               </div>
               <form method="POST" id="reset-password-form" action="../../../app/Http/Controllers/auth/resetPasswordController.php">
                 <div class="mt-4">
