@@ -11,27 +11,27 @@ class SemprotanModel
         $this->conn = $conn;
     }
 
-    public function createSemprotan($nama_semprotan, $harga, $jumlah, $kegunaan, $detail_semprotan, $deskripsi_singkat , $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3) {
-        $stmt = $this->conn->prepare("INSERT INTO `semprotan` (`id_semprotan`,`nama_semprotan`, `harga`, `jumlah`, `kegunaan`, `detail_semprotan`, `deskripsi_singkat` , `gambar_path_main`, `gambar_path_1`, `gambar_path_2`, `gambar_path_3`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    public function createSemprotan($nama_semprotan, $harga, $kategori, $jumlah, $kegunaan, $detail_semprotan, $deskripsi_singkat , $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3) {
+        $stmt = $this->conn->prepare("INSERT INTO `semprotan` (`id_semprotan`,`nama_semprotan`, `harga`, `kategori`,`jumlah`, `kegunaan`, `detail_semprotan`, `deskripsi_singkat` , `gambar_path_main`, `gambar_path_1`, `gambar_path_2`, `gambar_path_3`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
         
         if (!$stmt) {
             return false; // Kembalikan false jika gagal mempersiapkan pernyataan SQL
         }
 
-        $stmt->bind_param("ssssssssss", $nama_semprotan, $harga, $jumlah, $kegunaan, $detail_semprotan, $deskripsi_singkat , $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3);
+        $stmt->bind_param("ssssssssss", $nama_semprotan, $harga, $kategori, $jumlah, $kegunaan, $detail_semprotan, $deskripsi_singkat , $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3);
         $result = $stmt->execute();
         $stmt->close();
 
         return $result;
     }
-    public function editSemprotan($id,$nama_semprotan, $harga, $jumlah, $kegunaan, $detail_semprotan, $deskripsi_singkat , $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3) {
-        $stmt = $this->conn->prepare("UPDATE `semprotan` SET `nama_semprotan`=?, `harga`=?, `jumlah`=?, `kegunaan`=?, `detail_semprotan`=?, `deskripsi_singkat`=? , `gambar_path_main`=?, `gambar_path_1`=?, `gambar_path_2`=?, `gambar_path_3`=? WHERE `id_semprotan`=?");
+    public function editSemprotan($id,$nama_semprotan, $harga, $kategori, $jumlah, $kegunaan, $detail_semprotan, $deskripsi_singkat , $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3) {
+        $stmt = $this->conn->prepare("UPDATE `semprotan` SET `nama_semprotan`=?, `harga`=?, `kategori`=?, `jumlah`=?, `kegunaan`=?, `detail_semprotan`=?, `deskripsi_singkat`=? , `gambar_path_main`=?, `gambar_path_1`=?, `gambar_path_2`=?, `gambar_path_3`=? WHERE `id_semprotan`=?");
     
         if (!$stmt) {
             return false;
         }
     
-        $stmt->bind_param("sssssssssss", $nama_semprotan, $harga, $jumlah, $kegunaan, $detail_semprotan, $deskripsi_singkat , $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3,$id);
+        $stmt->bind_param("ssssssssssss", $nama_semprotan, $harga, $kategori, $jumlah, $kegunaan, $detail_semprotan, $deskripsi_singkat , $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3, $id);
         $result = $stmt->execute();
         $stmt->close();
     

@@ -18,6 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $kegunaan = $_POST['kegunaan'];
 
     $detail_pupuk = $_POST['detail_pupuk'];
+    $kategori = $_POST['kategori'];
     $deskripsi_singkat = $_POST['deskripsi_singkat'];
     
     //dapat nama file
@@ -54,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $pupukModel = new PupukModel($conn);
 
-    if ($pupukModel->editPupuk($id, $nama_pupuk, $harga, $jumlah, $kegunaan, $detail_pupuk, $deskripsi_singkat , $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3)) {
+    if ($pupukModel->editPupuk($id, $nama_pupuk, $kategori, $harga, $jumlah, $kegunaan, $detail_pupuk, $deskripsi_singkat , $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3)) {
         // Edit berhasil
         $response = array(
             'success' => true,

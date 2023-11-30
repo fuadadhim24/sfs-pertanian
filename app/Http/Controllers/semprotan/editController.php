@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     
     $nama_semprotan = $_POST['nama_semprotan'];
+    $kategori = $_POST['kategori'];
     $harga = $_POST['harga'];
     $jumlah = $_POST['jumlah'];
     $kegunaan = $_POST['kegunaan'];

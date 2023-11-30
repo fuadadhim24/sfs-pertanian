@@ -1,12 +1,12 @@
 <?php
-                  include_once '../../config/database.php';
-                  $no = 1;
-                  $result = mysqli_query($conn, "SELECT
-                    (SELECT COUNT(id_user) FROM users) AS jumlah_users,
-                    (SELECT COUNT(id_beras) FROM produk_beras) AS jumlah_beras,
-                    (SELECT COUNT(id_literasi) FROM literasi) as jumlah_literasi;
-                  ");
-                  $data = mysqli_fetch_array($result)?>
+  include_once '../../config/database.php';
+  $no = 1;
+  $result = mysqli_query($conn, "SELECT
+    (SELECT COUNT(id_user) FROM users) AS jumlah_users,
+    (SELECT COUNT(id_beras) FROM produk_beras) AS jumlah_beras,
+    (SELECT COUNT(id_literasi) FROM literasi) as jumlah_literasi;
+  ");
+  $data = mysqli_fetch_array($result)?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +19,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="../../public/assets/img/favicon.png" rel="icon">
+  <link href="resources/views/favicon.png" rel="icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -79,7 +79,7 @@
           <li><a id="beranda" class="nav-link scrollto active" href="#hero">Beranda</a></li>
           <li><a class="nav-link scrollto" href="#about">Tentang Kami</a></li>
           <li><a class="nav-link scrollto" href="#scan">Scan QR Code</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Dokumentasi</a></li>
+          <li><a class="nav-link scrollto" href="#portfolio">Jelajahi Fitur</a></li>
           <!-- <li class="dropdown"><a href="#"><span>Literasi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
             <li class="dropdown"><a href="#"><span>Pra Tanam</span> <i class="bi bi-chevron-right"></i></a>
@@ -187,7 +187,7 @@
       <div class="container">
 
       <div class="section-title" data-aos="fade-in" data-aos-delay="100">
-          <h2>Fitur</h2>
+          <h2>Keunggulan</h2>
           <p>PadiTrace menghadirkan fitur-fitur unggul untuk menjawab kebutuhan petani modern. Kecepatan dan ketepatan menjadi prioritas kami, menyelaraskan dengan perkembangan terus-menerus dalam dunia pertanian. Kami memberikan solusi efisien dan efektif, mempertimbangkan segala aspek untuk menjawab setiap permasalahan Anda.</p>
       </div>
 
@@ -292,7 +292,7 @@
         <div class="text-center"></div>
 
         <div class="section-title" data-aos="fade-in" data-aos-delay="100">
-          <h2>Dokumentasi</h2>
+          <h2>Jelajahi Fitur</h2>
           <p>Mitra PadiTrace merupakan UD Tani Rejo. Sebuah usaha yang beroperasi di jenggawah. Segala jenis beras terdapat pada toko ini. UD Tani Rejo didukung oleh PadiTrace dengan fungsi dan visual yang memberikan pengalaman luar biasa bagi pengguna.</p>
         </div>
 
@@ -301,7 +301,7 @@
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
               <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-card">Aktivitas</li>
               <li data-filter=".filter-web">Web</li>
             </ul>
           </div>

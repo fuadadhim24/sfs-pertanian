@@ -41,76 +41,9 @@ if (isset($_GET['logout'])) {
       name="keyword"
       content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard"
     />
-    <title>Dashboard Admin | SFS - Pertanian</title>
-    <link
-      rel="apple-touch-icon"
-      sizes="57x57"
-      href="../../../../public/assets/favicon/apple-icon-57x57.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="60x60"
-      href="../../../../public/assets/favicon/apple-icon-60x60.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="72x72"
-      href="../../../../public/assets/favicon/apple-icon-72x72.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="76x76"
-      href="../../../../public/assets/favicon/apple-icon-76x76.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="114x114"
-      href="../../../../public/assets/favicon/apple-icon-114x114.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="120x120"
-      href="../../../../public/assets/favicon/apple-icon-120x120.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="144x144"
-      href="../../../../public/assets/favicon/apple-icon-144x144.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="152x152"
-      href="../../../../public/assets/favicon/apple-icon-152x152.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="../../../../public/assets/favicon/apple-icon-180x180.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="../../../../public/assets/favicon/android-icon-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="../../../../public/assets/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="96x96"
-      href="../../../../public/assets/favicon/favicon-96x96.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../../../../public/assets/favicon/favicon-16x16.png"
-    />
+    <title>Dashboard Admin | JejakPadi</title>
+    <!-- Favicons -->
+    <link href="../../favicon.png" rel="icon">
     <link rel="manifest" href="../../../../public/assets/favicon/manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta
@@ -277,13 +210,23 @@ if (isset($_GET['logout'])) {
                                   <input class="form-control" name="nama_semprotan" id="nama_semprotan" rows="3" value="<?php echo $semprotan['nama_semprotan']?>" required></input>
                               </div>
                               <div class="mb-3">
+                                <label class="form-label">Kategori Pupuk<span style="color:red"> *</span></label>
+                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="kategori" id="kategori" required>
+                                  <option value="<?php echo $semprotan['kategori']; ?>" selected><?php echo $semprotan['kategori']; ?></option>
+                                        <option value="Pestisida">Pestisida</option>
+                                        <option value="Fungisida">Fungisida</option>
+                                        <option value="Herbisida">Herbisida</option>
+                                        <option value="Insektisida">Insektisida</option>
+                                </select>
+                              </div>
+                              <div class="mb-3">
                                   <div class="row g-3">
                                       <div class="col">
                                           <label class="form-label">Harga<span style="color:red"> *</span></label>
                                           <input class="form-control" name="harga" id="harga" rows="3" value="<?php echo $semprotan['harga']?>" required></input>
                                       </div>
                                       <div class="col">
-                                          <label class="form-label">Jumlah (Kg)<span style="color:red"> *</span></label>
+                                          <label class="form-label">Jumlah (Liter)<span style="color:red"> *</span></label>
                                           <input class="form-control" name="jumlah" id="jumlah" rows="3" value="<?php echo $semprotan['jumlah']?>" required></input>
                                       </div>
                                   </div>
@@ -310,28 +253,28 @@ if (isset($_GET['logout'])) {
                                   <label for="formFileSm" class="form-label">Gambar Utama<span style="color:red"> *</span></label>
                                   <input class="form-control form-control-sm" name="gambar_path_main" id="gambar_path_main" type="file" accept="image/*">
                                   <?php if (!empty($semprotan['gambar_path_main'])): ?>
-                                    <img style="height:150px" src="../../../../public/assets/img/bibit/<?php echo $bibit['gambar_path_main']; ?>" alt="Gambar Utama" class="img-thumbnail">
+                                    <img style="height:150px" src="../../../../public/assets/img/semprotan/<?php echo $semprotan['gambar_path_main']; ?>" alt="Gambar Utama" class="img-thumbnail">
                                   <?php endif; ?>
                               </div>
                               <div class="mb-3">
                                   <label for="formFileSm" class="form-label">Gambar 1<span style="color:red"> *</span></label>
                                   <input class="form-control form-control-sm" name="gambar_path_1" id="gambar_path_1" type="file" accept="image/*">
                                   <?php if (!empty($semprotan['gambar_path_1'])): ?>
-                                    <img style="height:150px" src="../../../../public/assets/img/bibit/<?php echo $bibit['gambar_path_main']; ?>" alt="Gambar Utama" class="img-thumbnail">
+                                    <img style="height:150px" src="../../../../public/assets/img/semprotan/<?php echo $semprotan['gambar_path_main']; ?>" alt="Gambar Utama" class="img-thumbnail">
                                   <?php endif; ?>
                               </div>
                               <div class="mb-3">
                                   <label for="formFileSm" class="form-label">Gambar 2</label>
                                   <input class="form-control form-control-sm" name="gambar_path_2" id="gambar_path_2" accept="image/*" type="file">
                                   <?php if (!empty($semprotan['gambar_path_2'])): ?>
-                                    <img style="height:150px" src="../../../../public/assets/img/bibit/<?php echo $bibit['gambar_path_main']; ?>" alt="Gambar Utama" class="img-thumbnail">
+                                    <img style="height:150px" src="../../../../public/assets/img/semprotan/<?php echo $semprotan['gambar_path_main']; ?>" alt="Gambar Utama" class="img-thumbnail">
                                   <?php endif; ?>
                               </div>
                               <div class="mb-3">
                                   <label for="formFileSm" class="form-label">Gambar 3</label>
                                   <input class="form-control form-control-sm" name="gambar_path_3" id="gambar_path_3" accept="image/*" type="file">
                                   <?php if (!empty($semprotan['gambar_path_3'])): ?>
-                                    <img style="height:150px" src="../../../../public/assets/img/bibit/<?php echo $bibit['gambar_path_main']; ?>" alt="Gambar Utama" class="img-thumbnail">
+                                    <img style="height:150px" src="../../../../public/assets/img/semprotan/<?php echo $semprotan['gambar_path_main']; ?>" alt="Gambar Utama" class="img-thumbnail">
                                   <?php endif; ?>
                               </div>
                           </div>

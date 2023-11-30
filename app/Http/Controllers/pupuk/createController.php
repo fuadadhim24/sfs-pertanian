@@ -9,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $detail_pupuk = $_POST['detail_pupuk'];
     $deskripsi_singkat = $_POST['deskripsi_singkat'];
+    $kategori = $_POST['kategori'];
     
     //dapat nama file
     $gambar_path_main = $_FILES['gambar_path_main']['name'];        
@@ -24,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $pupukModel = new PupukModel($conn);
 
-        if ($pupukModel->createPupuk($nama_pupuk, $harga, $jumlah, $kegunaan, $detail_pupuk, $deskripsi_singkat , $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3)) {
+        if ($pupukModel->createPupuk($nama_pupuk, $kategori, $harga, $jumlah, $kegunaan, $detail_pupuk, $deskripsi_singkat , $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3)) {
             // Pendaftaran berhasil
             $response = array(
                 'success' => true,
