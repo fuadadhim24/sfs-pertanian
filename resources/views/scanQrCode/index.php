@@ -207,8 +207,6 @@ if (isset($_GET['id'])) {
                                         border: 1px solid rgba(15, 255, 255, 0.2);'>
                                       <h3>Tanggal Panen</h3>
                                       <h5><?php echo $sawah['tanggal_panen']?></h5>
-                                      <p></p>
-                                      <h2>Jumlah: <?php echo $sawah['jumlah_panen']?> Kwn</h2>
                                     </div>
                                   </div>
                                 </div>
@@ -475,22 +473,11 @@ if (isset($_GET['id'])) {
                                   margin-right: auto;
                                   margin-top:20px;
                                   margin-bottom:50px;">
-                                    <h3>Rating & Catatan Kualitas Oleh Petani.</h3>
-                                    <form action="#">
-                                      <div class="rating">
-                                        <input type="number" name="rating" hidden>
-                                        <i class='bx bx-star star' style="--i: 0;"></i>
-                                        <i class='bx bx-star star' style="--i: 1;"></i>
-                                        <i class='bx bx-star star' style="--i: 2;"></i>
-                                        <i class='bx bx-star star' style="--i: 3;"></i>
-                                        <i class='bx bx-star star' style="--i: 4;"></i>
-                                      </div>
-                                      <textarea name="opinion" cols="30" rows="5" placeholder="<?php $sawah['catatan_kualitas']?>"></textarea>
-                                      <div class="btn-group">
-                                        <button type="submit" class="btn submit">Submit</button>
-                                        <button class="btn cancel">Cancel</button>
-                                      </div>
-                                    </form>
+                                    <h3>Tanggal Panen</h3>
+                                    <h5><?php echo $sawah['tanggal_panen']?></h5>
+                                    <p></p>
+                                    <h2>Jumlah: <?php echo $sawah['jumlah_panen']?> Kwn</h2>
+
                                   </div>
                                 </div>
                                 </div>
