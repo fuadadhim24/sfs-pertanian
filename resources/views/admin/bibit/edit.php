@@ -363,19 +363,19 @@ if (isset($_GET['logout'])) {
                           <div class="row">
                               <div class="mb-3 mt-3">
                                   <label class="form-label">Durasi Penanaman (Hari)<span style="color:red"> *</span></label>
-                                  <input class="form-control" name="durasi_penanaman" id="durasi_penanaman" rows="3" required></input>
+                                  <input class="form-control" name="durasi_penanaman" id="durasi_penanaman" rows="3" value="<?php echo $bibit['durasi_penanaman']?>" required></input>
                               </div>
                               <div class="mb-3 mt-3">
                                   <label class="form-label">Durasi Anakan (Hari)<span style="color:red"> *</span></label>
-                                  <input class="form-control" name="durasi_anakan" id="durasi_anakan" rows="3" required></input>
+                                  <input class="form-control" name="durasi_anakan" id="durasi_anakan" rows="3" value="<?php echo $bibit['durasi_anakan']?>" required></input>
                               </div>
                               <div class="mb-3">
                                   <label class="form-label">Durasi Bunting (Hari)<span style="color:red"> *</span></label>
-                                  <input class="form-control" name="durasi_bunting" id="durasi_bunting" rows="3" required></input>
+                                  <input class="form-control" name="durasi_bunting" id="durasi_bunting" rows="3" value="<?php echo $bibit['durasi_bunting']?>" required></input>
                               </div>
                               <div class="mb-3">
                                   <label class="form-label">Durasi Pemasakan (Hari)<span style="color:red"> *</span></label>
-                                  <input class="form-control" name="durasi_pemasakan" id="durasi_pemasakan" rows="3" required></input>
+                                  <input class="form-control" name="durasi_pemasakan" id="durasi_pemasakan" value="<?php echo $bibit['durasi_pemasakan']?>" rows="3" required></input>
                               </div>
                               
                           </div>
