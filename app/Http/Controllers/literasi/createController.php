@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Pendaftaran gagal
             $response = array(
                 'success' => false,
-                'message' => 'Gagal menambahkan jenis pupuk. Silakan mencoba ulang.'
+                'message' => 'Gagal menambahkan jenis literasi. Silakan mencoba ulang.'
             );
         }
     

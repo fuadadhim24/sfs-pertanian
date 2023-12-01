@@ -137,11 +137,11 @@ if (isset($_GET['id'])) {
   </head>
   <body>
   <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
-      <div class="sidebar-brand d-none d-md-flex">
+      <div class="sidebar-brand d-none d-md-flex" onclick="logoutClicked()">
         <img src="../../../../../public/assets/brand/logo-brand.png" width="80"/>
       </div>
       <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-        <li class="nav-item"><a class="nav-link" onclick="logoutClicked()">
+        <li class="nav-item"><a class="nav-link" href="../../index.php">
             <svg class="nav-icon">
               <use xlink:href="../../../../../vendor/@coreui/icons/svg/free.svg#cil-speedometer"></use>
             </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">UTAMA</span></a></li>

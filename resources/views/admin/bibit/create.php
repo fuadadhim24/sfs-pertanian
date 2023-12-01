@@ -44,7 +44,6 @@ if (isset($_GET['logout'])) {
     <title>Dashboard Admin | JejakPadi</title>
     <!-- Favicons -->
     <link href="../../favicon.png" rel="icon">
-    />
     <!-- href="../../../../public/assets/favicon/android-icon-192x192.png" -->
     <!-- Favicons -->
     <link rel="manifest" href="../../../../public/assets/favicon/manifest.json" />
@@ -91,12 +90,12 @@ if (isset($_GET['logout'])) {
     </script>
   </head>
   <body>
-  <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
-      <div class="sidebar-brand d-none d-md-flex">
+    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
+      <div class="sidebar-brand d-none d-md-flex" onclick="logoutClicked()">
         <img src="../../../../public/assets/brand/logo-brand.png" width="80"/>
       </div>
       <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-        <li class="nav-item"><a class="nav-link" onclick="logoutClicked()">
+        <li class="nav-item"><a class="nav-link" href="../index.php">
             <svg class="nav-icon">
               <use xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-speedometer"></use>
             </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">UTAMA</span></a></li>
@@ -130,45 +129,7 @@ if (isset($_GET['logout'])) {
       </ul>
       <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
     </div>
-    <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
-      <div class="sidebar-brand d-none d-md-flex">
-        <img src="../../../../public/assets/brand/logo-brand.png" width="80"/>
-      </div>
-      <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
-        <li class="nav-item"><a class="nav-link" href="#">
-            <svg class="nav-icon">
-              <use xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-speedometer"></use>
-            </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">UTAMA</span></a></li>
-        <li class="nav-title">Manajemen</li>
-        <li class="nav-item"><a class="nav-link" href="sawah/index.php">
-            <svg class="nav-icon">
-              <use xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-layers"></use>
-            </svg> Sawah</a></li>
-        <li class="nav-item"><a class="nav-link" href="user/index.php">
-            <svg class="nav-icon">
-              <use xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-people"></use>
-            </svg> Akun</a></li>
-        <li class="nav-title">Pengembangan</li>
-        <li class="nav-item"><a class="nav-link" href="literasi/index.php">
-            <svg class="nav-icon">
-              <use xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-book"></use>
-            </svg> Literasi</a></li>
-        <li class="nav-title">Pengadaan</li>
-        <li class="nav-item"><a class="nav-link" href="bibit/index.php">
-            <svg class="nav-icon">
-              <use xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-eco"></use>
-            </svg> Bibit</a></li>
-        <li class="nav-item"><a class="nav-link" href="semprotan/index.php">
-            <svg class="nav-icon">
-              <use xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-drop"></use>
-            </svg> Semprotan</a></li>
-        <li class="nav-item"><a class="nav-link" href="pupuk/index.php">
-            <svg class="nav-icon">
-              <use xlink:href="../../../../vendor/@coreui/icons/svg/free.svg#cil-storage"></use>
-            </svg> Pupuk</a></li>
-      </ul>
-      <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
-    </div>
+    
     <div class="wrapper d-flex flex-column min-vh-100 bg-light">
     <header class="header header-sticky mb-3">  
         <div class="container-fluid">

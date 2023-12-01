@@ -25,10 +25,8 @@ if (isset($_GET['id'])) {
     <base href="./" />
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <meta
       name="description"
       content="CoreUI - Open Source Bootstrap Admin Template"
@@ -39,75 +37,8 @@ if (isset($_GET['id'])) {
       content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard"
     />
     <title>Dashboard Admin | SFS - Pertanian</title>
-    <link
-      rel="apple-touch-icon"
-      sizes="57x57"
-      href="../../../public/assets/favicon/apple-icon-57x57.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="60x60"
-      href="../../../public/assets/favicon/apple-icon-60x60.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="72x72"
-      href="../../../public/assets/favicon/apple-icon-72x72.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="76x76"
-      href="../../../public/assets/favicon/apple-icon-76x76.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="114x114"
-      href="../../../public/assets/favicon/apple-icon-114x114.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="120x120"
-      href="../../../public/assets/favicon/apple-icon-120x120.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="144x144"
-      href="../../../public/assets/favicon/apple-icon-144x144.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="152x152"
-      href="../../../public/assets/favicon/apple-icon-152x152.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="../../../public/assets/favicon/apple-icon-180x180.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="../../../public/assets/favicon/android-icon-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="../../../public/assets/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="96x96"
-      href="../../../public/assets/favicon/favicon-96x96.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../../../public/assets/favicon/favicon-16x16.png"
-    />
+    <!-- Favicons -->
+    <link href="../../../public/assets/img/favicon.png" rel="icon" />
     <link rel="manifest" href="../../../public/assets/favicon/manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta
@@ -171,9 +102,10 @@ if (isset($_GET['id'])) {
                                       } else {echo "Tidak Ada Data Sawah Yang Dipilih!";}?>
                   </div>
                 </div>
-                    <button class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;" href="../../index.php">
-                        Beralih ke Website JejakPadi
-                    </button>
+                <a class="btn btn-success text-white" style="margin-top:10px; justify-content: center;align-items: center;" href="../../../../../">
+                    Beralih ke halaman utama
+                </a>
+
 
 
               </div>
@@ -502,7 +434,7 @@ if (isset($_GET['id'])) {
             </div>
         </div>
       </footer>
-        </div>
+    </div>
         
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
@@ -555,31 +487,6 @@ if (isset($_GET['id'])) {
         // .openOn(map);
         L.Control.geocoder().addTo(map);
 
-    </script>
-    <script>
-    const allStar = document.querySelectorAll('.rating .star')
-    const ratingValue = document.querySelector('.rating input')
-
-    allStar.forEach((item, idx)=> {
-      item.addEventListener('click', function () {
-        let click = 0
-        ratingValue.value = idx + 1
-
-        allStar.forEach(i=> {
-          i.classList.replace('bxs-star', 'bx-star')
-          i.classList.remove('active')
-        })
-        for(let i=0; i<allStar.length; i++) {
-          if(i <= idx) {
-            allStar[i].classList.replace('bx-star', 'bxs-star')
-            allStar[i].classList.add('active')
-          } else {
-            allStar[i].style.setProperty('--i', click)
-            click++
-          }
-        }
-      })
-    })
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>

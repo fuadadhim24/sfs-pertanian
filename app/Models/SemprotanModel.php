@@ -18,7 +18,7 @@ class SemprotanModel
             return false; // Kembalikan false jika gagal mempersiapkan pernyataan SQL
         }
 
-        $stmt->bind_param("ssssssssss", $nama_semprotan, $harga, $kategori, $jumlah, $kegunaan, $detail_semprotan, $deskripsi_singkat , $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3);
+        $stmt->bind_param("sssssssssss", $nama_semprotan, $harga, $kategori, $jumlah, $kegunaan, $detail_semprotan, $deskripsi_singkat , $gambar_path_main, $gambar_path_1, $gambar_path_2, $gambar_path_3);
         $result = $stmt->execute();
         $stmt->close();
 
