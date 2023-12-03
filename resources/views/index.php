@@ -278,7 +278,8 @@
 
         <div class="text-center">
           <h3>Scan QR</h3>
-          <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p> Menciptakan QR Code sebagai alat ketelusuran untuk produk beras. Menyediakan informasi detail tentang varietas padi, tanggal tanam, petani pengolah, lokasi sawah, dan tahapan pertanian.
+</p>
           <a class="cta-btn" href="#">Scan Beras Anda</a>
         </div>
 
