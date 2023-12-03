@@ -423,9 +423,9 @@
                   Saya, M. Angga Gumilang, seorang Dosen Riset di JejakPadi, ingin mengungkapkan......
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="../../public/assets/img/testimonials/testimonials-1.png" class="testimonial-img" alt="">
-                <h3>M. Angga Gumilang</h3>
-                <h4>Dosen Riset JejakPadi</h4>
+                <img src="../../public/assets/img/testimonials/2.png" class="testimonial-img" alt="">
+                <h3>M. Angga Gumilang, S. Pd., M. Eng.</h3>
+                <h4>Dosen Politeknik Negeri Jember </h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -436,9 +436,9 @@
                   Sebagai pemilik bisnis, saya sangat senang bekerjasama dengan tim ini. Mereka tidak hanya memahami kebutuhan bisnis saya tetapi juga memberikan solusi yang terukur dan tepat sasaran. JejakPadi membantu bisnis saya berkembang dengan cepat dan efisien. Saya sungguh bersyukur atas kerjasama yang sukses ini.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="../../public/assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
-                <h3>Sucipto Trisno</h3>
-                <h4>Owner Bisnis</h4>
+                <img src="../../public/assets/img/testimonials/5.png" class="testimonial-img" alt="">
+                <h3>Widia Sulastri</h3>
+                <h4>Owner Bisnis Jejak Padi</h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -449,7 +449,7 @@
                   Sebagai Ketua Research Development Team, saya ingin menyampaikan apresiasi yang tinggi kepada tim pengembang. Mereka tidak hanya berdedikasi tinggi dalam setiap proyek, tetapi juga membawa keahlian dan visi yang baik. Juga saya sampaikan terimakasih kepada UD Tani Rejo Jenggawah selaku mitra JejakPadi
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="../../public/assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
+                <img src="../../public/assets/img/testimonials/3.png" class="testimonial-img" alt="">
                 <h3>Fuad Adhim A. H.</h3>
                 <h4>Ketua Research Development Team</h4>
               </div>
@@ -459,11 +459,11 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Saya, Sucipto Trisno, seorang petani, merasa sangat terbantu dengan kerjasama saya bersama JejakPadi. Mereka tidak hanya memberikan solusi praktis untuk meningkatkan hasil panen saya tetapi juga memberikan dukungan yang berkelanjutan. Kemitraan ini benar-benar mengubah cara saya menjalankan pertanian, dan hasilnya sungguh memuaskan.
+                  Saya, Santoso Wijaya, seorang petani, merasa sangat terbantu dengan kerjasama saya bersama JejakPadi. Mereka tidak hanya memberikan solusi praktis untuk meningkatkan hasil panen saya tetapi juga memberikan dukungan yang berkelanjutan. Kemitraan ini benar-benar mengubah cara saya menjalankan pertanian, dan hasilnya sungguh memuaskan.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="../../public/assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
-                <h3>Sucipto Trisno</h3>
+                <img src="../../public/assets/img/testimonials/4.png" class="testimonial-img" alt="">
+                <h3>Santoso Wijaya</h3>
                 <h4>Petani</h4>
               </div>
             </div><!-- End testimonial item -->
@@ -472,12 +472,12 @@
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Sebagai distributor, saya memiliki pengalaman ....
+                  Sangat Bermanfaat untuk membantu para petani dan semoga kedepannya bisa terus berinovasi untuk memudahkan para petani yang ada di Indonesia.
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
-                <img src="../../public/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
-                <h3>Bayu Candra</h3>
-                <h4>Distributor</h4>
+                <img src="../../public/assets/img/testimonials/1.png" class="testimonial-img" alt="">
+                <h3>Mochamad Rizky Pradika</h3>
+                <h4>Mahasiswa Politeknik Negeri Jember</h4>
               </div>
             </div><!-- End testimonial item -->
 
