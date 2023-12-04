@@ -1,5 +1,6 @@
 /* --- Start progress bar --- */
 
+
 .process-wrapper {
 	margin: auto;
 	max-width: 1080px;
@@ -47,7 +48,7 @@
 	text-align: center;
 	color: #aaa;
 	text-transform: uppercase;
-	font-size: 11px;
+	font-size: 10px;
 	cursor: pointer;
 	font-weight: 700;
 	transition: all ease 0.2s;
@@ -60,7 +61,8 @@
 	position: absolute;
 	width: 100%;
 	bottom: -10px;
-	font-size: 14px;
+	font-size: 13px;
+	margin-top:5px;
   }
   
   #progress-bar-container li.active,
@@ -152,6 +154,7 @@
   #progress-content-section .section-content.active {
 	display: block;
   }
+
   
   @keyframes FadeInUp {
 	0% {
@@ -183,4 +186,82 @@
 	  font-size: 13px;
 	}
   }
+
+  /* CSS Anda yang sudah ada */
+@media (max-width: 850px) {
+	.row {
+	  display: block; /* Mengubah tata letak ke tumpukan vertikal */
+	  padding-inline: 0; /* Hilangkan padding horizontal */
+	}
   
+	.col-4, .col-8 {
+	  width: 100%; /* Menyesuaikan lebar kolom dengan lebar layar */
+	}
+  }
+  
+
+  /* CSS Anda yang sudah ada */
+
+/* Tambahkan media query untuk layar dengan lebar kurang dari 957px */
+@media (max-width: 957px) {
+  .card.mb-3 {
+    max-height: none; /* Hapus batas tinggi maksimum pada card */
+  }
+
+  .row.g-0 {
+    flex-wrap: wrap; /* Agar item pada baris mengikuti baris baru */
+  }
+
+  .col-md-4 {
+    flex: 0 0 100%; /* Buat kolom gambar mengambil seluruh lebar di bawah 957px */
+    max-width: 100%;
+  }
+
+  .col-md-8 {
+    flex: 0 0 100%; /* Buat kolom teks mengambil seluruh lebar di bawah 957px */
+    max-width: 100%;
+  }
+
+  .row.g-0{
+	height:470px;
+  }
+
+}
+@media (max-width:850px){
+
+	.row.g-0{
+		height:550px;
+	}
+	.col{
+		width:100%;
+		margin-bottom:10px;
+	}
+}
+  
+@media (max-width:789px){
+	#progress-bar-container li .step-inner {
+		position: absolute;
+		width: 100%;
+		bottom: -10px;
+		font-size: 10px;
+		margin-top:5px;
+	  }
+}
+@media (max-width:549px){
+	#progress-bar-container li .step-inner {
+		position: absolute;
+		width: 100%;
+		bottom: -10px;
+		font-size: 8px;
+		margin-top:5px;
+	  }
+}
+@media (max-width:381px){
+	#progress-bar-container li .step-inner {
+		position: absolute;
+		width: 100%;
+		bottom: -10px;
+		font-size: 7px;
+		margin-top:20px;
+	  }
+}

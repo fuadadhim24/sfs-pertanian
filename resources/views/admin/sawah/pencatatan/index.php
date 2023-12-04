@@ -245,43 +245,41 @@ if (isset($_GET['id'])) {
                     </button>
                 </form>
               </div>
-              <div style="margin-top:20px">
-                    <div class="card mb-3" style="justify-content: center; align-content:center: center; max-height: 350px;">
-                      <div class="row g-0">
-                          <div class="col-md-4">
-                            <img style="max-height:300px" src="../../../../../public/assets/img/bibit/<?php echo $sawah['bibit.gambar_path_main']?>" class="img-fluid rounded-start" alt="...">
+              <div class="card mb-3" style=" align-content:center: center; margin-top:20px">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="../../../../../public/assets/img/bibit/<?php echo $sawah['bibit.gambar_path_main']?>" class="img-fluid rounded-start" alt="...">
 
-                          </div>
-                          <div class="col-md-8">
-                            <div class="card-body" style>
-                                <h5 class="card-title">Varietas Bibit <?php echo $sawah['nama_bibit']?></h5>
-                                <p class="card-text"><?php echo $sawah['bibit.deskripsi_singkat'];?>. <?php echo $sawah['bibit.kelebihan']?>.</p>
-                                <p class="card-text"><small class="text-body-secondary">Sawah didaftarkan <?php echo $sawah['created_at']?></small></p>
-                                <div class="container text-center" style="margin-right: 50px; ">
-                                  <div class="row">
-                                    <div class="col" style='background: rgba(15, 255, 255, 0.2);
-                                        border-radius: 15px 50px;
-                                        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-                                        backdrop-filter: blur(5px);
-                                        -webkit-backdrop-filter: blur(5px);
-                                        border: 1px solid rgba(255, 255, 255, 0.3);'>
-                                      <h5><?php echo $sawah['tanggal_tanam']?></h5>
-                                      <p>Tanggal Tanam</p>
-                                    </div>
-                                    <div class="col" style='border-radius: 15px 50px;
-                                        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-                                        backdrop-filter: blur(5px);
-                                        -webkit-backdrop-filter: blur(5px);
-                                        border: 1px solid rgba(15, 255, 255, 0.2);'>
-                                      <h5><?php echo $sawah['tanggal_panen']?></h5>
-                                      <p>Tanggal Panen</p>
-                                    </div>
-                                  </div>
-                                </div>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body" style>
+                          <h5 class="card-title">Varietas Bibit <?php echo $sawah['nama_bibit']?></h5>
+                          <p class="card-text"><?php echo $sawah['bibit.deskripsi_singkat'];?>. <?php echo $sawah['bibit.kelebihan']?>.</p>
+                          <p class="card-text"><small class="text-body-secondary">Sawah didaftarkan <?php echo $sawah['created_at']?></small></p>
+                          <div class="container text-center" style="margin-right: 50px; ">
+                            <div class="row">
+                              <div class="col" style='background: rgba(15, 255, 255, 0.2);
+                                  border-radius: 15px 50px;
+                                  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                                  backdrop-filter: blur(5px);
+                                  -webkit-backdrop-filter: blur(5px);
+                                  border: 1px solid rgba(255, 255, 255, 0.3);'>
+                                <h5><?php echo $sawah['tanggal_tanam']?></h5>
+                                <p>Tanggal Tanam</p>
+                              </div>
+                              <div class="col" style='border-radius: 15px 50px;
+                                  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                                  backdrop-filter: blur(5px);
+                                  -webkit-backdrop-filter: blur(5px);
+                                  border: 1px solid rgba(15, 255, 255, 0.2);'>
+                                <h5><?php echo $sawah['tanggal_panen']?></h5>
+                                <p>Tanggal Panen</p>
+                              </div>
                             </div>
                           </div>
                       </div>
                     </div>
+                </div>
               </div>
             </div>
             

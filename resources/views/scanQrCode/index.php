@@ -90,7 +90,7 @@ if (isset($_GET['id'])) {
         <div class="container-lg">
           <!-- /.row-->
           <div class="card mb-3">
-            <div class="card-body" style="">
+            <div class="card-body">
               <div class="d-flex justify-content-between">
                 <div>
                   <h4 class="card-title mb-0">Pencatatan Ketelusuran</h4>
@@ -109,43 +109,41 @@ if (isset($_GET['id'])) {
 
 
               </div>
-              <div style="margin-top:20px">
-                    <div class="card mb-3" style="justify-content: center; align-content:center: center; max-height: 350px;">
-                      <div class="row g-0">
-                          <div class="col-md-4">
-                            <img style="max-height:300px" src="../../../public/assets/img/bibit/<?php echo $sawah['bibit.gambar_path_main']?>" class="img-fluid rounded-start" alt="...">
+              <div class="card mb-3" style=" align-content:center: center; margin-top:20px">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                      <img class=".gambar" src="../../../public/assets/img/bibit/<?php echo $sawah['bibit.gambar_path_main']?>" alt="gambar bibit">
 
-                          </div>
-                          <div class="col-md-8">
-                            <div class="card-body" style>
-                                <h5 class="card-title">Varietas Bibit <?php echo $sawah['nama_bibit']?></h5>
-                                <p class="card-text"><?php echo $sawah['bibit.deskripsi_singkat'];?>. <?php echo $sawah['bibit.kelebihan']?>.</p>
-                                <p class="card-text"><small class="text-body-secondary">Sawah didaftarkan <?php echo $sawah['created_at']?></small></p>
-                                <div class="container text-center" style="margin-right: 50px; ">
-                                  <div class="row">
-                                    <div class="col" style='padding:5px;background: rgba(15, 255, 255, 0.2);
-                                        border-radius: 15px 50px;
-                                        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-                                        backdrop-filter: blur(5px);
-                                        -webkit-backdrop-filter: blur(5px);
-                                        border: 1px solid rgba(255, 255, 255, 0.3);'>
-                                      <h5><?php echo $sawah['tanggal_tanam']?></h5>
-                                      <p>Tanggal Tanam</p>
-                                    </div>
-                                    <div class="col" style='padding:5px;border-radius: 15px 50px;
-                                        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-                                        backdrop-filter: blur(5px);
-                                        -webkit-backdrop-filter: blur(5px);
-                                        border: 1px solid rgba(15, 255, 255, 0.2);'>
-                                      <h3>Tanggal Panen</h3>
-                                      <h5><?php echo $sawah['tanggal_panen']?></h5>
-                                    </div>
-                                  </div>
-                                </div>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body" style>
+                          <h5 class="card-title">Varietas Bibit <?php echo $sawah['nama_bibit']?></h5>
+                          <p class="card-text"><?php echo $sawah['bibit.deskripsi_singkat'];?>. <?php echo $sawah['bibit.kelebihan']?>.</p>
+                          <p class="card-text"><small class="text-body-secondary">Sawah didaftarkan <?php echo $sawah['created_at']?></small></p>
+                          <div class="container text-center" style="margin-right: 50px; ">
+                            <div class="row">
+                              <div class="col" style='padding:5px;background: rgba(15, 255, 255, 0.2);
+                                  border-radius: 15px 50px;
+                                  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                                  backdrop-filter: blur(5px);
+                                  -webkit-backdrop-filter: blur(5px);
+                                  border: 1px solid rgba(255, 255, 255, 0.3);'>
+                                <h5><?php echo $sawah['tanggal_tanam']?></h5>
+                                <p>Tanggal Tanam</p>
+                              </div>
+                              <div class="col" style='border-radius: 15px 50px;
+                                  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+                                  backdrop-filter: blur(5px);
+                                  -webkit-backdrop-filter: blur(5px);
+                                  border: 1px solid rgba(15, 255, 255, 0.2);'>
+                                <h5><?php echo $sawah['tanggal_panen']?></h5>
+                                <p>Tanggal Panen</p>
+                              </div>
                             </div>
                           </div>
                       </div>
                     </div>
+                </div>
               </div>
               
               
@@ -249,19 +247,19 @@ if (isset($_GET['id'])) {
                   <div id="progress-bar-container">
                     <ul>
                       <li class="step step01 active"><div class="step-inner">PENANAMAN
-                        <div class="subtitle" style="font-size:10px; margin: 0;"><?php echo $tanggal_tanam->format('j M') . " - " . $tanggal_anakan->format('j M')?></div>
+                        <div class="subtitle" style="margin: 0;"><?php echo $tanggal_tanam->format('j M') . " - " . $tanggal_anakan->format('j M')?></div>
                       </div></li>
                       <li class="step step02"><div class="step-inner">ANAKAN
-                        <div class="subtitle" style="font-size:10px; margin: 0;"><?php echo ($tanggal_anakan->format('j M')) . " - " . $tanggal_bunting->format('j M')?></div>
+                        <div class="subtitle" style="margin: 0;"><?php echo ($tanggal_anakan->format('j M')) . " - " . $tanggal_bunting->format('j M')?></div>
                       </div></li>
                       <li class="step step03"><div class="step-inner">BUNTING
-                        <div class="subtitle" style="font-size:10px; margin: 0;"><?php echo ($tanggal_bunting->format('j M')) . " - " . $tanggal_pemasakan->format('j M')?></div>
+                        <div class="subtitle" style="margin: 0;"><?php echo ($tanggal_bunting->format('j M')) . " - " . $tanggal_pemasakan->format('j M')?></div>
                       </div></li>
                       <li class="step step04"><div class="step-inner">PEMASAKAN
-                        <div class="subtitle" style="font-size:10px; margin: 0;"><?php echo ($tanggal_pemasakan->format('j M')) . " - " . $tanggal_pemasakan->add(new DateInterval("P{$durasi_pemasakan}D"))->format('j M')?></div>
+                        <div class="subtitle" style="margin: 0;"><?php echo ($tanggal_pemasakan->format('j M')) . " - " . $tanggal_pemasakan->add(new DateInterval("P{$durasi_pemasakan}D"))->format('j M')?></div>
                       </div></li>
                       <li class="step step05"><div class="step-inner">PANEN
-                        <div class="subtitle" style="font-size:10px; margin: 0;"><?php echo ($tanggal_pemasakan->format('j M')) . " - " . $tanggal_panen->format('j M')?></div>
+                        <div class="subtitle" style="margin: 0;"><?php echo ($tanggal_pemasakan->format('j M')) . " - " . $tanggal_panen->format('j M')?></div>
                       </div></li>
                     </ul>
                     
