@@ -1,7 +1,7 @@
 <?php
-require_once 'koneksi.php';
+include_once("../../../config/database.php");
 
-$query = "SELECT nama_bibit, deskripsi_singkat, gambar_path_main FROM bibit";
+$query = "SELECT * FROM literasi WHERE jenis = 'panduan_semai' OR jenis = 'umum';";
 $result = mysqli_query($conn, $query);
 
 $data = array();

@@ -1,13 +1,14 @@
 <?php
-// get_detailed_data_bibit.php
+include_once("../../../config/database.php");
 
 
 
 include 'koneksi.php';
 
-$namaPupuk = $_GET['nama_pupuk'];
+$namaBibit = $_GET['nama_bibit'];
 
-$query = "SELECT nama_pupuk, harga, jumlah, kegunaan, detail_pupuk, gambar_path_main FROM `pupuk` WHERE nama_pupuk = '$namaPupuk'";
+$query = "
+ WHERE nama_bibit = '$namaBibit'";
 
 $result = mysqli_query($conn, $query);
 
