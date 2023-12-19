@@ -1,28 +1,31 @@
 <?php
 
-// Sertakan file koneksi
-include_once("../../../config/database.php");
+// Include your database connection file
+include 'koneksi.php';
 
-// Query SELECT
-$query = "SELECT id_semprotan, nama_semprotan FROM semprotan";
+// SQL query to fetch data from the 'semprotan' table
+$sql = "SELECT id_semprotan, nama_semprotan FROM semprotan";
 
-$result = $koneksi->query($query);
+// Execute the query
+$result = $conn->query($sql);
 
-if ($result) {
-    // Jika query berhasil dijalankan
-    $response = array();
+// Check if the query was successful
+if ($result->num_rows > 0) {
+    // Initialize an array to store the data
+    $semprotanData = array();
 
+    // Fetch each row and add it to the array
     while ($row = $result->fetch_assoc()) {
-        $response[] = $row;
+        $semprotanData[] = $row;
     }
 
-    echo json_encode(array('status' => 'success', 'data' => $response));
+    // Send the data as JSON response
+    echo json_encode(array('status' => 'success', 'data' => $semprotanData));
 } else {
-    // Jika terjadi kesalahan pada query
-    echo json_encode(array('status' => 'error', 'message' => 'Gagal mengambil data semprotan: ' . $koneksi->error));
+    // If no data is found, send an empty JSON array
+    echo json_encode(array('status' => 'error', 'message' => 'No data found for semprotan.'));
 }
 
-// Tutup koneksi database
-$koneksi->close();
-
+// Close the database connection
+$conn->close();
 ?>

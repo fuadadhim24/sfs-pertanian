@@ -1,5 +1,5 @@
 <?php
-include_once("../../../config/database.php");
+// get_detailed_data_bibit.php
 
 
 

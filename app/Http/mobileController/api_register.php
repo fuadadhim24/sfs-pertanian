@@ -1,6 +1,6 @@
 <?php
 
-include_once("../../../config/database.php");
+include 'koneksi.php';
 
 $email = $_POST['email'];
 $password = $_POST['password'];

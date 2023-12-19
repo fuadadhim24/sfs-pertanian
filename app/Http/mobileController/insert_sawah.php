@@ -1,6 +1,6 @@
 <?php
 
-include_once("../../../config/database.php");
+include_once("koneksi.php");
 
 // Ambil data dari aplikasi Android
 
@@ -9,7 +9,7 @@ $lokasi_sawah = $_POST['lokasi_sawah'];
 $luas_sawah = $_POST['luas_sawah'];
 $deskripsi = $_POST['deskripsi'];
 $created_at = $_POST['created_at'];
-$id_user = 14;
+$id_user = $_POST['id_user'];
 
 // Masukkan data ke dalam tabel
 $sql = "INSERT INTO `sawah` 

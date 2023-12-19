@@ -1,5 +1,5 @@
 <?php
-include_once("../../../config/database.php");
+require_once 'koneksi.php';
 
 $query = "SELECT nama_pupuk, deskripsi_singkat, gambar_path_main FROM pupuk";
 $result = mysqli_query($conn, $query);

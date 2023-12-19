@@ -1,6 +1,6 @@
 <?php
 
-include_once("../../../config/database.php");
+include 'koneksi.php';
 
 // Ambil data dari aplikasi Android
 

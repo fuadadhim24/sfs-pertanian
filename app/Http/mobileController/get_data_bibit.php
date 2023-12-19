@@ -1,5 +1,5 @@
 <?php
-include_once("../../../config/database.php");
+require_once 'koneksi.php';
 
 $query = "SELECT nama_bibit, deskripsi_singkat, gambar_path_main FROM bibit";
 $result = mysqli_query($conn, $query);
@@ -14,3 +14,4 @@ echo json_encode($data);
 
 mysqli_close($conn);
 ?>
+

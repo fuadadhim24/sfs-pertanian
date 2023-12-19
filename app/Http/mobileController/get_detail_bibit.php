@@ -1,27 +1,28 @@
 <?php
-include_once("../../../config/database.php");
-
-
-
+// Sertakan file koneksi.php
 include 'koneksi.php';
 
-$namaBibit = $_GET['nama_bibit'];
+// Mendapatkan nilai parameter nama_bibit dari permintaan GET
+$nama_bibit = $_GET['nama_bibit'];
 
-$query = "
- WHERE nama_bibit = '$namaBibit'";
+// Membuat query SQL
+$sql = "SELECT id_bibit, nama_bibit, harga, jumlah, kelebihan, kekurangan, ketahanan_hama_penyakit, jenis_tanah, musim_tanam, durasi_penanaman, gambar_path_main FROM bibit WHERE nama_bibit = '$nama_bibit'";
 
-$result = mysqli_query($conn, $query);
+// Menjalankan query
+$result = $conn->query($sql);
 
-$response = array();
+// Mengecek apakah terdapat hasil
+if ($result->num_rows > 0) {
+    // Mengambil hasil dan mengonversinya ke dalam array asosiatif
+    $row = $result->fetch_assoc();
 
-while ($row = mysqli_fetch_assoc($result)) {
-    $response[] = $row;
+    // Mengirim data sebagai response dalam format JSON
+    echo json_encode(array("data" => $row));
+} else {
+    // Jika tidak ada hasil, mengirim response kosong
+    echo "Data tidak ditemukan";
 }
 
-// Add a key "data" to the response
-echo json_encode(array("data" => $response));
-
-mysqli_close($conn);
-
+// Menutup koneksi database
+$conn->close();
 ?>
-

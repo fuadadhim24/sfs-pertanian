@@ -1,9 +1,10 @@
 <?php
 // Include the database connection file
-include_once("../../../config/database.php");
+include 'koneksi.php';
 
+$id_user = $_GET['id_user'];
 // SQL query
-$sql = "SELECT id_sawah, nama_sawah, lokasi_sawah, luas_sawah, deskripsi, id_user, created_at FROM `sawah`";
+$sql = "SELECT id_sawah, nama_sawah, lokasi_sawah, luas_sawah, deskripsi, id_user, created_at FROM `sawah` WHERE `id_user`=$id_user";
 
 // Execute the query
 $result = $conn->query($sql);
