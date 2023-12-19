@@ -1,6 +1,6 @@
 <?php
 // Sertakan file koneksi
-require_once 'koneksi.php';
+include_once("../../../config/database.php");
 
 // Pastikan metode HTTP yang digunakan adalah POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

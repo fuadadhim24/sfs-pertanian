@@ -1,6 +1,6 @@
 <?php
 
-include 'koneksi.php'; // Pastikan file 'koneksi.php' berisi konfigurasi koneksi ke MySQL
+include_once("../../../config/database.php");
 
 // Dapatkan data dari POST request
 $nama_sawah = $_POST['nama_sawah'];

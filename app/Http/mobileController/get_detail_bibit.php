@@ -1,6 +1,6 @@
 <?php
 // Sertakan file koneksi.php
-include 'koneksi.php';
+include_once("../../../config/database.php");
 
 // Mendapatkan nilai parameter nama_bibit dari permintaan GET
 $nama_bibit = $_GET['nama_bibit'];

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'koneksi.php';
+include_once("../../../config/database.php");
 
 // Assuming you have a variable $idSawah with the desired id_sawah value
 // Make sure to sanitize user input to prevent SQL injection

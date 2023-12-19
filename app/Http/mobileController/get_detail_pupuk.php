@@ -3,7 +3,7 @@
 
 
 
-include 'koneksi.php';
+include_once("../../../config/database.php");
 
 $namaPupuk = $_GET['nama_pupuk'];
 

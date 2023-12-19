@@ -1,6 +1,6 @@
 <?php
 
-include 'koneksi.php';
+include_once("../../../config/database.php");
 
 // Ambil data dari aplikasi Android
 $id_detail_sawah = $_POST['id_detail_sawah'];

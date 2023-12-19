@@ -1,6 +1,6 @@
 <?php
 // Menggunakan koneksi.php
-require_once('koneksi.php');
+include_once("../../../config/database.php");
 
 // Mendapatkan data dari request POST
 $id_user = $_POST['id_user'];

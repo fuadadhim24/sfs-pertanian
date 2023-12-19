@@ -1,7 +1,7 @@
 <?php
 // get_detailed_data_semprotan.php
 
-include 'koneksi.php';
+include_once("../../../config/database.php");
 
 // Check if 'nama_semprotan' parameter is set
 if (!isset($_GET['nama_semprotan'])) {

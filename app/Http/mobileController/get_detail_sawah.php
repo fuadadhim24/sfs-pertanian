@@ -1,6 +1,6 @@
 <?php
 
-require_once 'koneksi.php';
+include_once("../../../config/database.php");
 
 // Dapatkan id_sawah dari parameter GET
 $idSawah = $_GET['id_sawah'];

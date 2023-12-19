@@ -3,7 +3,7 @@ $response = array();
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    include_once("koneksi.php");
+    include_once("../../../config/database.php");
 
     $query = "SELECT bibit.id_bibit, bibit.nama_bibit, bibit.deskripsi_singkat as 'bibit.deskripsi_singkat', bibit.kelebihan as 'bibit.kelebihan', bibit.durasi_penanaman, bibit.durasi_anakan, bibit.durasi_bunting, bibit.durasi_pemasakan, bibit.gambar_path_main as 'bibit.gambar_path_main',
     sawah.id_sawah, sawah.deskripsi as 'sawah.deskripsi', sawah.nama_sawah, sawah.lokasi_sawah, sawah.luas_sawah, sawah.created_at,

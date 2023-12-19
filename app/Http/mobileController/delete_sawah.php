@@ -1,5 +1,5 @@
 <?php
-include_once("koneksi.php");
+include_once("../../../config/database.php");
 
 // Pastikan bahwa id_sawah disediakan melalui parameter GET
 if(isset($_GET['id_sawah'])){

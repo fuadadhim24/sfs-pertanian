@@ -1,7 +1,7 @@
 <?php
 
 // Menyertakan file koneksi.php
-include 'koneksi.php';
+include_once("../../../config/database.php");
 
 // Menangkap data yang diterima dari Android Studio
 $idSawah = $_POST['id_sawah']; // Update to match the key from your Android code

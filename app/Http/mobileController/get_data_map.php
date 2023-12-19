@@ -1,6 +1,6 @@
 <?php
 // Include the database connection file
-include 'koneksi.php';
+include_once("../../../config/database.php");
 
 $id_user = $_GET['id_user'];
 // SQL query

@@ -1,5 +1,5 @@
 <?php
-require_once 'koneksi.php';
+include_once("../../../config/database.php");
 
 $query = "SELECT * FROM literasi WHERE jenis = 'panduan_panen';";
 $result = mysqli_query($conn, $query);

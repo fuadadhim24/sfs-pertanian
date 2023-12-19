@@ -1,6 +1,6 @@
 <?php
 // Include your database connection file
-include 'koneksi.php';
+include_once("../../../config/database.php");
 
 // SQL query to fetch data from the 'pupuk' table
 $sql = "SELECT id_pupuk, nama_pupuk FROM pupuk";
